@@ -1,0 +1,44 @@
+#Generating source browse information for project Code simple
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.5\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build adc.pbi : index adc.xcl
+build clocks.pbi : index clocks.xcl
+build init.pbi : index init.xcl
+build iot.pbi : index iot.xcl
+build led.pbi : index led.xcl
+build main.pbi : index main.xcl
+build pid.pbi : index pid.xcl
+build ports.pbi : index ports.xcl
+build serial.pbi : index serial.xcl
+build switches.pbi : index switches.xcl
+build system.pbi : index system.xcl
+build timers.pbi : index timers.xcl
+build utils.pbi : index utils.xcl
+build wheels.pbi : index wheels.xcl
+build Code$ simple_part0.pbi : link adc.pbi clocks.pbi init.pbi iot.pbi
+build Code$ simple_part1.pbi : link led.pbi main.pbi pid.pbi ports.pbi
+build Code$ simple_part2.pbi : link serial.pbi switches.pbi system.pbi timers.pbi
+build Code$ simple_part3.pbi : link utils.pbi wheels.pbi
+build Code$ simple.pbd : link Code$ simple_part0.pbi Code$ simple_part1.pbi Code$ simple_part2.pbi Code$ simple_part3.pbi
+build Code$ simple.pbw : browsedata Code$ simple.pbd
+
+
