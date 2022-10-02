@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\settings\Code simple.Debug.general.xcl" --backend -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\settings\Code simple.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\settings\Code simple.Debug.general.xcl" --backend -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\settings\Code simple.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\settings\Code simple.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\settings\Code simple.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\common\bin\cspybat" -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\settings\Code simple.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\settings\Code simple.Debug.driver.xcl" 
 }

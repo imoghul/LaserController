@@ -1,15 +1,15 @@
-"C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\system.c"
+"C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\system.c"
 -std=c99
 -ferror-limit=0
 -fbracket-depth=512
 -funsigned-char
 -MD
 -MF
-C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code\Debug\Obj\system.pbi.dep
+C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\system.pbi.dep
 -o
 system.pbi
 -I
-C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code
+C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code
 -I
 ./
 -I
@@ -19,7 +19,7 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc\dlib\c
 -I
-C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\Drone\Code
+C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

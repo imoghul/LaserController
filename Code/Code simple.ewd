@@ -161,11 +161,11 @@
                 </option>
                 <option>
                     <name>Erase</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>EMUVerifyDownloadP7</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>EraseOptionSlaveP7</name>
@@ -231,11 +231,11 @@
                 </option>
                 <option>
                     <name>SoftwareBreakpointEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>RadioSoftwareBreakpointType</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>TargetSettlingtime</name>
@@ -287,7 +287,7 @@
                 </option>
                 <option>
                     <name>RadioJtagSpeedType</name>
-                    <state>2</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>memoryTypeSlave</name>
@@ -346,14 +346,6 @@
         </settings>
         <debuggerPlugins>
             <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxPlugin.ENU.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxTinyPlugin.ENU.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
                 <file>$TOOLKIT_DIR$\plugins\rtos\embOS\embOSPlugin.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
@@ -363,10 +355,6 @@
             </plugin>
             <plugin>
                 <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
             <plugin>
@@ -555,7 +543,7 @@
                 </option>
                 <option>
                     <name>Erase</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>EMUVerifyDownloadP7</name>
@@ -740,14 +728,6 @@
         </settings>
         <debuggerPlugins>
             <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxPlugin.ENU.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\CMX\CmxTinyPlugin.ENU.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
                 <file>$TOOLKIT_DIR$\plugins\rtos\embOS\embOSPlugin.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
@@ -757,10 +737,6 @@
             </plugin>
             <plugin>
                 <file>$TOOLKIT_DIR$\plugins\rtos\SafeRTOS\SafeRTOSPlugin.ewplugin</file>
-                <loadFlag>0</loadFlag>
-            </plugin>
-            <plugin>
-                <file>$TOOLKIT_DIR$\plugins\rtos\TI-RTOS\tirtosplugin.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
             <plugin>

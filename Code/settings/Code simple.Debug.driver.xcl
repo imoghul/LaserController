@@ -26,9 +26,7 @@
 
 "fet" 
 
-"--verify_all" 
-
-"--erase_main_and_info" 
+"--erase_main" 
 
 "--derivative" 
 
@@ -50,6 +48,8 @@
 
 "ti_usb" 
 
+"--use_emulated_breakpoints" 
+
 "--settlingtime=0" 
 
 "--msp430_dll" 
@@ -62,7 +62,7 @@
 
 "--jtag_speed" 
 
-"slow" 
+"medium" 
 
 "--memtype" 
 

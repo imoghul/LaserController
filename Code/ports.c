@@ -59,21 +59,22 @@ void Init_Port1() {
     //P1SEL0 |= A1_SEEED;
     //P1SEL1 |= A1_SEEED;
     P1SELC |= A1_SEEED;
+    
+    P1SEL0 &= ~P1_2;
+    P1SEL1 &= ~P1_2;
+    P1DIR &= ~P1_2;
+    
+    P1SEL0 &= ~P1_3;
+    P1SEL1 &= ~P1_3;
+    P1DIR &= ~P1_3;
 
-    //P1SEL0 |= V_DETECT_L;
-    //P1SEL1 |= V_DETECT_L;
-    P1SELC |= V_DETECT_L;
+    P1SEL0 &= ~P1_4;
+    P1SEL1 &= ~P1_4;
+    P1DIR &= ~P1_4;
 
-    //P1SEL0 |= V_DETECT_R;
-    //P1SEL1 |= V_DETECT_R;
-    P1SELC |= V_DETECT_R;
-
-    P1SEL0 &= ~SMCLK_2476;
-    P1SEL1 &= ~SMCLK_2476;
-    P1DIR &= ~SMCLK_2476;
-
-    P1SEL0 |= V_THUMB;
-    P1SEL1 |= V_THUMB;
+    P1SEL0 &= ~P1_5;
+    P1SEL1 &= ~P1_5;
+    P1DIR &= ~P1_5;
 
     P1SEL1 &= ~UCA0RXD;
     P1SEL0 |= UCA0RXD;
@@ -100,14 +101,13 @@ void Init_Port2() {
     P2OUT = 0x00;
     P2DIR = 0x00;
 
-    P2SEL0 &= ~RESET_LCD;
-    P2SEL1 &= ~RESET_LCD;
-    P2OUT &= ~RESET_LCD;
-    P2DIR |= RESET_LCD;
+    P2SEL0 &= ~P2_0;
+    P2SEL1 &= ~P2_0;
+    P2DIR &= ~P2_0;
 
-    P2SEL0 &= ~L_REVERSE_2476;
-    P2SEL1 &= ~L_REVERSE_2476;
-    P2DIR &= ~L_REVERSE_2476;
+    P2SEL0 &= ~P2_1;
+    P2SEL1 &= ~P2_1;
+    P2DIR &= ~P2_1;
 
     P2SEL0 &= ~P2_2;
     P2SEL1 &= ~P2_2;
@@ -122,15 +122,13 @@ void Init_Port2() {
     P2IFG &= ~SW2;
     P2IE |= SW2;
 
-    P2SEL0 &= ~IOT_RUN_CPU;
-    P2SEL1 &= ~IOT_RUN_CPU;
-    P2DIR |= IOT_RUN_CPU;
-    P2OUT &= ~IOT_RUN_CPU;
+    P2SEL0 &= ~P2_4;
+    P2SEL1 &= ~P2_4;
+    P2DIR &= ~P2_4;
 
-    P2SEL0 &= ~DAC_ENB;
-    P2SEL1 &= -DAC_ENB;
-    P2OUT |= DAC_ENB;
-    P2DIR |= DAC_ENB;
+    P2SEL0 &= ~P2_5;
+    P2SEL1 &= ~P2_5;
+    P2DIR &= ~P2_5;
 
     P2SEL0 &= ~LFXOUT;
     P2SEL1 |= LFXOUT;
@@ -161,17 +159,16 @@ void Init_Port3(char smclk) {
     P3SEL1 &= ~TEST_PROBE;
     P3DIR &= ~TEST_PROBE;
 
-    P3SEL0 &= ~DAC_CNTL1;
-    P3SEL1 &= ~DAC_CNTL1;
-    P3DIR &= ~DAC_CNTL1;
+    P3SEL0 &= ~P3_1;
+    P3SEL1 &= ~P3_1;
+    P3DIR &= ~P3_1;
 
     P3SEL0 |= OA2N;
     P3SEL1 |= OA2N;
 
-    P3SEL0 &= ~LCD_BACKLITE;
-    P3SEL1 &= ~LCD_BACKLITE;
-    P3DIR |= LCD_BACKLITE;
-    P3OUT |= LCD_BACKLITE;
+    P3SEL0 &= ~P3_3;
+    P3SEL1 &= ~P3_3;
+    P3DIR &= ~P3_3;
 
     switch(smclk) {
         case(USE_SMCLK):
@@ -190,19 +187,17 @@ void Init_Port3(char smclk) {
             break;
     }
 
-    P3SEL0 &= ~DAC_CNTL;
-    P3SEL1 &= ~DAC_CNTL;
-    P3DIR &= ~DAC_CNTL;
+    P3SEL0 &= ~P3_5;
+    P3SEL1 &= ~P3_5;
+    P3DIR &= ~P3_5;
 
-    P3SEL0 &= ~IOT_LINK_CPU;
-    P3SEL1 &= ~IOT_LINK_CPU;
-    P3DIR |= IOT_LINK_CPU;
-    P3OUT &= ~IOT_LINK_CPU;
-
-    P3SEL0 &= ~IOT_EN_CPU;
-    P3SEL1 &= ~IOT_EN_CPU;
-    P3DIR |= IOT_EN_CPU;
-    P3OUT &= ~IOT_EN_CPU;
+    P3SEL0 &= ~P3_6;
+    P3SEL1 &= ~P3_6;
+    P3DIR &= ~P3_6;
+    
+    P3SEL0 &= ~P3_7;
+    P3SEL1 &= ~P3_7;
+    P3DIR &= ~P3_7;
 }
 
 //===========================================================================
@@ -223,9 +218,9 @@ void Init_Port4() {
     P4OUT = 0x00;
     P4DIR = 0x00;
 
-    P4SEL0 &= ~_4_0;
-    P4SEL1 &= ~_4_0;
-    P4DIR &= ~_4_0;
+    P4SEL0 &= ~P4_0;
+    P4SEL1 &= ~P4_0;
+    P4DIR &= ~P4_0;
 
     P4SEL0 &= ~SW1;
     P4SEL1 &= ~SW1;
@@ -276,29 +271,25 @@ void Init_Port5() {
     P5OUT = 0x00;
     P5DIR = 0x00;
 
-    P5SEL0 &= ~CHECK_BAT;
-    P5SEL1 &= ~CHECK_BAT;
-    P5DIR &= ~CHECK_BAT;
+    P5SEL0 &= ~P5_0;
+    P5SEL1 &= ~P5_0;
+    P5DIR &= ~P5_0;
 
-    //P5SEL0 |= V_BAT;
-    //P5SEL1 |= V_BAT;
-    P5SELC |= V_BAT;
-    //P5DIR &= ~V_BAT;
+    P5SEL0 &= ~P5_1;
+    P5SEL1 &= ~P5_1;
+    P5DIR &= ~P5_1;
+    
+    P5SEL0 &= ~P5_2;
+    P5SEL1 &= ~P5_2;
+    P5DIR &= ~P5_2;
+    
+    P5SEL0 &= ~P5_3;
+    P5SEL1 &= ~P5_3;
+    P5DIR &= ~P5_3;
 
-    //P5SEL0 |= V_DAC;
-    //P5SEL1 |= V_DAC;
-    P5SELC |= V_DAC;
-    //P5DIR &= ~V_DAC;
-
-    //P5SEL0 |= V_3_3;
-    //P5SEL1 |= V_3_3;
-    P5SELC |= V_3_3;
-    //P5DIR &= ~V_3_3;
-
-    P5SEL0 &= ~IOT_BOOT_CPU;
-    P5SEL1 &= ~IOT_BOOT_CPU;
-    P5DIR |= IOT_BOOT_CPU;
-    P5OUT |= IOT_BOOT_CPU;
+    P5SEL0 &= ~P5_4;
+    P5SEL1 &= ~P5_4;
+    P5DIR &= ~P5_4;
 }
 
 //===========================================================================
@@ -319,30 +310,25 @@ void Init_Port6() {
     P6OUT = 0x00;
     P6DIR = 0x00;
 
-    P6SEL0 |= R_FORWARD;
-    P6SEL1 &= ~R_FORWARD;
-    P6DIR |= R_FORWARD;
-    //P6OUT &= ~R_FORWARD;
-
-    P6SEL0 |= L_FORWARD;
-    P6SEL1 &= ~L_FORWARD;
-    P6DIR |= L_FORWARD;
-    //P6OUT &= ~L_FORWARD;
-
-    P6SEL0 |= R_REAR;
-    P6SEL1 &= ~R_REAR;
-    P6DIR |= R_REAR;
-    //P6OUT &= ~R_REAR;
-
-    P6SEL0 |= L_REAR;
-    P6SEL1 &= ~L_REAR;
-    P6DIR |= L_REAR;
-    //P6OUT &= ~L_REAR;
-
-    P6SEL0 &= ~IR_LED;
-    P6SEL1 &= ~IR_LED;
-    P6DIR |= IR_LED;
-    P6OUT |= IR_LED;
+    P6SEL0 &= ~P6_0;
+    P6SEL1 &= ~P6_0;
+    P6DIR &= ~P6_0;
+    
+    P6SEL0 &= ~P6_1;
+    P6SEL1 &= ~P6_1;
+    P6DIR &= ~P6_1;
+    
+    P6SEL0 &= ~P6_2;
+    P6SEL1 &= ~P6_2;
+    P6DIR &= ~P6_2;
+    
+    P6SEL0 &= ~P6_3;
+    P6SEL1 &= ~P6_3;
+    P6DIR &= ~P6_3;
+    
+    P6SEL0 &= ~P6_4;
+    P6SEL1 &= ~P6_4;
+    P6DIR &= ~P6_4;
 
     P6SEL0 &= ~P6_5;
     P6SEL1 &= ~P6_5;
