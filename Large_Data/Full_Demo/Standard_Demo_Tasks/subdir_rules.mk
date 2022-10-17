@@ -1,0 +1,57 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Each subdirectory must supply rules for building sources it contributes
+Full_Demo/Standard_Demo_Tasks/EventGroupsDemo.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/EventGroupsDemo.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/GenQTest.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/GenQTest.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/TaskNotify.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/TaskNotify.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/blocktim.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/blocktim.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/countsem.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/countsem.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/dynamic.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/dynamic.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+Full_Demo/Standard_Demo_Tasks/recmutex.obj: D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/Minimal/recmutex.c $(GEN_OPTS) | $(GEN_FILES)
+	@echo 'Building file: "$<"'
+	@echo 'Invoking: MSP430 Compiler'
+	"C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/bin/cl430" -vmspx --data_model=large -O0 --use_hw_mpy=F5 --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs901/ccs/ccs_base/msp430/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/include" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Source/portable/CCS/MSP430X" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS-Plus/Source/FreeRTOS-Plus-CLI" --include_path="D:/TI_FreeRTOS_development/FreeRTOSv10.2.1/FreeRTOS/Demo/Common/include" --include_path="C:/ti/ccs901/ccs/tools/compiler/ti-cgt-msp430_18.12.1.LTS/include" --include_path="C:/Users/zip/workspace_v9_FreeRTOS_development/RTOSDemo_FR2355/driverlib/MSP430FR2xx_4xx" --define=__MSP430FR2355__ -g --printf_support=full --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="Full_Demo/Standard_Demo_Tasks/$(basename $(<F)).d_raw" --obj_directory="Full_Demo/Standard_Demo_Tasks" $(GEN_OPTS__FLAG) "$<"
+	@echo 'Finished building: "$<"'
+	@echo ' '
+
+

@@ -1,0 +1,1 @@
+void sendPulseTrain(int);

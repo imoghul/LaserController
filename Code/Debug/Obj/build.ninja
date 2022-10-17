@@ -22,9 +22,16 @@ rule browsedata
 #Build steps
 build clocks.pbi : index clocks.xcl
 build main.pbi : index main.xcl
+build motor.pbi : index motor.xcl
 build ports.pbi : index ports.xcl
+build serial.pbi : index serial.xcl
+build switches.pbi : index switches.xcl
 build system.pbi : index system.xcl
-build Code$ simple.pbd : link clocks.pbi main.pbi ports.pbi system.pbi
+build timers.pbi : index timers.xcl
+build Code$ simple_part0.pbi : link clocks.pbi main.pbi motor.pbi
+build Code$ simple_part1.pbi : link ports.pbi serial.pbi switches.pbi
+build Code$ simple_part2.pbi : link system.pbi timers.pbi
+build Code$ simple.pbd : link Code$ simple_part0.pbi Code$ simple_part1.pbi Code$ simple_part2.pbi
 build Code$ simple.pbw : browsedata Code$ simple.pbd
 
 

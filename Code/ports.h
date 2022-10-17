@@ -12,32 +12,32 @@
 #define USE_SMCLK (1)
 
 // Port 1 Pins
-#define RED_LED (0x01)  // 0 RED LED 0
-#define A1_SEEED (0x02) // 1 A1_SEEED
-#define P1_2 (0x04)     // 2 V_DETECT_L
-#define P1_3 (0x08)     // 3 V_DETECT_R
-#define P1_4 (0x10)     // 4 SMCLK_2476
-#define P1_5 (0x20)     // 5 V_THUMB
+#define RED_LED (0x01)  // 0 
+#define A1_SEEED (0x02) // 1 
+#define MOTOR_ENABLE_P (0x04)     // 2 
+#define MOTOR_ENABLE_N (0x08)     // 3 
+#define MOTOR_DIR_P (0x10)     // 4 
+#define MOTOR_DIR_N (0x20)     // 5 
 #define UCA0RXD (0x40)  // 6 Back Channel UCA0RXD
 #define UCA0TXD (0x80)  // 7 Back Channel UCA0TXD
 // Port 2 Pins
-#define P2_0 (0x01)   // 0 RESET LCD
-#define P2_1 (0x02)   // 1 L_REVERSE FOR MSP430FR2476
+#define P2_0 (0x01)   // 0 
+#define P2_1 (0x02)   // 1 
 #define P2_2 (0x04)   // 2
 #define SW2 (0x08)    // 3 SW2
-#define P2_4 (0x10)   // 4 IOT_RUN_CPU
-#define P2_5 (0x20)   // 5 DAC_ENB
+#define P2_4 (0x10)   // 4 
+#define P2_5 (0x20)   // 5 
 #define LFXOUT (0x40) // 6 XOUTR
 #define LFXIN (0x80)  // 7 XINR
 // Port 3 Pins
 #define TEST_PROBE (0x01) // 0 TEST PROBE
-#define P3_1 (0x02)       // 1 DAC_CNTL1
+#define P3_1 (0x02)       // 1 
 #define OA2N (0x04)       // 2 Photodiode Circuit
 #define P3_3 (0x08)       // 3
 #define SMCLK_2355 (0x10) // 4
 #define P3_5 (0x20)       // 5
-#define P3_6 (0x40)       // 6
-#define P3_7 (0x80)       // 7
+#define MOTOR1_P_COUNT (0x40)       // 6
+#define MOTOR1_N_COUNT (0x80)       // 7
 // Port 4 Pins
 #define P4_0 (0x01)        // 0
 #define SW1 (0x02)         // 1 SW1
@@ -54,13 +54,23 @@
 #define P5_3 (0x08)
 #define P5_4 (0x10)
 // Port 6 Pins
-#define P6_0 (0x01)   // 0
-#define P6_1 (0x02)   // 1
-#define P6_2 (0x04)   // 2
-#define P6_3 (0x08)   // 3
+#define MOTOR1_P_PIN (0x01)   // 0
+#define MOTOR1_N_PIN (0x02)   // 1
+#define MOTOR2_P_PIN (0x04)   // 2
+#define MOTOR2_N_PIN (0x08)   // 3
 #define P6_4 (0x10)   // 4
 #define P6_5 (0x20)    // 5
 #define GRN_LED (0x40) // 6
+
+// shortcuts
+#define ENABLE_P_ON {P1OUT |= MOTOR_ENABLE_P;}
+#define ENABLE_P_OFF {P1OUT &= ~MOTOR_ENABLE_P;}
+#define DIR_P_ON {P1OUT |= MOTOR_DIR_P;}
+#define DIR_P_OFF {P1OUT &= ~MOTOR_DIR_P;}
+//#define PULSE_P_ON {P1OUT |= MOTOR_PULSE_P;}
+//#define PULSE_P_OFF {P2OUT &= ~MOTOR_PULSE_P;}
+//#define PULSE_P_TOGGLE {P2OUT ^= MOTOR_PULSE_P;}
+
 
 void Init_Ports(void);
 void Init_Port1(void);

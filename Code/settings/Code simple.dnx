@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <settings>
     <DebugChecksum>
-        <Checksum>3348747415</Checksum>
+        <Checksum>1368595028</Checksum>
     </DebugChecksum>
     <Stack>
         <FillEnabled>0</FillEnabled>
@@ -32,6 +32,10 @@
     <Disassembly>
         <MixedMode>1</MixedMode>
     </Disassembly>
+    <watch_formats>
+        <Fmt0>{W}1:P3IFG	4	0</Fmt0>
+        <Fmt1>{W}1:P3IFG &amp; MOTOR1_P_COUNT	4	0</Fmt1>
+    </watch_formats>
     <PowerLog>
         <Title_0>Energy</Title_0>
         <Symbol_0>0 4 0</Symbol_0>
@@ -46,7 +50,8 @@
         <LiveFile>PowerLogLive.log</LiveFile>
     </PowerLog>
     <Breakpoints>
-        <Count>0</Count>
+        <Bp0>_ "STD_CODE" "{$PROJ_DIR$\serial.c}.193.9" 1 0 0 0 "" 0 ""</Bp0>
+        <Count>1</Count>
     </Breakpoints>
     <FET>
         <Clock_mode>46</Clock_mode>

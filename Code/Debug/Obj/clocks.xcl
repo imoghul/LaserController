@@ -19,7 +19,7 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\inc\dlib\c
 -I
-C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code
+C:\WINDOWS\system32
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

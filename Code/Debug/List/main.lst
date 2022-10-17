@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          02/Oct/2022  18:16:06
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:13:22
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\main.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EWFBA1.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW87CF.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\main.c" -lC
 #        "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -44,31 +44,97 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\main
    \   union <unnamed> _A_PM5CTL0_L
    \                     _A_PM5CTL0_L:
    \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x454
+   \   union <unnamed> _A_TB3CCR1_L
+   \                     _A_TB3CCR1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x456
+   \   union <unnamed> _A_TB3CCR2_L
+   \                     _A_TB3CCR2_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x458
+   \   union <unnamed> _A_TB3CCR3_L
+   \                     _A_TB3CCR3_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x45a
+   \   union <unnamed> _A_TB3CCR4_L
+   \                     _A_TB3CCR4_L:
+   \   000000                DS8 2
       2          #include "functions.h"
-      3          
-      4          /**
-      5           * main.c
-      6           */
+      3          #include "motor.h"
+      4          #include "ports.h"
+      5          #include "timers.h"
+      6          #include "serial.h"
+      7          /**
+      8           * main.c
+      9           */
+     10          
+     11          extern volatile unsigned char pulseTrainSent;
+     12          
 
    \                                 In  segment CODE, align 2
-      7          int main(void)
+     13          int main(void)
    \                     main:
-      8          {
-      9              PM5CTL0 &= ~LOCKLPM5;
+     14          {
+     15              PM5CTL0 &= ~LOCKLPM5;
    \   000000   92C33001     BIC.W   #0x1, &0x130
-     10              Init_Ports();
-                     ^
-Warning[Pe223]: function "Init_Ports" declared implicitly
+     16              Init_Ports();
    \   000004   ........     CALLA   #Init_Ports
-     11              Init_Clocks();
+     17              Init_Clocks();
    \   000008   ........     CALLA   #Init_Clocks
-     12              enable_interrupts();
+     18              enable_interrupts();
    \   00000C   ........     CALLA   #enable_interrupts
-     13              return 0;
-   \   000010   0C43         MOV.W   #0x0, R12
-   \   000012   1001         RETA
-   \   000014                REQUIRE _A_PM5CTL0_L
-     14          }
+     19              
+     20              Init_Serial_UCA();
+   \   000010   ........     CALLA   #Init_Serial_UCA
+     21              Init_Timers();
+   \   000014   ........     CALLA   #Init_Timers
+     22              
+     23              
+     24          //    sendPulseTrain();
+     25          //    while(!pulseTrainSent);
+     26          //    pulseTrainSent = 1;
+     27              
+     28              while(1){
+     29                if(MOTOR1_P>0 && MOTOR1_N>0)
+   \                     ??main_0:
+   \   000018   82935404     CMP.W   #0x0, &0x454
+   \   00001C   0824         JEQ     ??main_1
+   \   00001E   82935604     CMP.W   #0x0, &0x456
+   \   000022   0524         JEQ     ??main_1
+     30                  MOTOR1_P=MOTOR1_N=0;
+   \   000024   0F43         MOV.W   #0x0, R15
+   \   000026   824F5604     MOV.W   R15, &0x456
+   \   00002A   824F5404     MOV.W   R15, &0x454
+     31                if(MOTOR2_P>0 && MOTOR2_N>0)
+   \                     ??main_1:
+   \   00002E   82935804     CMP.W   #0x0, &0x458
+   \   000032   0824         JEQ     ??main_2
+   \   000034   82935A04     CMP.W   #0x0, &0x45a
+   \   000038   0524         JEQ     ??main_2
+     32                  MOTOR2_P=MOTOR2_N=0;
+   \   00003A   0F43         MOV.W   #0x0, R15
+   \   00003C   824F5A04     MOV.W   R15, &0x45a
+   \   000040   824F5804     MOV.W   R15, &0x458
+     33                SerialProcess();
+   \                     ??main_2:
+   \   000044   ........     CALLA   #SerialProcess
+   \   000048   E73F         JMP     ??main_0
+   \   00004A   0343         NOP
+   \   00004C                REQUIRE _A_PM5CTL0_L
+   \   00004C                REQUIRE _A_TB3CCR1_L
+   \   00004C                REQUIRE _A_TB3CCR2_L
+   \   00004C                REQUIRE _A_TB3CCR3_L
+   \   00004C                REQUIRE _A_TB3CCR4_L
+     34              }
+     35              return 0;
+                     ^
+Warning[Pe111]: statement is unreachable
+     36          }
 
    Maximum stack usage in bytes:
 
@@ -77,6 +143,9 @@ Warning[Pe223]: function "Init_Ports" declared implicitly
       4   main
         4   -> Init_Clocks
         4   -> Init_Ports
+        4   -> Init_Serial_UCA
+        4   -> Init_Timers
+        4   -> SerialProcess
         4   -> enable_interrupts
 
 
@@ -85,14 +154,18 @@ Warning[Pe223]: function "Init_Ports" declared implicitly
    Bytes  Function/Label
    -----  --------------
        2  _A_PM5CTL0_L
-      20  main
+       2  _A_TB3CCR1_L
+       2  _A_TB3CCR2_L
+       2  _A_TB3CCR3_L
+       2  _A_TB3CCR4_L
+      76  main
 
  
- 20 bytes in segment CODE
-  2 bytes in segment DATA16_AN
+ 76 bytes in segment CODE
+ 10 bytes in segment DATA16_AN
  
- 20 bytes of CODE memory
-  0 bytes of DATA memory (+ 2 bytes shared)
+ 76 bytes of CODE memory
+  0 bytes of DATA memory (+ 10 bytes shared)
 
 Errors: none
 Warnings: 1
