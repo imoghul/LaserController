@@ -120637,11 +120637,25 @@
     "defdec": "Dec",
     "display": "trainsSent",
     "location": {
-      "column": "23",
+      "column": "14",
       "line": "10",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "trainsSent",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@trainsFinished",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "trainsFinished",
+    "location": {
+      "column": "15",
+      "line": "11",
+      "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
+    },
+    "name": "trainsFinished",
     "origin": "project_file",
     "scope": null
   },
@@ -120652,7 +120666,7 @@
     "display": "int sendTrains(void)",
     "location": {
       "column": "5",
-      "line": "12",
+      "line": "13",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "sendTrains",
@@ -120666,7 +120680,7 @@
     "display": "void sendPulseTrains(int, int)",
     "location": {
       "column": "6",
-      "line": "25",
+      "line": "33",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "sendPulseTrains",
@@ -120680,7 +120694,7 @@
     "display": "void setMotor2(int)",
     "location": {
       "column": "6",
-      "line": "31",
+      "line": "43",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "setMotor2",
@@ -120694,7 +120708,7 @@
     "display": "void setMotor1(int)",
     "location": {
       "column": "6",
-      "line": "41",
+      "line": "58",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "setMotor1",
@@ -120708,7 +120722,7 @@
     "display": "void motor1Count_interrupt(void)",
     "location": {
       "column": "18",
-      "line": "54",
+      "line": "76",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\motor.c"
     },
     "name": "motor1Count_interrupt",
@@ -123900,6 +123914,20 @@
     "scope": null
   },
   {
+    "ID": "c:@trainsDir",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "trainsDir",
+    "location": {
+      "column": "44",
+      "line": "29",
+      "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
+    },
+    "name": "trainsDir",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@pulseTrainsSent",
     "What": "Variable",
     "defdec": "Dec",
@@ -123914,13 +123942,27 @@
     "scope": null
   },
   {
+    "ID": "c:@trainsFinished",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "trainsFinished",
+    "location": {
+      "column": "22",
+      "line": "31",
+      "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
+    },
+    "name": "trainsFinished",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@Init_Serial_UCA",
     "What": "Function",
     "defdec": "Def",
     "display": "void Init_Serial_UCA(void)",
     "location": {
       "column": "6",
-      "line": "32",
+      "line": "33",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "Init_Serial_UCA",
@@ -123928,13 +123970,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@1314@F@Init_Serial_UCA@i",
+    "ID": "c:serial.c@1363@F@Init_Serial_UCA@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "9",
-      "line": "33",
+      "line": "34",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "i",
@@ -123948,7 +123990,7 @@
     "display": "void eUSCI_A0_ISR(void)",
     "location": {
       "column": "18",
-      "line": "69",
+      "line": "70",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "eUSCI_A0_ISR",
@@ -123956,13 +123998,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@2248@F@eUSCI_A0_ISR@temp",
+    "ID": "c:serial.c@2297@F@eUSCI_A0_ISR@temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "temp",
     "location": {
       "column": "18",
-      "line": "70",
+      "line": "71",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "temp",
@@ -123976,7 +124018,7 @@
     "display": "void eUSCI_A1_ISR(void)",
     "location": {
       "column": "18",
-      "line": "108",
+      "line": "109",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "eUSCI_A1_ISR",
@@ -123984,13 +124026,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@3160@F@eUSCI_A1_ISR@temp",
+    "ID": "c:serial.c@3209@F@eUSCI_A1_ISR@temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "temp",
     "location": {
       "column": "18",
-      "line": "109",
+      "line": "110",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "temp",
@@ -124004,7 +124046,7 @@
     "display": "void clearProcessBuff(volatile char *, volatile unsigned int *, volatile unsigned int *)",
     "location": {
       "column": "6",
-      "line": "150",
+      "line": "151",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "clearProcessBuff",
@@ -124012,13 +124054,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@4214@F@clearProcessBuff@i",
+    "ID": "c:serial.c@4263@F@clearProcessBuff@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "151",
+      "line": "152",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "i",
@@ -124032,7 +124074,7 @@
     "display": "void clearProcessBuff_0(void)",
     "location": {
       "column": "6",
-      "line": "156",
+      "line": "157",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "clearProcessBuff_0",
@@ -124046,7 +124088,7 @@
     "display": "void clearProcessBuff_1(void)",
     "location": {
       "column": "6",
-      "line": "159",
+      "line": "160",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "clearProcessBuff_1",
@@ -124060,7 +124102,7 @@
     "display": "void USCI_A0_transmit(void)",
     "location": {
       "column": "6",
-      "line": "172",
+      "line": "173",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "USCI_A0_transmit",
@@ -124074,7 +124116,7 @@
     "display": "void USCI_A1_transmit(void)",
     "location": {
       "column": "6",
-      "line": "177",
+      "line": "178",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "USCI_A1_transmit",
@@ -124088,7 +124130,7 @@
     "display": "void loadRingtoPB(volatile unsigned int *, unsigned int *, volatile char *, volatile char *, volatile unsigned int *, volatile unsigned int *)",
     "location": {
       "column": "6",
-      "line": "182",
+      "line": "183",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "loadRingtoPB",
@@ -124102,7 +124144,7 @@
     "display": "void loadRingtoPB_0(void)",
     "location": {
       "column": "6",
-      "line": "199",
+      "line": "200",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "loadRingtoPB_0",
@@ -124116,7 +124158,7 @@
     "display": "void loadRingtoPB_1(void)",
     "location": {
       "column": "6",
-      "line": "202",
+      "line": "203",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "loadRingtoPB_1",
@@ -124130,7 +124172,7 @@
     "display": "void SerialProcess(void)",
     "location": {
       "column": "6",
-      "line": "207",
+      "line": "208",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "SerialProcess",
@@ -124144,7 +124186,7 @@
     "display": "void HandleCommands(void)",
     "location": {
       "column": "6",
-      "line": "216",
+      "line": "217",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "HandleCommands",
@@ -124152,16 +124194,30 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@6238@F@HandleCommands@len",
+    "ID": "c:serial.c@6287@F@HandleCommands@len",
     "What": "Variable",
     "defdec": "Def",
     "display": "len",
     "location": {
       "column": "9",
-      "line": "218",
+      "line": "219",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "len",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:serial.c@6456@F@HandleCommands@dir",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "dir",
+    "location": {
+      "column": "20",
+      "line": "223",
+      "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
+    },
+    "name": "dir",
     "origin": "project_file",
     "scope": null
   },
@@ -124172,7 +124228,7 @@
     "display": "int stoi(char *, int)",
     "location": {
       "column": "5",
-      "line": "233",
+      "line": "244",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "stoi",
@@ -124180,13 +124236,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@6679@F@stoi@num",
+    "ID": "c:serial.c@7067@F@stoi@num",
     "What": "Variable",
     "defdec": "Def",
     "display": "num",
     "location": {
       "column": "9",
-      "line": "234",
+      "line": "245",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "num",
@@ -124194,13 +124250,13 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@6703@F@stoi@i",
+    "ID": "c:serial.c@7091@F@stoi@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
     "location": {
       "column": "13",
-      "line": "236",
+      "line": "247",
       "path": "C:\\Users\\Ibrahim Moghul\\OneDrive\\Documents\\Programming\\LaserController\\Code\\serial.c"
     },
     "name": "i",

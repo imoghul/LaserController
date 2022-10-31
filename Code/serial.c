@@ -26,8 +26,9 @@ extern volatile unsigned char display_changed;
 extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
-extern volatile unsigned int trainsToSend;
+extern volatile unsigned int trainsToSend, trainsDir;
 extern volatile unsigned char pulseTrainsSent;
+extern volatile char trainsFinished;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -219,8 +220,18 @@ void HandleCommands(void){
     USB1_Char_Rx_Process[len]=0;
     USB1_Char_Rx_Process[len+1]=0;
     if(USB1_Char_Rx_Process[0] == '1'){
-      trainsToSend = stoi((char*)(USB1_Char_Rx_Process+2),len-2);
-      pulseTrainsSent = 1;
+      unsigned int dir = USB1_Char_Rx_Process[2]-'0';
+      // make sure trains have finished transmitting and this is not a halt command
+      if(!dir){
+        trainsToSend = 0;
+        trainsDir = 0;
+        pulseTrainsSent = 1;
+      }else if(trainsFinished){
+        trainsFinished = 0;
+        trainsToSend = stoi((char*)(USB1_Char_Rx_Process+4),len-4);
+        trainsDir = dir;
+        pulseTrainsSent = 1;
+      }
     }
     else if (USB1_Char_Rx_Process[0] == '2'){
       setMotor2(USB1_Char_Rx_Process[2]-'0');
