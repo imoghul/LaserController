@@ -117370,7 +117370,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2652@F@Software_Trim@oldDcoTap",
+    "ID": "c:clocks.c@2583@F@Software_Trim@oldDcoTap",
     "What": "Variable",
     "defdec": "Def",
     "display": "oldDcoTap",
@@ -117384,7 +117384,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2690@F@Software_Trim@newDcoTap",
+    "ID": "c:clocks.c@2620@F@Software_Trim@newDcoTap",
     "What": "Variable",
     "defdec": "Def",
     "display": "newDcoTap",
@@ -117398,7 +117398,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2728@F@Software_Trim@newDcoDelta",
+    "ID": "c:clocks.c@2657@F@Software_Trim@newDcoDelta",
     "What": "Variable",
     "defdec": "Def",
     "display": "newDcoDelta",
@@ -117412,7 +117412,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2768@F@Software_Trim@bestDcoDelta",
+    "ID": "c:clocks.c@2696@F@Software_Trim@bestDcoDelta",
     "What": "Variable",
     "defdec": "Def",
     "display": "bestDcoDelta",
@@ -117426,7 +117426,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2809@F@Software_Trim@csCtl0Copy",
+    "ID": "c:clocks.c@2736@F@Software_Trim@csCtl0Copy",
     "What": "Variable",
     "defdec": "Def",
     "display": "csCtl0Copy",
@@ -117440,7 +117440,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2843@F@Software_Trim@csCtl1Copy",
+    "ID": "c:clocks.c@2769@F@Software_Trim@csCtl1Copy",
     "What": "Variable",
     "defdec": "Def",
     "display": "csCtl1Copy",
@@ -117454,7 +117454,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2877@F@Software_Trim@csCtl0Read",
+    "ID": "c:clocks.c@2802@F@Software_Trim@csCtl0Read",
     "What": "Variable",
     "defdec": "Def",
     "display": "csCtl0Read",
@@ -117468,7 +117468,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2911@F@Software_Trim@csCtl1Read",
+    "ID": "c:clocks.c@2835@F@Software_Trim@csCtl1Read",
     "What": "Variable",
     "defdec": "Def",
     "display": "csCtl1Read",
@@ -117482,7 +117482,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2945@F@Software_Trim@dcoFreqTrim",
+    "ID": "c:clocks.c@2868@F@Software_Trim@dcoFreqTrim",
     "What": "Variable",
     "defdec": "Def",
     "display": "dcoFreqTrim",
@@ -117496,7 +117496,7 @@
     "scope": null
   },
   {
-    "ID": "c:clocks.c@2980@F@Software_Trim@endLoop",
+    "ID": "c:clocks.c@2902@F@Software_Trim@endLoop",
     "What": "Variable",
     "defdec": "Def",
     "display": "endLoop",
@@ -118448,7 +118448,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@397@macro@USE_GPIO",
+    "ID": "c:ports.h@387@macro@USE_GPIO",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "USE_GPIO",
@@ -118462,7 +118462,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@419@macro@USE_SMCLK",
+    "ID": "c:ports.h@408@macro@USE_SMCLK",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "USE_SMCLK",
@@ -118476,7 +118476,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@460@macro@RED_LED",
+    "ID": "c:ports.h@446@macro@RED_LED",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "RED_LED",
@@ -118490,7 +118490,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@491@macro@A1_SEEED",
+    "ID": "c:ports.h@476@macro@A1_SEEED",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "A1_SEEED",
@@ -118504,7 +118504,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@522@macro@MOTOR1_ENABLE_P",
+    "ID": "c:ports.h@506@macro@MOTOR1_ENABLE_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_ENABLE_P",
@@ -118518,7 +118518,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@564@macro@MOTOR1_ENABLE_N",
+    "ID": "c:ports.h@547@macro@MOTOR1_ENABLE_N",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_ENABLE_N",
@@ -118532,7 +118532,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@606@macro@MOTOR1_DIR_P",
+    "ID": "c:ports.h@588@macro@MOTOR1_DIR_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_DIR_P",
@@ -118546,7 +118546,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@645@macro@MOTOR1_DIR_N",
+    "ID": "c:ports.h@626@macro@MOTOR1_DIR_N",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_DIR_N",
@@ -118560,7 +118560,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@684@macro@UCA0RXD",
+    "ID": "c:ports.h@664@macro@UCA0RXD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCA0RXD",
@@ -118574,7 +118574,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@735@macro@UCA0TXD",
+    "ID": "c:ports.h@714@macro@UCA0TXD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCA0TXD",
@@ -118588,7 +118588,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@802@macro@P2_0",
+    "ID": "c:ports.h@779@macro@P2_0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P2_0",
@@ -118602,7 +118602,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@831@macro@P2_1",
+    "ID": "c:ports.h@807@macro@P2_1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P2_1",
@@ -118616,7 +118616,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@860@macro@P2_2",
+    "ID": "c:ports.h@835@macro@P2_2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P2_2",
@@ -118630,7 +118630,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@888@macro@SW2",
+    "ID": "c:ports.h@862@macro@SW2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SW2",
@@ -118644,7 +118644,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@920@macro@P2_4",
+    "ID": "c:ports.h@893@macro@P2_4",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P2_4",
@@ -118658,7 +118658,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@949@macro@P2_5",
+    "ID": "c:ports.h@921@macro@P2_5",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P2_5",
@@ -118672,7 +118672,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@978@macro@LFXOUT",
+    "ID": "c:ports.h@949@macro@LFXOUT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LFXOUT",
@@ -118686,7 +118686,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1012@macro@LFXIN",
+    "ID": "c:ports.h@982@macro@LFXIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LFXIN",
@@ -118700,7 +118700,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1061@macro@TEST_PROBE",
+    "ID": "c:ports.h@1029@macro@TEST_PROBE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TEST_PROBE",
@@ -118714,7 +118714,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1104@macro@P3_1",
+    "ID": "c:ports.h@1071@macro@P3_1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P3_1",
@@ -118728,7 +118728,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1137@macro@OA2N",
+    "ID": "c:ports.h@1103@macro@OA2N",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OA2N",
@@ -118742,7 +118742,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1188@macro@P3_3",
+    "ID": "c:ports.h@1153@macro@P3_3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P3_3",
@@ -118756,7 +118756,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1220@macro@SMCLK_2355",
+    "ID": "c:ports.h@1184@macro@SMCLK_2355",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SMCLK_2355",
@@ -118770,7 +118770,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1252@macro@P3_5",
+    "ID": "c:ports.h@1215@macro@P3_5",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P3_5",
@@ -118784,7 +118784,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1284@macro@MOTOR1_P_COUNT",
+    "ID": "c:ports.h@1246@macro@MOTOR1_P_COUNT",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_P_COUNT",
@@ -118798,7 +118798,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1326@macro@P3_7",
+    "ID": "c:ports.h@1287@macro@P3_7",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P3_7",
@@ -118812,7 +118812,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1374@macro@P4_0",
+    "ID": "c:ports.h@1333@macro@P4_0",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P4_0",
@@ -118826,7 +118826,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1407@macro@SW1",
+    "ID": "c:ports.h@1365@macro@SW1",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SW1",
@@ -118840,7 +118840,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1444@macro@UCA1RXD",
+    "ID": "c:ports.h@1401@macro@UCA1RXD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCA1RXD",
@@ -118854,7 +118854,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1555@macro@UCA1TXD",
+    "ID": "c:ports.h@1511@macro@UCA1TXD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCA1TXD",
@@ -118868,7 +118868,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1609@macro@UCB1_CS_LCD",
+    "ID": "c:ports.h@1564@macro@UCB1_CS_LCD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCB1_CS_LCD",
@@ -118882,7 +118882,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1654@macro@UCB1CLK",
+    "ID": "c:ports.h@1608@macro@UCB1CLK",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCB1CLK",
@@ -118896,7 +118896,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1698@macro@UCB1SIMO",
+    "ID": "c:ports.h@1651@macro@UCB1SIMO",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCB1SIMO",
@@ -118910,7 +118910,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1740@macro@UCB1SOMI",
+    "ID": "c:ports.h@1692@macro@UCB1SOMI",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "UCB1SOMI",
@@ -118924,7 +118924,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1798@macro@MOTOR2_ENABLE_P",
+    "ID": "c:ports.h@1748@macro@MOTOR2_ENABLE_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_ENABLE_P",
@@ -118938,7 +118938,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1830@macro@MOTOR2_ENABLE_N",
+    "ID": "c:ports.h@1779@macro@MOTOR2_ENABLE_N",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_ENABLE_N",
@@ -118952,7 +118952,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1862@macro@P5_2",
+    "ID": "c:ports.h@1810@macro@P5_2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P5_2",
@@ -118966,7 +118966,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1883@macro@MOTOR2_DIR_N",
+    "ID": "c:ports.h@1830@macro@MOTOR2_DIR_N",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_DIR_N",
@@ -118980,7 +118980,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1912@macro@MOTOR2_DIR_P",
+    "ID": "c:ports.h@1858@macro@MOTOR2_DIR_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_DIR_P",
@@ -118994,7 +118994,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1957@macro@MOTOR1_P_PIN",
+    "ID": "c:ports.h@1901@macro@MOTOR1_P_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_P_PIN",
@@ -119008,7 +119008,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@1993@macro@MOTOR2_P_PIN",
+    "ID": "c:ports.h@1936@macro@MOTOR2_P_PIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_P_PIN",
@@ -119022,7 +119022,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2029@macro@P6_2",
+    "ID": "c:ports.h@1971@macro@P6_2",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P6_2",
@@ -119036,7 +119036,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2057@macro@P6_3",
+    "ID": "c:ports.h@1998@macro@P6_3",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P6_3",
@@ -119050,7 +119050,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2085@macro@P6_4",
+    "ID": "c:ports.h@2025@macro@P6_4",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P6_4",
@@ -119064,7 +119064,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2113@macro@P6_5",
+    "ID": "c:ports.h@2052@macro@P6_5",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "P6_5",
@@ -119078,7 +119078,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2142@macro@GRN_LED",
+    "ID": "c:ports.h@2080@macro@GRN_LED",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "GRN_LED",
@@ -119092,7 +119092,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2187@macro@ENABLE1_P_ON",
+    "ID": "c:ports.h@2122@macro@ENABLE1_P_ON",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ENABLE1_P_ON",
@@ -119106,7 +119106,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2237@macro@ENABLE1_P_OFF",
+    "ID": "c:ports.h@2171@macro@ENABLE1_P_OFF",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ENABLE1_P_OFF",
@@ -119120,7 +119120,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2289@macro@DIR1_P_ON",
+    "ID": "c:ports.h@2222@macro@DIR1_P_ON",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DIR1_P_ON",
@@ -119134,7 +119134,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2333@macro@DIR1_P_OFF",
+    "ID": "c:ports.h@2265@macro@DIR1_P_OFF",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DIR1_P_OFF",
@@ -119148,7 +119148,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2379@macro@ENABLE2_P_ON",
+    "ID": "c:ports.h@2310@macro@ENABLE2_P_ON",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ENABLE2_P_ON",
@@ -119162,7 +119162,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2429@macro@ENABLE2_P_OFF",
+    "ID": "c:ports.h@2359@macro@ENABLE2_P_OFF",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ENABLE2_P_OFF",
@@ -119176,7 +119176,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2481@macro@DIR2_P_ON",
+    "ID": "c:ports.h@2410@macro@DIR2_P_ON",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DIR2_P_ON",
@@ -119190,7 +119190,7 @@
     "scope": null
   },
   {
-    "ID": "c:ports.h@2525@macro@DIR2_P_OFF",
+    "ID": "c:ports.h@2453@macro@DIR2_P_OFF",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DIR2_P_OFF",
@@ -119442,7 +119442,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.h@45@macro@SMALL_RING_SIZE",
+    "ID": "c:serial.h@44@macro@SMALL_RING_SIZE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SMALL_RING_SIZE",
@@ -119456,7 +119456,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.h@83@macro@LARGE_RING_SIZE",
+    "ID": "c:serial.h@81@macro@LARGE_RING_SIZE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "LARGE_RING_SIZE",
@@ -119470,7 +119470,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.h@122@macro@SET_UCA0_115200",
+    "ID": "c:serial.h@119@macro@SET_UCA0_115200",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SET_UCA0_115200",
@@ -119484,7 +119484,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.h@220@macro@SET_UCA0_9600",
+    "ID": "c:serial.h@216@macro@SET_UCA0_9600",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "SET_UCA0_9600",
@@ -119862,7 +119862,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@364@macro@ALWAYS",
+    "ID": "c:macros.h@354@macro@ALWAYS",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ALWAYS",
@@ -119876,7 +119876,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@401@macro@RESET_STATE",
+    "ID": "c:macros.h@390@macro@RESET_STATE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "RESET_STATE",
@@ -119890,7 +119890,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@438@macro@OFF",
+    "ID": "c:macros.h@426@macro@OFF",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OFF",
@@ -119904,7 +119904,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@475@macro@ON",
+    "ID": "c:macros.h@462@macro@ON",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "ON",
@@ -119918,7 +119918,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@512@macro@TEST_PROBE",
+    "ID": "c:macros.h@498@macro@TEST_PROBE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TEST_PROBE",
@@ -119932,7 +119932,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@568@macro@TRUE",
+    "ID": "c:macros.h@553@macro@TRUE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TRUE",
@@ -119946,7 +119946,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@611@macro@FALSE",
+    "ID": "c:macros.h@595@macro@FALSE",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "FALSE",
@@ -119960,7 +119960,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@654@macro@MCLK_FREQ_MHZ",
+    "ID": "c:macros.h@637@macro@MCLK_FREQ_MHZ",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MCLK_FREQ_MHZ",
@@ -119974,7 +119974,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@723@macro@CLEAR_REGISTER",
+    "ID": "c:macros.h@705@macro@CLEAR_REGISTER",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "CLEAR_REGISTER",
@@ -119988,7 +119988,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@765@macro@INT_MIN",
+    "ID": "c:macros.h@746@macro@INT_MIN",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INT_MIN",
@@ -120002,7 +120002,7 @@
     "scope": null
   },
   {
-    "ID": "c:macros.h@807@macro@INT_MAX",
+    "ID": "c:macros.h@787@macro@INT_MAX",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "INT_MAX",
@@ -120212,7 +120212,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@73@macro@TB0CCR1_INTERVAL",
+    "ID": "c:timers.h@72@macro@TB0CCR1_INTERVAL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TB0CCR1_INTERVAL",
@@ -120226,7 +120226,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@140@macro@TB0CCR2_INTERVAL",
+    "ID": "c:timers.h@138@macro@TB0CCR2_INTERVAL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TB0CCR2_INTERVAL",
@@ -120240,7 +120240,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@209@macro@TB1CCR0_INTERVAL",
+    "ID": "c:timers.h@205@macro@TB1CCR0_INTERVAL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TB1CCR0_INTERVAL",
@@ -120254,7 +120254,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@276@macro@TB1CCR1_INTERVAL",
+    "ID": "c:timers.h@271@macro@TB1CCR1_INTERVAL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TB1CCR1_INTERVAL",
@@ -120268,7 +120268,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@330@macro@TB1CCR2_INTERVAL",
+    "ID": "c:timers.h@324@macro@TB1CCR2_INTERVAL",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "TB1CCR2_INTERVAL",
@@ -120282,7 +120282,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@401@macro@MOTOR1_P",
+    "ID": "c:timers.h@392@macro@MOTOR1_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR1_P",
@@ -120296,7 +120296,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@452@macro@MOTOR2_P",
+    "ID": "c:timers.h@442@macro@MOTOR2_P",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "MOTOR2_P",
@@ -120310,7 +120310,7 @@
     "scope": null
   },
   {
-    "ID": "c:timers.h@503@macro@PULSE_PERIOD",
+    "ID": "c:timers.h@492@macro@PULSE_PERIOD",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "PULSE_PERIOD",
@@ -123970,7 +123970,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@1363@F@Init_Serial_UCA@i",
+    "ID": "c:serial.c@1330@F@Init_Serial_UCA@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -123998,7 +123998,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@2297@F@eUSCI_A0_ISR@temp",
+    "ID": "c:serial.c@2227@F@eUSCI_A0_ISR@temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "temp",
@@ -124026,7 +124026,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@3209@F@eUSCI_A1_ISR@temp",
+    "ID": "c:serial.c@3100@F@eUSCI_A1_ISR@temp",
     "What": "Variable",
     "defdec": "Def",
     "display": "temp",
@@ -124054,7 +124054,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@4263@F@clearProcessBuff@i",
+    "ID": "c:serial.c@4112@F@clearProcessBuff@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -124194,7 +124194,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@6287@F@HandleCommands@len",
+    "ID": "c:serial.c@6069@F@HandleCommands@len",
     "What": "Variable",
     "defdec": "Def",
     "display": "len",
@@ -124208,7 +124208,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@6456@F@HandleCommands@dir",
+    "ID": "c:serial.c@6234@F@HandleCommands@dir",
     "What": "Variable",
     "defdec": "Def",
     "display": "dir",
@@ -124236,7 +124236,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@7067@F@stoi@num",
+    "ID": "c:serial.c@6823@F@stoi@num",
     "What": "Variable",
     "defdec": "Def",
     "display": "num",
@@ -124250,7 +124250,7 @@
     "scope": null
   },
   {
-    "ID": "c:serial.c@7091@F@stoi@i",
+    "ID": "c:serial.c@6845@F@stoi@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -125552,7 +125552,7 @@
     "scope": null
   },
   {
-    "ID": "c:switches.h@45@macro@RELEASED",
+    "ID": "c:switches.h@44@macro@RELEASED",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "RELEASED",
@@ -125566,7 +125566,7 @@
     "scope": null
   },
   {
-    "ID": "c:switches.h@82@macro@OKAY",
+    "ID": "c:switches.h@80@macro@OKAY",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "OKAY",
@@ -125580,7 +125580,7 @@
     "scope": null
   },
   {
-    "ID": "c:switches.h@119@macro@NOT_OKAY",
+    "ID": "c:switches.h@116@macro@NOT_OKAY",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "NOT_OKAY",
@@ -125594,7 +125594,7 @@
     "scope": null
   },
   {
-    "ID": "c:switches.h@156@macro@DEBOUNCE_RESTART",
+    "ID": "c:switches.h@152@macro@DEBOUNCE_RESTART",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DEBOUNCE_RESTART",
@@ -125608,7 +125608,7 @@
     "scope": null
   },
   {
-    "ID": "c:switches.h@193@macro@DEBOUNCE_TIME",
+    "ID": "c:switches.h@188@macro@DEBOUNCE_TIME",
     "What": "MacroDef",
     "defdec": "Def",
     "display": "DEBOUNCE_TIME",
