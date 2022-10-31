@@ -1,15 +1,8 @@
-Warning[w6]: Type conflict for external/entry "sendPulseTrain", in module switches against external/entry in module motor; prototyped function vs K&R function
-  /* In module switches: */
-  /* K&R Function, args 0, attr 0 */
-  int (__cc_version2 sendPulseTrain)();
-  /* In module motor: */
-  /* Function, args 1, attr 0 */
-  void (__cc_version2 sendPulseTrain)(int);
 ################################################################################
 #                                                                              #
 #      IAR Universal Linker V6.6.2.104                                         #
 #                                                                              #
-#           Link time     =  17/Oct/2022  10:14:20                             #
+#           Link time     =  31/Oct/2022  08:42:40                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  "C:\Users\Ibrahim Moghul\OneDrive\Documents\Progr #
 #                            amming\LaserController\Code\Debug\List\Code simpl #
@@ -21,7 +14,7 @@ Warning[w6]: Type conflict for external/entry "sendPulseTrain", in module switch
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
 #           Command line  =  -f                                                #
-#                            C:\Users\IBRAHI~1\AppData\Local\Temp\EW6B1F.tmp   #
+#                            C:\Users\IBRAHI~1\AppData\Local\Temp\EW4DA6.tmp   #
 #                            ("C:\Users\Ibrahim Moghul\OneDrive\Documents\Prog #
 #                            ramming\LaserController\Code\Debug\Obj\clocks.r43 #
 #                            "                                                 #
@@ -163,8 +156,8 @@ clocks ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         _A_PM5CTL0_L                         0130
         _A_SFRIFG1_L                         0102
         _A_WDTCTL_L                          01CC
-        Init_Clocks                          872C
-        Software_Trim                        8284
+        Init_Clocks                          8766
+        Software_Trim                        8266
         ?setjmp_save_r4                      NOT NEEDED
         ?setjmp_save_r5                      NOT NEEDED
         CSCTL0                               0180
@@ -199,60 +192,49 @@ clocks ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         WDTCTL_L                             01CC
 main ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\main.r43 )
         _A_PM5CTL0_L                         NOT NEEDED
-        _A_TB3CCR1_L                         0454
-        _A_TB3CCR2_L                         0456
-        _A_TB3CCR3_L                         0458
-        _A_TB3CCR4_L                         045A
-        main                                 87DE
+        main                                 891E
         ?setjmp_save_r4                      NOT NEEDED
         ?setjmp_save_r5                      NOT NEEDED
         PM5CTL0                              0130
         PM5CTL0_H                            0131
         PM5CTL0_L                            0130
-        TB3CCR1                              0454
-        TB3CCR1_H                            0455
-        TB3CCR1_L                            0454
-        TB3CCR2                              0456
-        TB3CCR2_H                            0457
-        TB3CCR2_L                            0456
-        TB3CCR3                              0458
-        TB3CCR3_H                            0459
-        TB3CCR3_L                            0458
-        TB3CCR4                              045A
-        TB3CCR4_H                            045B
-        TB3CCR4_L                            045A
 motor ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\motor.r43 )
+        _A_PAOUT_L                           0202
         _A_PBIFG_L                           023C
-        _A_TB3CCR1_L                         NOT NEEDED
-        _A_TB3CCR2_L                         NOT NEEDED
-        _A_TB3CCR3_L                         NOT NEEDED
-        _A_TB3CCR4_L                         NOT NEEDED
+        _A_PCOUT_L                           0242
+        _A_TB3CCR1_L                         0454
+        _A_TB3CCR2_L                         0456
         pulseCount                           2004
-        pulseTrainSent                       2024
+        pulseTrainsSent                      2028
         pulsesToSend                         2006
-        sendPulseTrain                       897A
-        setMotor2                            NOT NEEDED
+        trainsToSend                         2008
+        trainsDir                            NOT NEEDED
+        trainsSent                           200A
+        sendTrains                           88B2
+        sendPulseTrains                      89D2
+        setMotor2                            8A0E
+        setMotor1                            8A28
         motor1Count_interrupt                802C
         motor1Count_interrupt::??INTVEC 46   FFD0
         ?setjmp_save_r4                      NOT NEEDED
         ?setjmp_save_r5                      NOT NEEDED
+        PAOUT                                0202
+        PAOUT_H                              0203
+        PAOUT_L                              0202
         PBIFG                                023C
         PBIFG_H                              023D
         PBIFG_L                              023C
+        PCOUT                                0242
+        PCOUT_H                              0243
+        PCOUT_L                              0242
         TB3CCR1                              0454
         TB3CCR1_H                            0455
         TB3CCR1_L                            0454
         TB3CCR2                              0456
         TB3CCR2_H                            0457
         TB3CCR2_L                            0456
-        TB3CCR3                              0458
-        TB3CCR3_H                            0459
-        TB3CCR3_L                            0458
-        TB3CCR4                              045A
-        TB3CCR4_H                            045B
-        TB3CCR4_L                            045A
 ports ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\ports.r43 )
-        _A_PAOUT_L                           0202
+        _A_PAOUT_L                           NOT NEEDED
         _A_PADIR_L                           0204
         _A_PAREN_L                           0206
         _A_PASEL0_L                          020A
@@ -269,17 +251,17 @@ ports ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\C
         _A_PBIES_L                           0238
         _A_PBIE_L                            023A
         _A_PBIFG_L                           NOT NEEDED
-        _A_PCOUT_L                           0242
+        _A_PCOUT_L                           NOT NEEDED
         _A_PCDIR_L                           0244
         _A_PCSEL0_L                          024A
         _A_PCSEL1_L                          024C
-        Init_Ports                           8938
-        Init_Port1                           84C0
-        Init_Port2                           8436
-        Init_Port3                           835E
-        Init_Port4                           8546
-        Init_Port5                           882A
-        Init_Port6                           8642
+        Init_Ports                           89F2
+        Init_Port1                           8484
+        Init_Port2                           83FA
+        Init_Port3                           8340
+        Init_Port4                           850A
+        Init_Port5                           8606
+        Init_Port6                           867C
         ?setjmp_save_r4                      NOT NEEDED
         ?setjmp_save_r5                      NOT NEEDED
         PAOUT                                0202
@@ -360,36 +342,38 @@ serial ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         _A_UCA1TXBUF_L                       058E
         _A_UCA1IE_L                          059A
         _A_UCA1IV_L                          059E
-        usb0_rx_wr                           2008
-        usb1_rx_wr                           200A
-        usb0_rx_rd                           200C
-        usb1_rx_rd                           200E
-        USB0_Char_Rx_Ring                    2025
-        USB0_Char_Rx_Process                 2035
-        USB1_Char_Rx_Ring                    2099
-        USB1_Char_Rx_Process                 20A9
-        USB0_Char_Tx                         210D
-        USB1_Char_Tx                         2171
-        pb0_index                            2010
-        pb1_index                            2012
-        tx0_index                            2014
-        tx1_index                            2016
-        pb0_buffered                         2018
-        pb1_buffered                         201A
+        usb0_rx_wr                           200C
+        usb1_rx_wr                           200E
+        usb0_rx_rd                           2010
+        usb1_rx_rd                           2012
+        USB0_Char_Rx_Ring                    2029
+        USB0_Char_Rx_Process                 2039
+        USB1_Char_Rx_Ring                    209D
+        USB1_Char_Rx_Process                 20AD
+        USB0_Char_Tx                         2111
+        USB1_Char_Tx                         2175
+        pb0_index                            2014
+        pb1_index                            2016
+        tx0_index                            2018
+        tx1_index                            201A
+        pb0_buffered                         201C
+        pb1_buffered                         201E
         serialState                          NOT NEEDED
-        receievedFromPC                      21D5
-        Init_Serial_UCA                      85C8
-        eUSCI_A0_ISR                         8074
-        eUSCI_A1_ISR                         80EA
-        clearProcessBuff                     NOT NEEDED
+        receievedFromPC                      21D9
+        Init_Serial_UCA                      858C
+        eUSCI_A0_ISR                         805E
+        eUSCI_A1_ISR                         80D4
+        clearProcessBuff                     896C
         clearProcessBuff_0                   NOT NEEDED
-        clearProcessBuff_1                   NOT NEEDED
+        clearProcessBuff_1                   8A68
         USCI_A0_transmit                     NOT NEEDED
         USCI_A1_transmit                     NOT NEEDED
-        loadRingtoPB                         86B8
-        loadRingtoPB_0                       8916
-        loadRingtoPB_1                       88F4
-        SerialProcess                        89A8
+        loadRingtoPB                         86F2
+        loadRingtoPB_0                       898E
+        loadRingtoPB_1                       89B0
+        SerialProcess                        8AAA
+        HandleCommands                       87CC
+        stoi                                 8946
         eUSCI_A1_ISR::??INTVEC 64            FFE2
         eUSCI_A0_ISR::??INTVEC 66            FFE4
         ?setjmp_save_r4                      NOT NEEDED
@@ -452,8 +436,8 @@ switches ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserControlle
         count_debounce_SW2                   NOT NEEDED
         sw1_pos                              NOT NEEDED
         sw2_pos                              NOT NEEDED
-        switchP4_interrupt                   8176
-        switchP2_interrupt                   81B2
+        switchP4_interrupt                   8160
+        switchP2_interrupt                   8194
         switchP4_interrupt::??INTVEC 44      FFCE
         switchP2_interrupt::??INTVEC 48      FFD2
         ?setjmp_save_r4                      NOT NEEDED
@@ -486,7 +470,7 @@ switches ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserControlle
         TB0CCR2_H                            0397
         TB0CCR2_L                            0396
 system ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\system.r43 )
-        enable_interrupts                    89B2
+        enable_interrupts                    8AB4
         ?setjmp_save_r4                      NOT NEEDED
         ?setjmp_save_r5                      NOT NEEDED
 timers ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\Obj\timers.r43 )
@@ -512,27 +496,23 @@ timers ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         _A_TB3CTL_L                          0440
         _A_TB3CCTL1_L                        0444
         _A_TB3CCTL2_L                        0446
-        _A_TB3CCTL3_L                        0448
-        _A_TB3CCTL4_L                        044A
         _A_TB3CCR0_L                         0452
         _A_TB3CCR1_L                         NOT NEEDED
         _A_TB3CCR2_L                         NOT NEEDED
-        _A_TB3CCR3_L                         NOT NEEDED
-        _A_TB3CCR4_L                         NOT NEEDED
-        debounce_count1                      201C
-        debounce_count2                      201E
-        debouncing1                          2020
-        debouncing2                          2022
+        debounce_count1                      2020
+        debounce_count2                      2022
+        debouncing1                          2024
+        debouncing2                          2026
         debounce_thresh1                     2000
         debounce_thresh2                     2002
-        Init_Timers                          899A
-        Init_Timer_B0                        8792
-        Init_Timer_B1                        88B6
-        Init_Timer_B3                        8876
-        Timer0_B0_ISR                        81E6
-        TIMER0_B1_ISR                        81EE
-        Timer1_B0_ISR                        8260
-        TIMER1_B1_ISR                        8268
+        Init_Timers                          8A9C
+        Init_Timer_B0                        8828
+        Init_Timer_B1                        8874
+        Init_Timer_B3                        88EC
+        Timer0_B0_ISR                        81C8
+        TIMER0_B1_ISR                        81D0
+        Timer1_B0_ISR                        8242
+        TIMER1_B1_ISR                        824A
         TIMER1_B1_ISR::??INTVEC 80           FFF2
         Timer1_B0_ISR::??INTVEC 82           FFF4
         TIMER0_B1_ISR::??INTVEC 84           FFF6
@@ -605,12 +585,6 @@ timers ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         TB3CCTL2                             0446
         TB3CCTL2_H                           0447
         TB3CCTL2_L                           0446
-        TB3CCTL3                             0448
-        TB3CCTL3_H                           0449
-        TB3CCTL3_L                           0448
-        TB3CCTL4                             044A
-        TB3CCTL4_H                           044B
-        TB3CCTL4_L                           044A
         TB3CCR0                              0452
         TB3CCR0_H                            0453
         TB3CCR0_L                            0452
@@ -620,24 +594,18 @@ timers ( C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\
         TB3CCR2                              0456
         TB3CCR2_H                            0457
         TB3CCR2_L                            0456
-        TB3CCR3                              0458
-        TB3CCR3_H                            0459
-        TB3CCR3_L                            0458
-        TB3CCR4                              045A
-        TB3CCR4_H                            045B
-        TB3CCR4_L                            045A
 ?abort ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         abort                                NOT NEEDED
 ?__dbg_break ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        __DebugBreak                         89C4
+        __DebugBreak                         8AC6
 ?__dwrite ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         __dwrite                             NOT NEEDED
 ?__exit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        __exit                               8954
+        __exit                               8A42
 ?__write ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         __write                              NOT NEEDED
 ?_exit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        _exit                                89B8
+        _exit                                8ABA
         __cstart_call_dtors                  NOT NEEDED
         __cstart_closeall                    NOT NEEDED
         __cstart_clearlocks                  NOT NEEDED
@@ -667,18 +635,18 @@ lowinit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib
 ?reset_vector ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         ?reset_vector                        FFFE
 ?exit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        exit                                 89C0
+        exit                                 8AC2
 ?FrwpInit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         __iar_430_frwp_init                  NOT NEEDED
 ?malloc ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         malloc                               NOT NEEDED
 ?memcpy ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        memcpy                               8968
+        memcpy                               8A7A
 ?memmove ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         memmove                              NOT NEEDED
 ?memzero ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
-        __data16_memzero                     898A
-        __data16_memcpy                      89BC
+        __data16_memzero                     8A8C
+        __data16_memcpy                      8ABE
         __data16_memmove                     NOT NEEDED
 ?MpuInit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         __iar_430_mpu_init                   NOT NEEDED
@@ -700,6 +668,8 @@ lowinit ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib
         ?IndCallR11                          NOT NEEDED
 ?IndCallR15 ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         ?IndCallR15                          NOT NEEDED
+?strlen ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
+        strlen                               8A56
 ?xcloseall ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
         _Close_all                           NOT NEEDED
 ?xgetmemchunk ( C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.5\430\lib\dlib\dl430xlsfn.r43 )
@@ -729,27 +699,27 @@ Module               CODE      DATA      CONST
 ?memcpy                18
 ?memzero               20
 ?reset_vector           2
+?strlen                18
 clocks                320            18
   + shared                            2
-main                   76
-  + shared                            8
-motor                  88      5
-  + shared             48             2
+main                   40
+motor                 192      9
+  + shared             48            10
   + common
-ports                 840            34
+ports                 852            30
   + shared                            6
-serial                574    453     28
+serial                756    453     28
   + common             68
-switches              112             2
+switches              104             2
   + shared             50             8
   + common
 system                  6
-timers                374     12     38      4
+timers                360     12     34      4
   + common             88
 N/A (command line)           160
 N/A (alignment)
 ----------          -----    ---    ---      -
-Total:              2 500    630    146      4
+Total:              2 758    634    138      4
   + common             88
 
 
@@ -783,8 +753,8 @@ DATA16_AN                              0102 - 0103               2   rel    0
                                        03D2 - 03D7               6 
                                        03EE - 03EF               2 
                                        0440 - 0441               2 
-                                       0444 - 044B               8 
-                                       0452 - 045B               A 
+                                       0444 - 0447               4 
+                                       0452 - 0457               6 
                                        0500 - 0501               2 
                                        0506 - 0509               4 
                                        050C - 050F               4 
@@ -796,20 +766,20 @@ DATA16_AN                              0102 - 0103               2   rel    0
                                        059A - 059B               2 
                                        059E - 059F               2 
 DATA16_I                               2000 - 2003               4   rel    1
-DATA16_Z                               2004 - 21D5             1D2   rel    1
-CODE_I                                    21D6                       rel    1
-DATA20_Z                                  21D6                       rel    1
-DATA20_N                                  21D6                       rel    1
-DATA20_I                                  21D6                       rel    1
+DATA16_Z                               2004 - 21D9             1D6   rel    1
+DATA20_I                                  21DA                       rel    1
+DATA20_Z                                  21DA                       rel    1
+DATA20_N                                  21DA                       rel    1
+CODE_I                                    21DA                       rel    1
 CSTACK                                 2F60 - 2FFF              A0   rel    1
 DATA16_C                                  8000                       dse    0
 DATA16_ID                              8000 - 8003               4   rel    1
 DATA20_ID                                 8004                       rel    1
 DATA20_C                                  8004                       rel    1
 CSTART                                 8004 - 802B              28   rel    1
-ISR_CODE                               802C - 8283             258   rel    1
-CODE_ID                                   8284                       rel    1
-<CODE> 1                               8284 - 89C5             742   rel    1
+ISR_CODE                               802C - 8265             23A   rel    1
+CODE_ID                                   8266                       rel    1
+<CODE> 1                               8266 - 8AC7             862   rel    1
 INTVEC                                 FFA2 - FFF9              58   com    1
 RESET                                  FFFE - FFFF               2   rel    1
 
@@ -819,10 +789,10 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 2 588 bytes of CODE  memory
-   630 bytes of DATA  memory (+ 146 absolute )
+ 2 846 bytes of CODE  memory
+   634 bytes of DATA  memory (+ 138 absolute )
      4 bytes of CONST memory
 
 Errors: none
-Warnings: 1
+Warnings: none
 

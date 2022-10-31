@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:12:06
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          24/Oct/2022  09:25:00
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\ports.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW5E55.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EWB6E.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\ports.c"
 #        -lC "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -226,40 +226,40 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\port
      61              P1SELC |= A1_SEEED;
    \   000018   E2D31602     BIS.B   #0x2, &0x216
      62              
-     63              P1SEL0 &= ~MOTOR_ENABLE_P;
+     63              P1SEL0 &= ~MOTOR1_ENABLE_P;
    \   00001C   E2C20A02     BIC.B   #0x4, &0x20a
-     64              P1SEL1 &= ~MOTOR_ENABLE_P;
+     64              P1SEL1 &= ~MOTOR1_ENABLE_P;
    \   000020   E2C20C02     BIC.B   #0x4, &0x20c
-     65              P1DIR |= MOTOR_ENABLE_P;
+     65              P1DIR |= MOTOR1_ENABLE_P;
    \   000024   E2D20402     BIS.B   #0x4, &0x204
-     66              P1OUT &= ~MOTOR_ENABLE_P;
+     66              P1OUT &= ~MOTOR1_ENABLE_P;
    \   000028   E2C20202     BIC.B   #0x4, &0x202
      67              
-     68              P1SEL0 &= ~MOTOR_ENABLE_N;
+     68              P1SEL0 &= ~MOTOR1_ENABLE_N;
    \   00002C   F2C20A02     BIC.B   #0x8, &0x20a
-     69              P1SEL1 &= ~MOTOR_ENABLE_N;
+     69              P1SEL1 &= ~MOTOR1_ENABLE_N;
    \   000030   F2C20C02     BIC.B   #0x8, &0x20c
-     70              P1DIR |= MOTOR_ENABLE_N;
+     70              P1DIR |= MOTOR1_ENABLE_N;
    \   000034   F2D20402     BIS.B   #0x8, &0x204
-     71              P1OUT &= ~MOTOR_ENABLE_N;
+     71              P1OUT &= ~MOTOR1_ENABLE_N;
    \   000038   F2C20202     BIC.B   #0x8, &0x202
      72              
-     73              P1SEL0 &= ~MOTOR_DIR_P;
+     73              P1SEL0 &= ~MOTOR1_DIR_P;
    \   00003C   F2C010000A02 BIC.B   #0x10, &0x20a
-     74              P1SEL1 &= ~MOTOR_DIR_P;
+     74              P1SEL1 &= ~MOTOR1_DIR_P;
    \   000042   F2C010000C02 BIC.B   #0x10, &0x20c
-     75              P1DIR |= MOTOR_DIR_P;
+     75              P1DIR |= MOTOR1_DIR_P;
    \   000048   F2D010000402 BIS.B   #0x10, &0x204
-     76              P1OUT &= ~MOTOR_DIR_P;
-   \   00004E   F2C010000202 BIC.B   #0x10, &0x202
+     76              P1OUT |= MOTOR1_DIR_P;
+   \   00004E   F2D010000202 BIS.B   #0x10, &0x202
      77          
-     78              P1SEL0 &= ~MOTOR_DIR_N;
+     78              P1SEL0 &= ~MOTOR1_DIR_N;
    \   000054   F2C020000A02 BIC.B   #0x20, &0x20a
-     79              P1SEL1 &= ~MOTOR_DIR_N;
+     79              P1SEL1 &= ~MOTOR1_DIR_N;
    \   00005A   F2C020000C02 BIC.B   #0x20, &0x20c
-     80              P1DIR |= MOTOR_DIR_N;
+     80              P1DIR |= MOTOR1_DIR_N;
    \   000060   F2D020000402 BIS.B   #0x20, &0x204
-     81              P1OUT &= ~MOTOR_DIR_N;
+     81              P1OUT &= ~MOTOR1_DIR_N;
    \   000066   F2C020000202 BIC.B   #0x20, &0x202
      82          
      83              P1SEL1 &= ~UCA0RXD;
@@ -478,114 +478,104 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\port
     205              P3IE |= MOTOR1_P_COUNT;
    \   0000A0   F2D040003A02 BIS.B   #0x40, &0x23a
     206              
-    207              P3SEL0 &= ~MOTOR1_N_COUNT;
+    207              P3SEL0 &= ~P3_7;
    \   0000A6   F2C080002A02 BIC.B   #0x80, &0x22a
-    208              P3SEL1 &= ~MOTOR1_N_COUNT;
+    208              P3SEL1 &= ~P3_7;
    \   0000AC   F2C080002C02 BIC.B   #0x80, &0x22c
-    209              P3OUT |= MOTOR1_N_COUNT;
-   \   0000B2   F2D080002202 BIS.B   #0x80, &0x222
-    210              P3DIR &= ~MOTOR1_N_COUNT;
-   \   0000B8   F2C080002402 BIC.B   #0x80, &0x224
-    211              P3REN |= MOTOR1_N_COUNT;
-   \   0000BE   F2D080002602 BIS.B   #0x80, &0x226
-    212              P3IES |= MOTOR1_N_COUNT;
-   \   0000C4   F2D080003802 BIS.B   #0x80, &0x238
-    213              P3IFG &= ~MOTOR1_N_COUNT;
-   \   0000CA   F2C080003C02 BIC.B   #0x80, &0x23c
-    214              P3IE |= MOTOR1_N_COUNT;
-   \   0000D0   F2D080003A02 BIS.B   #0x80, &0x23a
-    215          }
-   \   0000D6   1001         RETA
-   \   0000D8                REQUIRE _A_PBOUT_L
-   \   0000D8                REQUIRE _A_PBDIR_L
-   \   0000D8                REQUIRE _A_PBSEL0_L
-   \   0000D8                REQUIRE _A_PBSEL1_L
-   \   0000D8                REQUIRE _A_PBREN_L
-   \   0000D8                REQUIRE _A_PBIES_L
-   \   0000D8                REQUIRE _A_PBIFG_L
-   \   0000D8                REQUIRE _A_PBIE_L
-    216          
-    217          //===========================================================================
-    218          // Function name: Init_Port4
-    219          //
-    220          // Description: Initialize all pins on port 4
+    209              P3DIR &= ~P3_7;
+   \   0000B2   F2C080002402 BIC.B   #0x80, &0x224
+    210          }
+   \   0000B8   1001         RETA
+   \   0000BA                REQUIRE _A_PBOUT_L
+   \   0000BA                REQUIRE _A_PBDIR_L
+   \   0000BA                REQUIRE _A_PBSEL0_L
+   \   0000BA                REQUIRE _A_PBSEL1_L
+   \   0000BA                REQUIRE _A_PBREN_L
+   \   0000BA                REQUIRE _A_PBIES_L
+   \   0000BA                REQUIRE _A_PBIFG_L
+   \   0000BA                REQUIRE _A_PBIE_L
+    211          
+    212          //===========================================================================
+    213          // Function name: Init_Port4
+    214          //
+    215          // Description: Initialize all pins on port 4
+    216          //
+    217          // Passed : no variables passed
+    218          // Locals: no variables declared
+    219          // Returned: no values returned
+    220          // Globals: no global variables used
     221          //
-    222          // Passed : no variables passed
-    223          // Locals: no variables declared
-    224          // Returned: no values returned
-    225          // Globals: no global variables used
-    226          //
-    227          // Author: Ibrahim Moghul
-    228          // Date: Feb 2022
-    229          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-    230          //===========================================================================
+    222          // Author: Ibrahim Moghul
+    223          // Date: Feb 2022
+    224          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+    225          //===========================================================================
 
    \                                 In  segment CODE, align 2
-    231          void Init_Port4() {
+    226          void Init_Port4() {
    \                     Init_Port4:
-    232              P4OUT = 0x00;
+    227              P4OUT = 0x00;
    \   000000   C2432302     MOV.B   #0x0, &0x223
-    233              P4DIR = 0x00;
+    228              P4DIR = 0x00;
    \   000004   C2432502     MOV.B   #0x0, &0x225
-    234          
-    235              P4SEL0 &= ~P4_0;
+    229          
+    230              P4SEL0 &= ~P4_0;
    \   000008   D2C32B02     BIC.B   #0x1, &0x22b
-    236              P4SEL1 &= ~P4_0;
+    231              P4SEL1 &= ~P4_0;
    \   00000C   D2C32D02     BIC.B   #0x1, &0x22d
-    237              P4DIR &= ~P4_0;
+    232              P4DIR &= ~P4_0;
    \   000010   D2C32502     BIC.B   #0x1, &0x225
-    238          
-    239              P4SEL0 &= ~SW1;
+    233          
+    234              P4SEL0 &= ~SW1;
    \   000014   E2C32B02     BIC.B   #0x2, &0x22b
-    240              P4SEL1 &= ~SW1;
+    235              P4SEL1 &= ~SW1;
    \   000018   E2C32D02     BIC.B   #0x2, &0x22d
-    241              P4OUT |= SW1;
+    236              P4OUT |= SW1;
    \   00001C   E2D32302     BIS.B   #0x2, &0x223
-    242              P4DIR &= ~SW1;
+    237              P4DIR &= ~SW1;
    \   000020   E2C32502     BIC.B   #0x2, &0x225
-    243              P4REN |= SW1;
+    238              P4REN |= SW1;
    \   000024   E2D32702     BIS.B   #0x2, &0x227
-    244              P4IES |= SW1;
+    239              P4IES |= SW1;
    \   000028   E2D33902     BIS.B   #0x2, &0x239
-    245              P4IFG &= ~SW1;
+    240              P4IFG &= ~SW1;
    \   00002C   E2C33D02     BIC.B   #0x2, &0x23d
-    246              P4IE |= SW1;
+    241              P4IE |= SW1;
    \   000030   E2D33B02     BIS.B   #0x2, &0x23b
-    247          
-    248              P4SEL0 |= UCA1TXD;
+    242          
+    243              P4SEL0 |= UCA1TXD;
    \   000034   F2D22B02     BIS.B   #0x8, &0x22b
-    249              P4SEL1 &= ~UCA1TXD;
+    244              P4SEL1 &= ~UCA1TXD;
    \   000038   F2C22D02     BIC.B   #0x8, &0x22d
-    250          
-    251              P4SEL0 |= UCA1RXD;
+    245          
+    246              P4SEL0 |= UCA1RXD;
    \   00003C   E2D22B02     BIS.B   #0x4, &0x22b
-    252              P4SEL1 &= UCA1RXD;
+    247              P4SEL1 &= UCA1RXD;
    \   000040   E2F22D02     AND.B   #0x4, &0x22d
-    253          
-    254              P4SEL0 &= ~UCB1_CS_LCD;
+    248          
+    249              P4SEL0 &= ~UCB1_CS_LCD;
    \   000044   F2C010002B02 BIC.B   #0x10, &0x22b
-    255              P4SEL1 &= ~UCB1_CS_LCD;
+    250              P4SEL1 &= ~UCB1_CS_LCD;
    \   00004A   F2C010002D02 BIC.B   #0x10, &0x22d
-    256              P4OUT |= UCB1_CS_LCD;
+    251              P4OUT |= UCB1_CS_LCD;
    \   000050   F2D010002302 BIS.B   #0x10, &0x223
-    257              P4DIR |= UCB1_CS_LCD;
+    252              P4DIR |= UCB1_CS_LCD;
    \   000056   F2D010002502 BIS.B   #0x10, &0x225
-    258          
-    259              P4SEL0 |= UCB1CLK;
+    253          
+    254              P4SEL0 |= UCB1CLK;
    \   00005C   F2D020002B02 BIS.B   #0x20, &0x22b
-    260              P4SEL1 &= ~UCB1CLK;
+    255              P4SEL1 &= ~UCB1CLK;
    \   000062   F2C020002D02 BIC.B   #0x20, &0x22d
-    261          
-    262              P4SEL0 |= UCB1SIMO;
+    256          
+    257              P4SEL0 |= UCB1SIMO;
    \   000068   F2D040002B02 BIS.B   #0x40, &0x22b
-    263              P4SEL1 &= ~UCB1SIMO;
+    258              P4SEL1 &= ~UCB1SIMO;
    \   00006E   F2C040002D02 BIC.B   #0x40, &0x22d
-    264          
-    265              P4SEL0 |= UCB1SOMI;
+    259          
+    260              P4SEL0 |= UCB1SOMI;
    \   000074   F2D080002B02 BIS.B   #0x80, &0x22b
-    266              P4SEL1 &= UCB1SOMI;
+    261              P4SEL1 &= UCB1SOMI;
    \   00007A   F2F080002D02 AND.B   #0x80, &0x22d
-    267          }
+    262          }
    \   000080   1001         RETA
    \   000082                REQUIRE _A_PBOUT_L
    \   000082                REQUIRE _A_PBDIR_L
@@ -595,146 +585,164 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\port
    \   000082                REQUIRE _A_PBIES_L
    \   000082                REQUIRE _A_PBIFG_L
    \   000082                REQUIRE _A_PBIE_L
-    268          
-    269          
-    270          //===========================================================================
-    271          // Function name: Init_Port5
-    272          //
-    273          // Description: Initialize all pins on port 5
+    263          
+    264          
+    265          //===========================================================================
+    266          // Function name: Init_Port5
+    267          //
+    268          // Description: Initialize all pins on port 5
+    269          //
+    270          // Passed : no variables passed
+    271          // Locals: no variables declared
+    272          // Returned: no values returned
+    273          // Globals: no global variables used
     274          //
-    275          // Passed : no variables passed
-    276          // Locals: no variables declared
-    277          // Returned: no values returned
-    278          // Globals: no global variables used
-    279          //
-    280          // Author: Ibrahim Moghul
-    281          // Date: Feb 2022
-    282          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-    283          //===========================================================================
+    275          // Author: Ibrahim Moghul
+    276          // Date: Feb 2022
+    277          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+    278          //===========================================================================
 
    \                                 In  segment CODE, align 2
-    284          void Init_Port5() {
+    279          void Init_Port5() {
    \                     Init_Port5:
-    285              P5OUT = 0x00;
+    280              P5OUT = 0x00;
    \   000000   C2434202     MOV.B   #0x0, &0x242
-    286              P5DIR = 0x00;
+    281              P5DIR = 0x00;
    \   000004   C2434402     MOV.B   #0x0, &0x244
-    287          
-    288              P5SEL0 &= ~P5_0;
+    282          
+    283              P5SEL0 &= ~MOTOR2_ENABLE_P;
    \   000008   D2C34A02     BIC.B   #0x1, &0x24a
-    289              P5SEL1 &= ~P5_0;
+    284              P5SEL1 &= ~MOTOR2_ENABLE_P;
    \   00000C   D2C34C02     BIC.B   #0x1, &0x24c
-    290              P5DIR &= ~P5_0;
-   \   000010   D2C34402     BIC.B   #0x1, &0x244
-    291          
-    292              P5SEL0 &= ~P5_1;
-   \   000014   E2C34A02     BIC.B   #0x2, &0x24a
-    293              P5SEL1 &= ~P5_1;
-   \   000018   E2C34C02     BIC.B   #0x2, &0x24c
-    294              P5DIR &= ~P5_1;
-   \   00001C   E2C34402     BIC.B   #0x2, &0x244
-    295              
-    296              P5SEL0 &= ~P5_2;
-   \   000020   E2C24A02     BIC.B   #0x4, &0x24a
-    297              P5SEL1 &= ~P5_2;
-   \   000024   E2C24C02     BIC.B   #0x4, &0x24c
-    298              P5DIR &= ~P5_2;
-   \   000028   E2C24402     BIC.B   #0x4, &0x244
-    299              
-    300              P5SEL0 &= ~P5_3;
-   \   00002C   F2C24A02     BIC.B   #0x8, &0x24a
-    301              P5SEL1 &= ~P5_3;
-   \   000030   F2C24C02     BIC.B   #0x8, &0x24c
-    302              P5DIR &= ~P5_3;
-   \   000034   F2C24402     BIC.B   #0x8, &0x244
-    303          
-    304              P5SEL0 &= ~P5_4;
-   \   000038   F2C010004A02 BIC.B   #0x10, &0x24a
-    305              P5SEL1 &= ~P5_4;
-   \   00003E   F2C010004C02 BIC.B   #0x10, &0x24c
-    306              P5DIR &= ~P5_4;
-   \   000044   F2C010004402 BIC.B   #0x10, &0x244
-    307          }
-   \   00004A   1001         RETA
-   \   00004C                REQUIRE _A_PCOUT_L
-   \   00004C                REQUIRE _A_PCDIR_L
-   \   00004C                REQUIRE _A_PCSEL0_L
-   \   00004C                REQUIRE _A_PCSEL1_L
-    308          
-    309          //===========================================================================
-    310          // Function name: Init_Port6
-    311          //
-    312          // Description: Initialize all pins on port 6
-    313          //
-    314          // Passed : no variables passed
-    315          // Locals: no variables declared
-    316          // Returned: no values returned
-    317          // Globals: no global variables used
+    285              P5DIR |= MOTOR2_ENABLE_P;
+   \   000010   D2D34402     BIS.B   #0x1, &0x244
+    286              P5OUT &= ~MOTOR2_ENABLE_P;
+   \   000014   D2C34202     BIC.B   #0x1, &0x242
+    287              
+    288              P5SEL0 &= ~MOTOR2_ENABLE_N;
+   \   000018   E2C34A02     BIC.B   #0x2, &0x24a
+    289              P5SEL1 &= ~MOTOR2_ENABLE_N;
+   \   00001C   E2C34C02     BIC.B   #0x2, &0x24c
+    290              P5DIR |= MOTOR2_ENABLE_N;
+   \   000020   E2D34402     BIS.B   #0x2, &0x244
+    291              P5OUT &= ~MOTOR2_ENABLE_N;
+   \   000024   E2C34202     BIC.B   #0x2, &0x242
+    292              
+    293              P5SEL0 &= ~P5_2;
+   \   000028   E2C24A02     BIC.B   #0x4, &0x24a
+    294              P5SEL1 &= ~P5_2;
+   \   00002C   E2C24C02     BIC.B   #0x4, &0x24c
+    295              P5DIR &= ~P5_2;
+   \   000030   E2C24402     BIC.B   #0x4, &0x244
+    296              
+    297              P5SEL0 &= ~MOTOR2_DIR_P;
+   \   000034   F2C010004A02 BIC.B   #0x10, &0x24a
+    298              P5SEL1 &= ~MOTOR2_DIR_P;
+   \   00003A   F2C010004C02 BIC.B   #0x10, &0x24c
+    299              P5DIR |= MOTOR2_DIR_P;
+   \   000040   F2D010004402 BIS.B   #0x10, &0x244
+    300              P5OUT |= MOTOR2_DIR_P;
+   \   000046   F2D010004202 BIS.B   #0x10, &0x242
+    301              
+    302              P5SEL0 &= ~MOTOR2_DIR_N;
+   \   00004C   F2C24A02     BIC.B   #0x8, &0x24a
+    303              P5SEL1 &= ~MOTOR2_DIR_N;
+   \   000050   F2C24C02     BIC.B   #0x8, &0x24c
+    304              P5DIR |= MOTOR2_DIR_N;
+   \   000054   F2D24402     BIS.B   #0x8, &0x244
+    305              P5OUT &= ~MOTOR2_DIR_N;
+   \   000058   F2C24202     BIC.B   #0x8, &0x242
+    306          
+    307              P5SEL0 &= ~MOTOR2_DIR_P;
+   \   00005C   F2C010004A02 BIC.B   #0x10, &0x24a
+    308              P5SEL1 &= ~MOTOR2_DIR_P;
+   \   000062   F2C010004C02 BIC.B   #0x10, &0x24c
+    309              P5DIR |= MOTOR2_DIR_P;
+   \   000068   F2D010004402 BIS.B   #0x10, &0x244
+    310              P5OUT |= MOTOR2_DIR_P;
+   \   00006E   F2D010004202 BIS.B   #0x10, &0x242
+    311              
+    312          }
+   \   000074   1001         RETA
+   \   000076                REQUIRE _A_PCOUT_L
+   \   000076                REQUIRE _A_PCDIR_L
+   \   000076                REQUIRE _A_PCSEL0_L
+   \   000076                REQUIRE _A_PCSEL1_L
+    313          
+    314          //===========================================================================
+    315          // Function name: Init_Port6
+    316          //
+    317          // Description: Initialize all pins on port 6
     318          //
-    319          // Author: Ibrahim Moghul
-    320          // Date: Feb 2022
-    321          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-    322          //===========================================================================
+    319          // Passed : no variables passed
+    320          // Locals: no variables declared
+    321          // Returned: no values returned
+    322          // Globals: no global variables used
+    323          //
+    324          // Author: Ibrahim Moghul
+    325          // Date: Feb 2022
+    326          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+    327          //===========================================================================
 
    \                                 In  segment CODE, align 2
-    323          void Init_Port6() {
+    328          void Init_Port6() {
    \                     Init_Port6:
-    324              P6OUT = 0x00;
+    329              P6OUT = 0x00;
    \   000000   C2434302     MOV.B   #0x0, &0x243
-    325              P6DIR = 0x00;
+    330              P6DIR = 0x00;
    \   000004   C2434502     MOV.B   #0x0, &0x245
-    326          
-    327              P6SEL0 |= MOTOR1_P_PIN;
+    331          
+    332              P6SEL0 |= MOTOR1_P_PIN;
    \   000008   D2D34B02     BIS.B   #0x1, &0x24b
-    328              P6SEL1 &= ~MOTOR1_P_PIN;
+    333              P6SEL1 &= ~MOTOR1_P_PIN;
    \   00000C   D2C34D02     BIC.B   #0x1, &0x24d
-    329              P6DIR |= MOTOR1_P_PIN;
+    334              P6DIR |= MOTOR1_P_PIN;
    \   000010   D2D34502     BIS.B   #0x1, &0x245
-    330              
-    331              P6SEL0 |= MOTOR1_N_PIN;
+    335              
+    336              P6SEL0 |= MOTOR2_P_PIN;
    \   000014   E2D34B02     BIS.B   #0x2, &0x24b
-    332              P6SEL1 &= ~MOTOR1_N_PIN;
+    337              P6SEL1 &= ~MOTOR2_P_PIN;
    \   000018   E2C34D02     BIC.B   #0x2, &0x24d
-    333              P6DIR |= MOTOR1_N_PIN;
+    338              P6DIR |= MOTOR2_P_PIN;
    \   00001C   E2D34502     BIS.B   #0x2, &0x245
-    334              
-    335              P6SEL0 |= MOTOR2_P_PIN;
-   \   000020   E2D24B02     BIS.B   #0x4, &0x24b
-    336              P6SEL1 &= ~MOTOR2_P_PIN;
-   \   000024   E2C24D02     BIC.B   #0x4, &0x24d
-    337              P6DIR |= MOTOR2_P_PIN;
-   \   000028   E2D24502     BIS.B   #0x4, &0x245
-    338              
-    339              P6SEL0 |= MOTOR2_N_PIN;
-   \   00002C   F2D24B02     BIS.B   #0x8, &0x24b
-    340              P6SEL1 &= ~MOTOR2_N_PIN;
+    339              
+    340              P6SEL0 &= ~P6_3;
+   \   000020   F2C24B02     BIC.B   #0x8, &0x24b
+    341              P6SEL1 &= ~P6_3;
+   \   000024   F2C24D02     BIC.B   #0x8, &0x24d
+    342              P6DIR &= ~P6_3;
+   \   000028   F2C24502     BIC.B   #0x8, &0x245
+    343              
+    344              P6SEL0 &= ~P6_3;
+   \   00002C   F2C24B02     BIC.B   #0x8, &0x24b
+    345              P6SEL1 &= ~P6_3;
    \   000030   F2C24D02     BIC.B   #0x8, &0x24d
-    341              P6DIR |= MOTOR2_N_PIN;
-   \   000034   F2D24502     BIS.B   #0x8, &0x245
-    342              
-    343              P6SEL0 &= ~P6_4;
+    346              P6DIR &= ~P6_3;
+   \   000034   F2C24502     BIC.B   #0x8, &0x245
+    347              
+    348              P6SEL0 &= ~P6_4;
    \   000038   F2C010004B02 BIC.B   #0x10, &0x24b
-    344              P6SEL1 &= ~P6_4;
+    349              P6SEL1 &= ~P6_4;
    \   00003E   F2C010004D02 BIC.B   #0x10, &0x24d
-    345              P6DIR &= ~P6_4;
+    350              P6DIR &= ~P6_4;
    \   000044   F2C010004502 BIC.B   #0x10, &0x245
-    346          
-    347              P6SEL0 &= ~P6_5;
+    351          
+    352              P6SEL0 &= ~P6_5;
    \   00004A   F2C020004B02 BIC.B   #0x20, &0x24b
-    348              P6SEL1 &= ~P6_5;
+    353              P6SEL1 &= ~P6_5;
    \   000050   F2C020004D02 BIC.B   #0x20, &0x24d
-    349              P6DIR &= ~P6_5;
+    354              P6DIR &= ~P6_5;
    \   000056   F2C020004502 BIC.B   #0x20, &0x245
-    350          
-    351              P6SEL0 &= ~GRN_LED;
+    355          
+    356              P6SEL0 &= ~GRN_LED;
    \   00005C   F2C040004B02 BIC.B   #0x40, &0x24b
-    352              P6SEL1 &= ~GRN_LED;
+    357              P6SEL1 &= ~GRN_LED;
    \   000062   F2C040004D02 BIC.B   #0x40, &0x24d
-    353              P6DIR |= GRN_LED;
+    358              P6DIR |= GRN_LED;
    \   000068   F2D040004502 BIS.B   #0x40, &0x245
-    354              P6OUT &= ~GRN_LED;
+    359              P6OUT &= ~GRN_LED;
    \   00006E   F2C040004302 BIC.B   #0x40, &0x243
-    355          }
+    360          }
    \   000074   1001         RETA
    \   000076                REQUIRE _A_PCOUT_L
    \   000076                REQUIRE _A_PCDIR_L
@@ -766,9 +774,9 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\port
    -----  --------------
      134  Init_Port1
      138  Init_Port2
-     216  Init_Port3
+     186  Init_Port3
      130  Init_Port4
-      76  Init_Port5
+     118  Init_Port5
      118  Init_Port6
       28  Init_Ports
        2  _A_PADIR_L
@@ -794,10 +802,10 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\port
        2  _A_PCSEL1_L
 
  
- 840 bytes in segment CODE
+ 852 bytes in segment CODE
   42 bytes in segment DATA16_AN
  
- 840 bytes of CODE memory
+ 852 bytes of CODE memory
    0 bytes of DATA memory (+ 42 bytes shared)
 
 Errors: none

@@ -9,6 +9,7 @@ switches.pbi: \
   C:\Users\Ibrahim\ Moghul\OneDrive\Documents\Programming\LaserController\Code/ports.h \
   C:\Users\Ibrahim\ Moghul\OneDrive\Documents\Programming\LaserController\Code/macros.h \
   C:\Users\Ibrahim\ Moghul\OneDrive\Documents\Programming\LaserController\Code/timers.h \
+  C:\Users\Ibrahim\ Moghul\OneDrive\Documents\Programming\LaserController\Code/motor.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.5\430\inc\dlib\c\string.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.5\430\inc\dlib\c\ycheck.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.5\430\inc\dlib\c\yvals.h \

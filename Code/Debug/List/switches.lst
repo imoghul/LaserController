@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:14:20
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          24/Oct/2022  10:41:02
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\switches.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW6A72.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EWA5BB.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\switches.c"
 #        -lC "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -88,12 +88,13 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\swit
       3          #include "ports.h"
       4          #include "macros.h"
       5          #include "timers.h"
-      6          #include <string.h>
-      7          
+      6          #include "motor.h"
+      7          #include <string.h>
+      8          
 
    \                                 In  segment DATA16_Z, align 2, align-sorted
    \   000000                REQUIRE ?cstart_init_zero
-      8          volatile unsigned int sw1Okay, sw2Okay;
+      9          volatile unsigned int sw1Okay, sw2Okay;
    \                     sw1Okay:
    \   000000                DS8 2
 
@@ -104,7 +105,7 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\swit
 
    \                                 In  segment DATA16_Z, align 2, align-sorted
    \   000000                REQUIRE ?cstart_init_zero
-      9          volatile unsigned int count_debounce_SW1, count_debounce_SW2;
+     10          volatile unsigned int count_debounce_SW1, count_debounce_SW2;
    \                     count_debounce_SW1:
    \   000000                DS8 2
 
@@ -115,7 +116,7 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\swit
 
    \                                 In  segment DATA16_Z, align 2, align-sorted
    \   000000                REQUIRE ?cstart_init_zero
-     10          volatile unsigned int sw1_pos, sw2_pos;
+     11          volatile unsigned int sw1_pos, sw2_pos;
    \                     sw1_pos:
    \   000000                DS8 2
 
@@ -123,66 +124,61 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\swit
    \   000000                REQUIRE ?cstart_init_zero
    \                     sw2_pos:
    \   000000                DS8 2
-     11          extern volatile unsigned int debounce_count1, debounce_count2;
-     12          extern volatile unsigned int debouncing1, debouncing2;
-     13          
-     14          //===========================================================================
-     15          // Function name: switchP4_interrupt
-     16          //
-     17          // Description: This is the switch 1 interrupt, turns off LCD_BACKLITE and its
-     18          // blinking timer
-     19          //
-     20          // Passed : no variables passed
-     21          // Locals: no variables declared
-     22          // Returned: no values returned
-     23          // Globals: no global values
-     24          //
-     25          // Author: Ibrahim Moghul
-     26          // Date: Feb 2022
-     27          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-     28          //===========================================================================
-     29          
-     30          #pragma vector=PORT4_VECTOR
+     12          extern volatile unsigned int debounce_count1, debounce_count2;
+     13          extern volatile unsigned int debouncing1, debouncing2;
+     14          extern volatile unsigned char pulseTrainSent;
+     15          //===========================================================================
+     16          // Function name: switchP4_interrupt
+     17          //
+     18          // Description: This is the switch 1 interrupt, turns off LCD_BACKLITE and its
+     19          // blinking timer
+     20          //
+     21          // Passed : no variables passed
+     22          // Locals: no variables declared
+     23          // Returned: no values returned
+     24          // Globals: no global values
+     25          //
+     26          // Author: Ibrahim Moghul
+     27          // Date: Feb 2022
+     28          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+     29          //===========================================================================
+     30          
+     31          #pragma vector=PORT4_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-     31          __interrupt void switchP4_interrupt(void) {
+     32          __interrupt void switchP4_interrupt(void) {
    \                     switchP4_interrupt:
-   \   000000   3F15         PUSHM.W #0x4, R15
-     32              if(P4IFG & SW1 && debouncing1 == FALSE) {
+   \   000000   0F12         PUSH.W  R15
+     33              if(P4IFG & SW1 && debouncing1 == FALSE) {
    \   000002   E2B33D02     BIT.B   #0x2, &0x23d
-   \   000006   1828         JNC     ??switchP4_interrupt_0
+   \   000006   1428         JNC     ??switchP4_interrupt_0
    \   000008   8293....     CMP.W   #0x0, &debouncing1
-   \   00000C   1520         JNE     ??switchP4_interrupt_0
-     33                  P4IE &= ~SW1;
+   \   00000C   1120         JNE     ??switchP4_interrupt_0
+     34                  P4IE &= ~SW1;
    \   00000E   E2C33B02     BIC.B   #0x2, &0x23b
-     34                  P4IFG &= ~SW1;
+     35                  P4IFG &= ~SW1;
    \   000012   E2C33D02     BIC.B   #0x2, &0x23d
-     35                  TB0CCTL1 &= ~CCIFG;
+     36                  TB0CCTL1 &= ~CCIFG;
    \   000016   92C38403     BIC.W   #0x1, &0x384
-     36                  TB0CCR1 = TB0R + TB0CCR1_INTERVAL;
+     37                  TB0CCR1 = TB0R + TB0CCR1_INTERVAL;
    \   00001A   1F429003     MOV.W   &0x390, R15
    \   00001E   3F5050C3     ADD.W   #0xc350, R15
    \   000022   824F9403     MOV.W   R15, &0x394
-     37                  TB0CCTL1 |= CCIE;
+     38                  TB0CCTL1 |= CCIE;
    \   000026   B2D010008403 BIS.W   #0x10, &0x384
-     38                  debouncing1 = TRUE;
+     39                  debouncing1 = TRUE;
    \   00002C   9243....     MOV.W   #0x1, &debouncing1
-     39                  
-     40                  sendPulseTrain(200);
-                         ^
-Warning[Pe223]: function "sendPulseTrain" declared implicitly
-   \   000030   3C40C800     MOV.W   #0xc8, R12
-   \   000034   ........     CALLA   #sendPulseTrain
+     40                  
      41              }
      42          }
    \                     ??switchP4_interrupt_0:
-   \   000038   3C17         POPM.W  #0x4, R15
-   \   00003A   0013         RETI
-   \   00003C                REQUIRE _A_PBIFG_L
-   \   00003C                REQUIRE _A_PBIE_L
-   \   00003C                REQUIRE _A_TB0CCTL1_L
-   \   00003C                REQUIRE _A_TB0CCR1_L
-   \   00003C                REQUIRE _A_TB0R_L
+   \   000030   3F41         POP.W   R15
+   \   000032   0013         RETI
+   \   000034                REQUIRE _A_PBIFG_L
+   \   000034                REQUIRE _A_PBIE_L
+   \   000034                REQUIRE _A_TB0CCTL1_L
+   \   000034                REQUIRE _A_TB0CCR1_L
+   \   000034                REQUIRE _A_TB0R_L
      43          
      44          //===========================================================================
      45          // Function name: switchP4_interrupt
@@ -224,8 +220,9 @@ Warning[Pe223]: function "sendPulseTrain" declared implicitly
    \   000026   B2D010008603 BIS.W   #0x10, &0x386
      67                  debouncing2 = TRUE;
    \   00002C   9243....     MOV.W   #0x1, &debouncing2
-     68              }
-     69          }
+     68                  
+     69              }
+     70          }
    \                     ??switchP2_interrupt_0:
    \   000030   3F41         POP.W   R15
    \   000032   0013         RETI
@@ -242,15 +239,14 @@ Warning[Pe223]: function "sendPulseTrain" declared implicitly
    \                                 In  segment INTVEC, offset 0x30, root
    \                     `??switchP2_interrupt::??INTVEC 48`:
    \   000030   ....         DC16    switchP2_interrupt
-     70          
+     71          
 
    Maximum stack usage in bytes:
 
    CSTACK Function
    ------ --------
       6   switchP2_interrupt
-     12   switchP4_interrupt
-       12   -> sendPulseTrain
+      6   switchP4_interrupt
 
 
    Segment part sizes:
@@ -274,18 +270,18 @@ Warning[Pe223]: function "sendPulseTrain" declared implicitly
        2  sw2_pos
       52  switchP2_interrupt
        2  switchP2_interrupt::??INTVEC 48
-      60  switchP4_interrupt
+      52  switchP4_interrupt
        2  switchP4_interrupt::??INTVEC 44
 
  
   18 bytes in segment DATA16_AN
   12 bytes in segment DATA16_Z
    4 bytes in segment INTVEC
- 112 bytes in segment ISR_CODE
+ 104 bytes in segment ISR_CODE
  
- 112 bytes of CODE  memory
+ 104 bytes of CODE  memory
    0 bytes of CONST memory (+  4 bytes shared)
   12 bytes of DATA  memory (+ 18 bytes shared)
 
 Errors: none
-Warnings: 1
+Warnings: none

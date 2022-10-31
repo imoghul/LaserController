@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:13:22
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          31/Oct/2022  08:42:40
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\motor.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW87D0.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW4D19.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\motor.c"
 #        -lC "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -41,9 +41,19 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
       1          #include "motor.h"
       2          #include "msp430.h"
 
+   \                                 In  segment DATA16_AN, at 0x202
+   \   union <unnamed> _A_PAOUT_L
+   \                     _A_PAOUT_L:
+   \   000000                DS8 2
+
    \                                 In  segment DATA16_AN, at 0x23c
    \   union <unnamed> _A_PBIFG_L
    \                     _A_PBIFG_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x242
+   \   union <unnamed> _A_PCOUT_L
+   \                     _A_PCOUT_L:
    \   000000                DS8 2
 
    \                                 In  segment DATA16_AN, at 0x454
@@ -54,16 +64,6 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
    \                                 In  segment DATA16_AN, at 0x456
    \   union <unnamed> _A_TB3CCR2_L
    \                     _A_TB3CCR2_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x458
-   \   union <unnamed> _A_TB3CCR3_L
-   \                     _A_TB3CCR3_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x45a
-   \   union <unnamed> _A_TB3CCR4_L
-   \                     _A_TB3CCR4_L:
    \   000000                DS8 2
       3          #include "timers.h"
       4          #include "ports.h"
@@ -77,8 +77,8 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
 
    \                                 In  segment DATA16_Z, align 1, align-sorted
    \   000000                REQUIRE ?cstart_init_zero
-      7          volatile unsigned char pulseTrainSent;
-   \                     pulseTrainSent:
+      7          volatile unsigned char pulseTrainsSent;
+   \                     pulseTrainsSent:
    \   000000                DS8 1
 
    \                                 In  segment DATA16_Z, align 2, align-sorted
@@ -86,90 +86,168 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
       8          volatile unsigned int pulsesToSend;
    \                     pulsesToSend:
    \   000000                DS8 2
-      9          
+
+   \                                 In  segment DATA16_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+      9          volatile unsigned int trainsToSend, trainsDir;
+   \                     trainsToSend:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+   \                     trainsDir:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero
+     10          volatile unsigned int trainsSent;
+   \                     trainsSent:
+   \   000000                DS8 2
+     11          
 
    \                                 In  segment CODE, align 2
-     10          void sendPulseTrain(int pulses){
-   \                     sendPulseTrain:
-     11            pulseTrainSent = 0;
-   \   000000   C243....     MOV.B   #0x0, &pulseTrainSent
-     12            pulsesToSend = pulses;
-   \   000004   824C....     MOV.W   R12, &pulsesToSend
-     13            MOTOR1_P = PULSE_PERIOD>>1;
-   \   000008   B240204E5404 MOV.W   #0x4e20, &0x454
-     14          }
-   \   00000E   1001         RETA
-   \   000010                REQUIRE _A_TB3CCR1_L
-     15          
+     12          int sendTrains(){
+   \                     sendTrains:
+     13            if(pulseTrainsSent && trainsToSend){
+   \   000000   C293....     CMP.B   #0x0, &pulseTrainsSent
+   \   000004   1824         JEQ     ??sendTrains_0
+   \   000006   8293....     CMP.W   #0x0, &trainsToSend
+   \   00000A   1524         JEQ     ??sendTrains_0
+     14                sendPulseTrains(1, 1);
+   \   00000C   1D43         MOV.W   #0x1, R13
+   \   00000E   1C43         MOV.W   #0x1, R12
+   \   000010   ........     CALLA   #sendPulseTrains
+     15                if(trainsSent++ >= trainsToSend){
+                       ^
+Warning[Pa082]: undefined behavior: the order of volatile accesses is undefined
+          in this statement
+   \   000014   1F42....     MOV.W   &trainsSent, R15
+   \   000018   0E4F         MOV.W   R15, R14
+   \   00001A   1E53         ADD.W   #0x1, R14
+   \   00001C   824E....     MOV.W   R14, &trainsSent
+   \   000020   1F92....     CMP.W   &trainsToSend, R15
+   \   000024   0628         JNC     ??sendTrains_1
+     16                  trainsSent = 0;
+   \   000026   8243....     MOV.W   #0x0, &trainsSent
+     17                  trainsToSend = 0;
+   \   00002A   8243....     MOV.W   #0x0, &trainsToSend
+     18                  pulseTrainsSent = 0;
+   \   00002E   C243....     MOV.B   #0x0, &pulseTrainsSent
+     19                }
+     20                return 1;
+   \                     ??sendTrains_1:
+   \   000032   1C43         MOV.W   #0x1, R12
+   \   000034   1001         RETA
+     21            }
+     22            return 0;
+   \                     ??sendTrains_0:
+   \   000036   0C43         MOV.W   #0x0, R12
+   \   000038   1001         RETA
+     23          }
+     24          
 
    \                                 In  segment CODE, align 2
-     16          void setMotor2(int dir){
+     25          void sendPulseTrains(int revs, int dir){
+   \                     sendPulseTrains:
+   \   000000   0F4C         MOV.W   R12, R15
+     26            pulseTrainsSent = 0;
+   \   000002   C243....     MOV.B   #0x0, &pulseTrainsSent
+     27            pulsesToSend = 200*revs;
+   \   000006   0E4F         MOV.W   R15, R14
+   \   000008   5E0A         RLAM.W  #0x3, R14
+   \   00000A   0C4E         MOV.W   R14, R12
+   \   00000C   5E0A         RLAM.W  #0x3, R14
+   \   00000E   0C5E         ADD.W   R14, R12
+   \   000010   0E5E         RLA.W   R14
+   \   000012   0E5C         ADD.W   R12, R14
+   \   000014   824E....     MOV.W   R14, &pulsesToSend
+     28            setMotor1(dir);
+   \   000018   0C4D         MOV.W   R13, R12
+   \   00001A   ........     CALLA   #setMotor1
+     29          }
+   \   00001E   1001         RETA
+     30          
+
+   \                                 In  segment CODE, align 2
+     31          void setMotor2(int dir){
    \                     setMotor2:
-     17            if(dir){
+     32            if(dir){
    \   000000   0C93         CMP.W   #0x0, R12
-   \   000002   0624         JEQ     ??setMotor2_0
-     18              MOTOR2_N = 0;
-   \   000004   82435A04     MOV.W   #0x0, &0x45a
-     19              MOTOR2_P = PULSE_PERIOD>>1;
-   \   000008   B240204E5804 MOV.W   #0x4e20, &0x458
-   \   00000E   1001         RETA
-     20            }
-     21            else {
-     22              MOTOR2_P= 0 ;
+   \   000002   0424         JEQ     ??setMotor2_1
+     33              DIR2_P_ON;
+   \   000004   F2D010004202 BIS.B   #0x10, &0x242
+   \   00000A   033C         JMP     ??setMotor2_0
+     34            }
+     35            else {
+     36              DIR2_P_OFF;
+   \                     ??setMotor2_1:
+   \   00000C   F2C010004202 BIC.B   #0x10, &0x242
+     37            }
+     38            MOTOR2_P = PULSE_PERIOD>>1;
    \                     ??setMotor2_0:
-   \   000010   82435804     MOV.W   #0x0, &0x458
-     23              MOTOR2_N = PULSE_PERIOD>>1;
-   \   000014   B240204E5A04 MOV.W   #0x4e20, &0x45a
-     24            }
-     25          }
-   \   00001A   1001         RETA
-   \   00001C                REQUIRE _A_TB3CCR4_L
-   \   00001C                REQUIRE _A_TB3CCR3_L
-     26          
-     27          
-     28          
-     29          #pragma vector=PORT3_VECTOR
+   \   000012   B240D0075604 MOV.W   #0x7d0, &0x456
+     39          }
+   \   000018   1001         RETA
+   \   00001A                REQUIRE _A_PCOUT_L
+   \   00001A                REQUIRE _A_TB3CCR2_L
+     40          
+
+   \                                 In  segment CODE, align 2
+     41          void setMotor1(int dir){
+   \                     setMotor1:
+     42            if(dir){
+   \   000000   0C93         CMP.W   #0x0, R12
+   \   000002   0424         JEQ     ??setMotor1_1
+     43              DIR1_P_ON
+   \   000004   F2D010000202 BIS.B   #0x10, &0x202
+   \   00000A   033C         JMP     ??setMotor1_0
+     44            }
+     45            else {
+     46              DIR1_P_OFF
+   \                     ??setMotor1_1:
+   \   00000C   F2C010000202 BIC.B   #0x10, &0x202
+     47            }
+     48            MOTOR1_P = PULSE_PERIOD>>1;
+   \                     ??setMotor1_0:
+   \   000012   B240D0075404 MOV.W   #0x7d0, &0x454
+     49          }
+   \   000018   1001         RETA
+   \   00001A                REQUIRE _A_PAOUT_L
+   \   00001A                REQUIRE _A_TB3CCR1_L
+     50          
+     51          
+     52          
+     53          #pragma vector=PORT3_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-     30          __interrupt void motor1Count_interrupt(void) {
+     54          __interrupt void motor1Count_interrupt(void) {
    \                     motor1Count_interrupt:
-     31              if(((P3IFG & MOTOR1_P_COUNT) && MOTOR1_P) || ((P3IFG & MOTOR1_N_COUNT)&&MOTOR1_N)) {
+     55              if(((P3IFG & MOTOR1_P_COUNT) && MOTOR1_P)) {
    \   000000   F2B040003C02 BIT.B   #0x40, &0x23c
-   \   000006   0328         JNC     ??motor1Count_interrupt_0
+   \   000006   1128         JNC     ??motor1Count_interrupt_0
    \   000008   82935404     CMP.W   #0x0, &0x454
-   \   00000C   0620         JNE     ??motor1Count_interrupt_1
+   \   00000C   0E24         JEQ     ??motor1Count_interrupt_0
+     56                      if(++pulseCount>=pulsesToSend){
+   \   00000E   9253....     ADD.W   #0x1, &pulseCount
+   \   000012   9292........ CMP.W   &pulsesToSend, &pulseCount
+   \   000018   0828         JNC     ??motor1Count_interrupt_0
+     57                        MOTOR1_P = 0;
+   \   00001A   82435404     MOV.W   #0x0, &0x454
+     58                        pulseTrainsSent=1;
+   \   00001E   D243....     MOV.B   #0x1, &pulseTrainsSent
+     59                        pulseCount = 0;
+   \   000022   8243....     MOV.W   #0x0, &pulseCount
+     60                        pulsesToSend = 0;
+   \   000026   8243....     MOV.W   #0x0, &pulsesToSend
+     61                      }
+     62              }
+     63              P3IFG &= ~MOTOR1_P_COUNT;
    \                     ??motor1Count_interrupt_0:
-   \   00000E   C2933C02     CMP.B   #0x0, &0x23c
-   \   000012   1334         JGE     ??motor1Count_interrupt_2
-   \   000014   82935604     CMP.W   #0x0, &0x456
-   \   000018   1024         JEQ     ??motor1Count_interrupt_2
-     32                      if(++pulseCount>=pulsesToSend){
-   \                     ??motor1Count_interrupt_1:
-   \   00001A   9253....     ADD.W   #0x1, &pulseCount
-   \   00001E   9292........ CMP.W   &pulsesToSend, &pulseCount
-   \   000024   0A28         JNC     ??motor1Count_interrupt_2
-     33                        MOTOR1_P = 0;
-   \   000026   82435404     MOV.W   #0x0, &0x454
-     34                        MOTOR1_N = 0;
-   \   00002A   82435604     MOV.W   #0x0, &0x456
-     35                        pulseTrainSent = 1;
-   \   00002E   D243....     MOV.B   #0x1, &pulseTrainSent
-     36                        pulseCount = 0;
-   \   000032   8243....     MOV.W   #0x0, &pulseCount
-     37                        pulsesToSend = 0;
-   \   000036   8243....     MOV.W   #0x0, &pulsesToSend
-     38                      }
-     39              }
-     40              P3IFG &= ~MOTOR1_P_COUNT;
-   \                     ??motor1Count_interrupt_2:
-   \   00003A   F2C040003C02 BIC.B   #0x40, &0x23c
-     41              P3IFG &= ~MOTOR1_N_COUNT;
-   \   000040   F2C080003C02 BIC.B   #0x80, &0x23c
-     42          }
-   \   000046   0013         RETI
-   \   000048                REQUIRE _A_PBIFG_L
-   \   000048                REQUIRE _A_TB3CCR1_L
-   \   000048                REQUIRE _A_TB3CCR2_L
+   \   00002A   F2C040003C02 BIC.B   #0x40, &0x23c
+     64          }
+   \   000030   0013         RETI
+   \   000032                REQUIRE _A_PBIFG_L
+   \   000032                REQUIRE _A_TB3CCR1_L
 
    \                                 In  segment INTVEC, offset 0x2e, root
    \                     `??motor1Count_interrupt::??INTVEC 46`:
@@ -180,7 +258,11 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
    CSTACK Function
    ------ --------
       4   motor1Count_interrupt
-      4   sendPulseTrain
+      4   sendPulseTrains
+        4   -> setMotor1
+      4   sendTrains
+        4   -> sendPulseTrains
+      4   setMotor1
       4   setMotor2
 
 
@@ -188,29 +270,34 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\moto
 
    Bytes  Function/Label
    -----  --------------
+       2  _A_PAOUT_L
        2  _A_PBIFG_L
+       2  _A_PCOUT_L
        2  _A_TB3CCR1_L
        2  _A_TB3CCR2_L
-       2  _A_TB3CCR3_L
-       2  _A_TB3CCR4_L
-      72  motor1Count_interrupt
+      50  motor1Count_interrupt
        2  motor1Count_interrupt::??INTVEC 46
        2  pulseCount
-       1  pulseTrainSent
+       1  pulseTrainsSent
        2  pulsesToSend
-      16  sendPulseTrain
-      28  setMotor2
+      32  sendPulseTrains
+      58  sendTrains
+      26  setMotor1
+      26  setMotor2
+       2  trainsDir
+       2  trainsSent
+       2  trainsToSend
 
  
- 44 bytes in segment CODE
- 10 bytes in segment DATA16_AN
-  5 bytes in segment DATA16_Z
-  2 bytes in segment INTVEC
- 72 bytes in segment ISR_CODE
+ 142 bytes in segment CODE
+  10 bytes in segment DATA16_AN
+  11 bytes in segment DATA16_Z
+   2 bytes in segment INTVEC
+  50 bytes in segment ISR_CODE
  
- 116 bytes of CODE  memory
+ 192 bytes of CODE  memory
    0 bytes of CONST memory (+  2 bytes shared)
-   5 bytes of DATA  memory (+ 10 bytes shared)
+  11 bytes of DATA  memory (+ 10 bytes shared)
 
 Errors: none
-Warnings: none
+Warnings: 1

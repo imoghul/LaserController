@@ -60,25 +60,25 @@ void Init_Port1() {
     //P1SEL1 |= A1_SEEED;
     P1SELC |= A1_SEEED;
     
-    P1SEL0 &= ~MOTOR_ENABLE_P;
-    P1SEL1 &= ~MOTOR_ENABLE_P;
-    P1DIR |= MOTOR_ENABLE_P;
-    P1OUT &= ~MOTOR_ENABLE_P;
+    P1SEL0 &= ~MOTOR1_ENABLE_P;
+    P1SEL1 &= ~MOTOR1_ENABLE_P;
+    P1DIR |= MOTOR1_ENABLE_P;
+    P1OUT &= ~MOTOR1_ENABLE_P;
     
-    P1SEL0 &= ~MOTOR_ENABLE_N;
-    P1SEL1 &= ~MOTOR_ENABLE_N;
-    P1DIR |= MOTOR_ENABLE_N;
-    P1OUT &= ~MOTOR_ENABLE_N;
+    P1SEL0 &= ~MOTOR1_ENABLE_N;
+    P1SEL1 &= ~MOTOR1_ENABLE_N;
+    P1DIR |= MOTOR1_ENABLE_N;
+    P1OUT &= ~MOTOR1_ENABLE_N;
     
-    P1SEL0 &= ~MOTOR_DIR_P;
-    P1SEL1 &= ~MOTOR_DIR_P;
-    P1DIR |= MOTOR_DIR_P;
-    P1OUT &= ~MOTOR_DIR_P;
+    P1SEL0 &= ~MOTOR1_DIR_P;
+    P1SEL1 &= ~MOTOR1_DIR_P;
+    P1DIR |= MOTOR1_DIR_P;
+    P1OUT |= MOTOR1_DIR_P;
 
-    P1SEL0 &= ~MOTOR_DIR_N;
-    P1SEL1 &= ~MOTOR_DIR_N;
-    P1DIR |= MOTOR_DIR_N;
-    P1OUT &= ~MOTOR_DIR_N;
+    P1SEL0 &= ~MOTOR1_DIR_N;
+    P1SEL1 &= ~MOTOR1_DIR_N;
+    P1DIR |= MOTOR1_DIR_N;
+    P1OUT &= ~MOTOR1_DIR_N;
 
     P1SEL1 &= ~UCA0RXD;
     P1SEL0 |= UCA0RXD;
@@ -204,14 +204,9 @@ void Init_Port3(char smclk) {
     P3IFG &= ~MOTOR1_P_COUNT;
     P3IE |= MOTOR1_P_COUNT;
     
-    P3SEL0 &= ~MOTOR1_N_COUNT;
-    P3SEL1 &= ~MOTOR1_N_COUNT;
-    P3OUT |= MOTOR1_N_COUNT;
-    P3DIR &= ~MOTOR1_N_COUNT;
-    P3REN |= MOTOR1_N_COUNT;
-    P3IES |= MOTOR1_N_COUNT;
-    P3IFG &= ~MOTOR1_N_COUNT;
-    P3IE |= MOTOR1_N_COUNT;
+    P3SEL0 &= ~P3_7;
+    P3SEL1 &= ~P3_7;
+    P3DIR &= ~P3_7;
 }
 
 //===========================================================================
@@ -285,25 +280,35 @@ void Init_Port5() {
     P5OUT = 0x00;
     P5DIR = 0x00;
 
-    P5SEL0 &= ~P5_0;
-    P5SEL1 &= ~P5_0;
-    P5DIR &= ~P5_0;
-
-    P5SEL0 &= ~P5_1;
-    P5SEL1 &= ~P5_1;
-    P5DIR &= ~P5_1;
+    P5SEL0 &= ~MOTOR2_ENABLE_P;
+    P5SEL1 &= ~MOTOR2_ENABLE_P;
+    P5DIR |= MOTOR2_ENABLE_P;
+    P5OUT &= ~MOTOR2_ENABLE_P;
+    
+    P5SEL0 &= ~MOTOR2_ENABLE_N;
+    P5SEL1 &= ~MOTOR2_ENABLE_N;
+    P5DIR |= MOTOR2_ENABLE_N;
+    P5OUT &= ~MOTOR2_ENABLE_N;
     
     P5SEL0 &= ~P5_2;
     P5SEL1 &= ~P5_2;
     P5DIR &= ~P5_2;
     
-    P5SEL0 &= ~P5_3;
-    P5SEL1 &= ~P5_3;
-    P5DIR &= ~P5_3;
+    P5SEL0 &= ~MOTOR2_DIR_P;
+    P5SEL1 &= ~MOTOR2_DIR_P;
+    P5DIR |= MOTOR2_DIR_P;
+    P5OUT |= MOTOR2_DIR_P;
+    
+    P5SEL0 &= ~MOTOR2_DIR_N;
+    P5SEL1 &= ~MOTOR2_DIR_N;
+    P5DIR |= MOTOR2_DIR_N;
+    P5OUT &= ~MOTOR2_DIR_N;
 
-    P5SEL0 &= ~P5_4;
-    P5SEL1 &= ~P5_4;
-    P5DIR &= ~P5_4;
+    P5SEL0 &= ~MOTOR2_DIR_P;
+    P5SEL1 &= ~MOTOR2_DIR_P;
+    P5DIR |= MOTOR2_DIR_P;
+    P5OUT |= MOTOR2_DIR_P;
+    
 }
 
 //===========================================================================
@@ -328,17 +333,17 @@ void Init_Port6() {
     P6SEL1 &= ~MOTOR1_P_PIN;
     P6DIR |= MOTOR1_P_PIN;
     
-    P6SEL0 |= MOTOR1_N_PIN;
-    P6SEL1 &= ~MOTOR1_N_PIN;
-    P6DIR |= MOTOR1_N_PIN;
-    
     P6SEL0 |= MOTOR2_P_PIN;
     P6SEL1 &= ~MOTOR2_P_PIN;
     P6DIR |= MOTOR2_P_PIN;
     
-    P6SEL0 |= MOTOR2_N_PIN;
-    P6SEL1 &= ~MOTOR2_N_PIN;
-    P6DIR |= MOTOR2_N_PIN;
+    P6SEL0 &= ~P6_3;
+    P6SEL1 &= ~P6_3;
+    P6DIR &= ~P6_3;
+    
+    P6SEL0 &= ~P6_3;
+    P6SEL1 &= ~P6_3;
+    P6DIR &= ~P6_3;
     
     P6SEL0 &= ~P6_4;
     P6SEL1 &= ~P6_4;

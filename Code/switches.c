@@ -3,6 +3,7 @@
 #include "ports.h"
 #include "macros.h"
 #include "timers.h"
+#include "motor.h"
 #include <string.h>
 
 volatile unsigned int sw1Okay, sw2Okay;
@@ -10,7 +11,7 @@ volatile unsigned int count_debounce_SW1, count_debounce_SW2;
 volatile unsigned int sw1_pos, sw2_pos;
 extern volatile unsigned int debounce_count1, debounce_count2;
 extern volatile unsigned int debouncing1, debouncing2;
-
+extern volatile unsigned char pulseTrainSent;
 //===========================================================================
 // Function name: switchP4_interrupt
 //
@@ -37,7 +38,6 @@ __interrupt void switchP4_interrupt(void) {
         TB0CCTL1 |= CCIE;
         debouncing1 = TRUE;
         
-        sendPulseTrain(200);
     }
 }
 
@@ -65,6 +65,7 @@ __interrupt void switchP2_interrupt(void) {
         TB0CCR2 = TB0R + TB0CCR2_INTERVAL;
         TB0CCTL2 |= CCIE;
         debouncing2 = TRUE;
+        
     }
 }
 

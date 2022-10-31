@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:13:22
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          31/Oct/2022  08:40:43
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\main.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW87CF.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW867C.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\main.c" -lC
 #        "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -43,26 +43,6 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\main
    \                                 In  segment DATA16_AN, at 0x130
    \   union <unnamed> _A_PM5CTL0_L
    \                     _A_PM5CTL0_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x454
-   \   union <unnamed> _A_TB3CCR1_L
-   \                     _A_TB3CCR1_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x456
-   \   union <unnamed> _A_TB3CCR2_L
-   \                     _A_TB3CCR2_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x458
-   \   union <unnamed> _A_TB3CCR3_L
-   \                     _A_TB3CCR3_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x45a
-   \   union <unnamed> _A_TB3CCR4_L
-   \                     _A_TB3CCR4_L:
    \   000000                DS8 2
       2          #include "functions.h"
       3          #include "motor.h"
@@ -95,58 +75,36 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\main
    \   000014   ........     CALLA   #Init_Timers
      22              
      23              
-     24          //    sendPulseTrain();
-     25          //    while(!pulseTrainSent);
-     26          //    pulseTrainSent = 1;
-     27              
-     28              while(1){
-     29                if(MOTOR1_P>0 && MOTOR1_N>0)
+     24              while(1){
+     25                SerialProcess();
    \                     ??main_0:
-   \   000018   82935404     CMP.W   #0x0, &0x454
-   \   00001C   0824         JEQ     ??main_1
-   \   00001E   82935604     CMP.W   #0x0, &0x456
-   \   000022   0524         JEQ     ??main_1
-     30                  MOTOR1_P=MOTOR1_N=0;
-   \   000024   0F43         MOV.W   #0x0, R15
-   \   000026   824F5604     MOV.W   R15, &0x456
-   \   00002A   824F5404     MOV.W   R15, &0x454
-     31                if(MOTOR2_P>0 && MOTOR2_N>0)
-   \                     ??main_1:
-   \   00002E   82935804     CMP.W   #0x0, &0x458
-   \   000032   0824         JEQ     ??main_2
-   \   000034   82935A04     CMP.W   #0x0, &0x45a
-   \   000038   0524         JEQ     ??main_2
-     32                  MOTOR2_P=MOTOR2_N=0;
-   \   00003A   0F43         MOV.W   #0x0, R15
-   \   00003C   824F5A04     MOV.W   R15, &0x45a
-   \   000040   824F5804     MOV.W   R15, &0x458
-     33                SerialProcess();
-   \                     ??main_2:
-   \   000044   ........     CALLA   #SerialProcess
-   \   000048   E73F         JMP     ??main_0
-   \   00004A   0343         NOP
-   \   00004C                REQUIRE _A_PM5CTL0_L
-   \   00004C                REQUIRE _A_TB3CCR1_L
-   \   00004C                REQUIRE _A_TB3CCR2_L
-   \   00004C                REQUIRE _A_TB3CCR3_L
-   \   00004C                REQUIRE _A_TB3CCR4_L
-     34              }
-     35              return 0;
+   \   000018   ........     CALLA   #SerialProcess
+     26                HandleCommands();
+   \   00001C   ........     CALLA   #HandleCommands
+     27                sendTrains();
+   \   000020   ........     CALLA   #sendTrains
+   \   000024   F93F         JMP     ??main_0
+   \   000026   0343         NOP
+   \   000028                REQUIRE _A_PM5CTL0_L
+     28              }
+     29              return 0;
                      ^
 Warning[Pe111]: statement is unreachable
-     36          }
+     30          }
 
    Maximum stack usage in bytes:
 
    CSTACK Function
    ------ --------
       4   main
+        4   -> HandleCommands
         4   -> Init_Clocks
         4   -> Init_Ports
         4   -> Init_Serial_UCA
         4   -> Init_Timers
         4   -> SerialProcess
         4   -> enable_interrupts
+        4   -> sendTrains
 
 
    Segment part sizes:
@@ -154,18 +112,14 @@ Warning[Pe111]: statement is unreachable
    Bytes  Function/Label
    -----  --------------
        2  _A_PM5CTL0_L
-       2  _A_TB3CCR1_L
-       2  _A_TB3CCR2_L
-       2  _A_TB3CCR3_L
-       2  _A_TB3CCR4_L
-      76  main
+      40  main
 
  
- 76 bytes in segment CODE
- 10 bytes in segment DATA16_AN
+ 40 bytes in segment CODE
+  2 bytes in segment DATA16_AN
  
- 76 bytes of CODE memory
-  0 bytes of DATA memory (+ 10 bytes shared)
+ 40 bytes of CODE memory
+  0 bytes of DATA memory (+ 2 bytes shared)
 
 Errors: none
 Warnings: 1

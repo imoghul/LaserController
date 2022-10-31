@@ -10,6 +10,7 @@
 #include "serial.h"
 #include "macros.h"
 #include <string.h>
+#include "motor.h"
 #include "msp430.h"
 
 // global variables
@@ -25,7 +26,8 @@ extern volatile unsigned char display_changed;
 extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
-
+extern volatile unsigned int trainsToSend;
+extern volatile unsigned char pulseTrainsSent;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -204,7 +206,35 @@ void loadRingtoPB_1(void) {
 
 void SerialProcess(void) {
     /*if(!pb0_buffered)*/loadRingtoPB_0();
-
     /*if(!pb1_buffered)*/loadRingtoPB_1();
+}
 
+// Motor 1: 1 revs
+// ex: 1 10
+// Motor 2: 2 dir
+// ex: 2 1
+void HandleCommands(void){
+  if(pb1_buffered){
+    int len = strlen((char*)USB1_Char_Rx_Process) - 2;
+    USB1_Char_Rx_Process[len]=0;
+    USB1_Char_Rx_Process[len+1]=0;
+    if(USB1_Char_Rx_Process[0] == '1'){
+      trainsToSend = stoi((char*)(USB1_Char_Rx_Process+2),len-2);
+      pulseTrainsSent = 1;
+    }
+    else if (USB1_Char_Rx_Process[0] == '2'){
+      setMotor2(USB1_Char_Rx_Process[2]-'0');
+    }
+    clearProcessBuff_1();
+  }
+}
+
+
+int stoi(char* str, int len) {
+    int num = 0;
+
+    for(int i = 0; i < len/* && str[i] >= '0' && str[i] <= '9'*/; ++i)
+        num = num * 10 + (int)(str[i] - '0');
+
+    return num;
 }

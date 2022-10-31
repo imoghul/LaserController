@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          17/Oct/2022  10:13:22
+# IAR C/C++ Compiler V7.21.1.1000/W32 for MSP430          24/Oct/2022  09:33:46
 # Copyright 1996-2021 IAR Systems AB.
 # PC-locked license - IAR Embedded Workbench for MSP430, 8K KickStart Edition 7.21
 #
@@ -16,7 +16,7 @@
 #        C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\timers.c
 #    Command line  =  
-#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EW87D1.tmp ("C:\Users\Ibrahim
+#        -f C:\Users\IBRAHI~1\AppData\Local\Temp\EWF4A.tmp ("C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\timers.c"
 #        -lC "C:\Users\Ibrahim
 #        Moghul\OneDrive\Documents\Programming\LaserController\Code\Debug\List"
@@ -150,16 +150,6 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \                     _A_TB3CCTL2_L:
    \   000000                DS8 2
 
-   \                                 In  segment DATA16_AN, at 0x448
-   \   union <unnamed> _A_TB3CCTL3_L
-   \                     _A_TB3CCTL3_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x44a
-   \   union <unnamed> _A_TB3CCTL4_L
-   \                     _A_TB3CCTL4_L:
-   \   000000                DS8 2
-
    \                                 In  segment DATA16_AN, at 0x452
    \   union <unnamed> _A_TB3CCR0_L
    \                     _A_TB3CCR0_L:
@@ -173,16 +163,6 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \                                 In  segment DATA16_AN, at 0x456
    \   union <unnamed> _A_TB3CCR2_L
    \                     _A_TB3CCR2_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x458
-   \   union <unnamed> _A_TB3CCR3_L
-   \                     _A_TB3CCR3_L:
-   \   000000                DS8 2
-
-   \                                 In  segment DATA16_AN, at 0x45a
-   \   union <unnamed> _A_TB3CCR4_L
-   \                     _A_TB3CCR4_L:
    \   000000                DS8 2
       2          #include "timers.h"
       3          #include "ports.h"
@@ -334,98 +314,88 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \   000006   B2D010004004 BIS.W   #0x10, &0x440
      59              TB3CTL |= TBCLR;
    \   00000C   A2D24004     BIS.W   #0x4, &0x440
-     60              TB3CCR0 = PULSE_PERIOD;
-   \   000010   B240409C5204 MOV.W   #0x9c40, &0x452
-     61          
-     62              TB3CCTL1 = OUTMOD_7;
-   \   000016   B240E0004404 MOV.W   #0xe0, &0x444
-     63              MOTOR1_P = 0;
-   \   00001C   82435404     MOV.W   #0x0, &0x454
-     64          
-     65              TB3CCTL2 = OUTMOD_7;
-   \   000020   B240E0004604 MOV.W   #0xe0, &0x446
-     66              MOTOR1_N = 0;
-   \   000026   82435604     MOV.W   #0x0, &0x456
-     67          
-     68              TB3CCTL3 = OUTMOD_7;
-   \   00002A   B240E0004804 MOV.W   #0xe0, &0x448
-     69              MOTOR2_P = 0;
-   \   000030   82435804     MOV.W   #0x0, &0x458
-     70          
-     71              TB3CCTL4 = OUTMOD_7;
-   \   000034   B240E0004A04 MOV.W   #0xe0, &0x44a
-     72              MOTOR2_N = 0;
-   \   00003A   82435A04     MOV.W   #0x0, &0x45a
-     73          }
-   \   00003E   1001         RETA
-   \   000040                REQUIRE _A_TB3CTL_L
-   \   000040                REQUIRE _A_TB3CCR0_L
-   \   000040                REQUIRE _A_TB3CCTL1_L
-   \   000040                REQUIRE _A_TB3CCR1_L
-   \   000040                REQUIRE _A_TB3CCTL2_L
-   \   000040                REQUIRE _A_TB3CCR2_L
-   \   000040                REQUIRE _A_TB3CCTL3_L
-   \   000040                REQUIRE _A_TB3CCR3_L
-   \   000040                REQUIRE _A_TB3CCTL4_L
-   \   000040                REQUIRE _A_TB3CCR4_L
-     74          
-     75          
-     76          //===========================================================================
-     77          // Function name: Timer0_B0_ISR
-     78          //
-     79          // Description: Increments Time_Sequence and update_display
-     80          //
-     81          // Passed : no variables passed
-     82          // Locals: no variables declared
-     83          // Returned: no values returned
-     84          // Globals: no global values
-     85          //
-     86          // Author: Ibrahim Moghul
-     87          // Date: Feb 2022
-     88          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-     89          //===========================================================================
-     90          #pragma vector = TIMER0_B0_VECTOR
+     60              TB3CTL |= ID__2; // Divide clock by 4
+   \   000010   B2D040004004 BIS.W   #0x40, &0x440
+     61              
+     62              TB3CCR0 = PULSE_PERIOD;
+   \   000016   B240A00F5204 MOV.W   #0xfa0, &0x452
+     63          
+     64              TB3CCTL1 = OUTMOD_7;
+   \   00001C   B240E0004404 MOV.W   #0xe0, &0x444
+     65              MOTOR1_P = 0;
+   \   000022   82435404     MOV.W   #0x0, &0x454
+     66          
+     67              TB3CCTL2 = OUTMOD_7;
+   \   000026   B240E0004604 MOV.W   #0xe0, &0x446
+     68              MOTOR2_P = 0;
+   \   00002C   82435604     MOV.W   #0x0, &0x456
+     69          
+     70          }
+   \   000030   1001         RETA
+   \   000032                REQUIRE _A_TB3CTL_L
+   \   000032                REQUIRE _A_TB3CCR0_L
+   \   000032                REQUIRE _A_TB3CCTL1_L
+   \   000032                REQUIRE _A_TB3CCR1_L
+   \   000032                REQUIRE _A_TB3CCTL2_L
+   \   000032                REQUIRE _A_TB3CCR2_L
+     71          
+     72          
+     73          //===========================================================================
+     74          // Function name: Timer0_B0_ISR
+     75          //
+     76          // Description: Increments Time_Sequence and update_display
+     77          //
+     78          // Passed : no variables passed
+     79          // Locals: no variables declared
+     80          // Returned: no values returned
+     81          // Globals: no global values
+     82          //
+     83          // Author: Ibrahim Moghul
+     84          // Date: Feb 2022
+     85          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+     86          //===========================================================================
+     87          #pragma vector = TIMER0_B0_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-     91          __interrupt void Timer0_B0_ISR(void) {
+     88          __interrupt void Timer0_B0_ISR(void) {
    \                     Timer0_B0_ISR:
-     92              //------------------------------------------------------------------------------
-     93              // TimerB0 0 Interrupt handler
-     94              //----------------------------------------------------------------------------
-     95              
-     96              TB0CCR0 += TB0CCR0_INTERVAL; // Add Offset to TBCCR0
+     89              //------------------------------------------------------------------------------
+     90              // TimerB0 0 Interrupt handler
+     91              //----------------------------------------------------------------------------
+     92              
+     93              TB0CCR0 += TB0CCR0_INTERVAL; // Add Offset to TBCCR0
    \   000000   B250D0079203 ADD.W   #0x7d0, &0x392
-     97              //----------------------------------------------------------------------------
-     98          }
+     94              //----------------------------------------------------------------------------
+     95          }
    \   000006   0013         RETI
    \   000008                REQUIRE _A_TB0CCR0_L
-     99          
-    100          
-    101          //===========================================================================
-    102          // Function name: TIMER0_B1_ISR
+     96          
+     97          
+     98          //===========================================================================
+     99          // Function name: TIMER0_B1_ISR
+    100          //
+    101          // Description: Timer 1 handles switch debounce, and Timer 2 handles
+    102          // LCD blinking
     103          //
-    104          // Description: Timer 1 handles switch debounce, and Timer 2 handles
-    105          // LCD blinking
-    106          //
-    107          // Passed : no variables passed
-    108          // Locals: no variables declared
-    109          // Returned: no values returned
-    110          // Globals: no global values
-    111          //
-    112          // Author: Ibrahim Moghul
-    113          // Date: Feb 2022
-    114          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
-    115          //===========================================================================
-    116          #pragma vector=TIMER0_B1_VECTOR
+    104          // Passed : no variables passed
+    105          // Locals: no variables declared
+    106          // Returned: no values returned
+    107          // Globals: no global values
+    108          //
+    109          // Author: Ibrahim Moghul
+    110          // Date: Feb 2022
+    111          // Compiler: Built with IAR Embedded Workbench Version: (7.21.1)
+    112          //===========================================================================
+    113          #pragma vector=TIMER0_B1_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-    117          __interrupt void TIMER0_B1_ISR(void) {
+    114          __interrupt void TIMER0_B1_ISR(void) {
    \                     TIMER0_B1_ISR:
    \   000000   0F12         PUSH.W  R15
-    118              //----------------------------------------------------------------------------
-    119              // TimerB0 1-2, Overflow Interrupt Vector (TBIV) handler
-    120              //----------------------------------------------------------------------------
-    121              switch(__even_in_range(TB0IV, 14)) {
+    115              //----------------------------------------------------------------------------
+    116              // TimerB0 1-2, Overflow Interrupt Vector (TBIV) handler
+    117              //----------------------------------------------------------------------------
+    118              switch(__even_in_range(TB0IV, 14)) {
    \   000002   1F42AE03     MOV.W   &0x3ae, R15
    \   000006   E00F         ADDA    R15, PC
    \                     `?<Jumptable for TIMER0_B1_ISR>_0`:
@@ -437,74 +407,74 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \   000012   2D3C         JMP     ??TIMER0_B1_ISR_1
    \   000014   2C3C         JMP     ??TIMER0_B1_ISR_1
    \   000016   2B3C         JMP     ??TIMER0_B1_ISR_1
-    122                  case 0:
-    123                      break; // No interrupt
-    124          
-    125                  case 2: // CCR1 not used
-    126                      if(debouncing1 == TRUE) debounce_count1++;
+    119                  case 0:
+    120                      break; // No interrupt
+    121          
+    122                  case 2: // CCR1 not used
+    123                      if(debouncing1 == TRUE) debounce_count1++;
    \                     ??TIMER0_B1_ISR_6:
    \   000018   9293....     CMP.W   #0x1, &debouncing1
    \   00001C   0220         JNE     ??TIMER0_B1_ISR_2
    \   00001E   9253....     ADD.W   #0x1, &debounce_count1
-    127          
-    128                      if (debounce_count1 > debounce_thresh1) {
+    124          
+    125                      if (debounce_count1 > debounce_thresh1) {
    \                     ??TIMER0_B1_ISR_2:
    \   000022   9292........ CMP.W   &debounce_count1, &debounce_thresh1
    \   000028   092C         JC      ??TIMER0_B1_ISR_3
-    129                          debounce_count1 = 0;
+    126                          debounce_count1 = 0;
    \   00002A   8243....     MOV.W   #0x0, &debounce_count1
-    130                          debouncing1 = FALSE;
+    127                          debouncing1 = FALSE;
    \   00002E   8243....     MOV.W   #0x0, &debouncing1
-    131                          P4IE |= SW1;
+    128                          P4IE |= SW1;
    \   000032   E2D33B02     BIS.B   #0x2, &0x23b
-    132                          TB0CCTL1 &= ~CCIE;
+    129                          TB0CCTL1 &= ~CCIE;
    \   000036   B2C010008403 BIC.W   #0x10, &0x384
-    133                      }
-    134          
-    135                      TB0CCR1 += TB0CCR1_INTERVAL; // Add Offset to TBCCR1
+    130                      }
+    131          
+    132                      TB0CCR1 += TB0CCR1_INTERVAL; // Add Offset to TBCCR1
    \                     ??TIMER0_B1_ISR_3:
    \   00003C   B25050C39403 ADD.W   #0xc350, &0x394
-    136          
-    137                      break;
+    133          
+    134                      break;
    \   000042   153C         JMP     ??TIMER0_B1_ISR_1
-    138          
-    139                  case 4: // CCR2 not used
-    140                      if(debouncing2 == TRUE) debounce_count2++;
+    135          
+    136                  case 4: // CCR2 not used
+    137                      if(debouncing2 == TRUE) debounce_count2++;
    \                     ??TIMER0_B1_ISR_7:
    \   000044   9293....     CMP.W   #0x1, &debouncing2
    \   000048   0220         JNE     ??TIMER0_B1_ISR_4
    \   00004A   9253....     ADD.W   #0x1, &debounce_count2
-    141          
-    142                      if (debounce_count2 > debounce_thresh2) {
+    138          
+    139                      if (debounce_count2 > debounce_thresh2) {
    \                     ??TIMER0_B1_ISR_4:
    \   00004E   9292........ CMP.W   &debounce_count2, &debounce_thresh2
    \   000054   092C         JC      ??TIMER0_B1_ISR_5
-    143                          debounce_count2 = 0;
+    140                          debounce_count2 = 0;
    \   000056   8243....     MOV.W   #0x0, &debounce_count2
-    144                          debouncing2 = FALSE;
+    141                          debouncing2 = FALSE;
    \   00005A   8243....     MOV.W   #0x0, &debouncing2
-    145                          P2IE |= SW2;
+    142                          P2IE |= SW2;
    \   00005E   F2D21B02     BIS.B   #0x8, &0x21b
-    146                          TB0CCTL2 &= ~CCIE;
+    143                          TB0CCTL2 &= ~CCIE;
    \   000062   B2C010008603 BIC.W   #0x10, &0x386
-    147                      }
-    148          
-    149                      TB0CCR2 += TB0CCR2_INTERVAL; // Add Offset to TBCCR2
+    144                      }
+    145          
+    146                      TB0CCR2 += TB0CCR2_INTERVAL; // Add Offset to TBCCR2
    \                     ??TIMER0_B1_ISR_5:
    \   000068   B25050C39603 ADD.W   #0xc350, &0x396
-    150          
-    151                      break;
-    152          
-    153                  case 14: // overflow
-    154          
+    147          
+    148                      break;
+    149          
+    150                  case 14: // overflow
+    151          
+    152                      break;
+    153          
+    154                  default:
     155                      break;
-    156          
-    157                  default:
-    158                      break;
-    159              }
-    160          
-    161              //----------------------------------------------------------------------------
-    162          }
+    156              }
+    157          
+    158              //----------------------------------------------------------------------------
+    159          }
    \                     ??TIMER0_B1_ISR_1:
    \   00006E   3F41         POP.W   R15
    \   000070   0013         RETI
@@ -515,33 +485,33 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \   000072                REQUIRE _A_TB0CCTL2_L
    \   000072                REQUIRE _A_TB0CCR2_L
    \   000072                REQUIRE _A_TB0IV_L
-    163          
-    164          #pragma vector = TIMER1_B0_VECTOR
+    160          
+    161          #pragma vector = TIMER1_B0_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-    165          __interrupt void Timer1_B0_ISR(void) {
+    162          __interrupt void Timer1_B0_ISR(void) {
    \                     Timer1_B0_ISR:
-    166              //------------------------------------------------------------------------------
-    167              // TimerB0 0 Interrupt handler
-    168              //----------------------------------------------------------------------------
-    169              
-    170              TB1CCR0 += TB1CCR0_INTERVAL;
+    163              //------------------------------------------------------------------------------
+    164              // TimerB0 0 Interrupt handler
+    165              //----------------------------------------------------------------------------
+    166              
+    167              TB1CCR0 += TB1CCR0_INTERVAL;
    \   000000   B25050C3D203 ADD.W   #0xc350, &0x3d2
-    171              //----------------------------------------------------------------------------
-    172          }
+    168              //----------------------------------------------------------------------------
+    169          }
    \   000006   0013         RETI
    \   000008                REQUIRE _A_TB1CCR0_L
-    173          
-    174          #pragma vector=TIMER1_B1_VECTOR
+    170          
+    171          #pragma vector=TIMER1_B1_VECTOR
 
    \                                 In  segment ISR_CODE, align 2
-    175          __interrupt void TIMER1_B1_ISR(void) {
+    172          __interrupt void TIMER1_B1_ISR(void) {
    \                     TIMER1_B1_ISR:
    \   000000   0F12         PUSH.W  R15
-    176              //----------------------------------------------------------------------------
-    177              // TimerB0 1-2, Overflow Interrupt Vector (TBIV) handler
-    178              //----------------------------------------------------------------------------
-    179              switch(__even_in_range(TB1IV, 14)) {
+    173              //----------------------------------------------------------------------------
+    174              // TimerB0 1-2, Overflow Interrupt Vector (TBIV) handler
+    175              //----------------------------------------------------------------------------
+    176              switch(__even_in_range(TB1IV, 14)) {
    \   000002   1F42EE03     MOV.W   &0x3ee, R15
    \   000006   E00F         ADDA    R15, PC
    \                     `?<Jumptable for TIMER1_B1_ISR>_0`:
@@ -553,28 +523,28 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \   000012   023C         JMP     ??TIMER1_B1_ISR_1
    \   000014   013C         JMP     ??TIMER1_B1_ISR_1
    \   000016   003C         JMP     ??TIMER1_B1_ISR_1
-    180                  case 0:
-    181                      break; // No interrupt
+    177                  case 0:
+    178                      break; // No interrupt
+    179          
+    180                  case 2: 
+    181                      
     182          
-    183                  case 2: 
-    184                      
-    185          
-    186                      break;
-    187          
-    188                  case 4: 
-    189                      //TB1CCTL2 &= ~CCIE;
-    190                      break;
-    191          
-    192                  case 14: // overflow
-    193          
+    183                      break;
+    184          
+    185                  case 4: 
+    186                      //TB1CCTL2 &= ~CCIE;
+    187                      break;
+    188          
+    189                  case 14: // overflow
+    190          
+    191                      break;
+    192          
+    193                  default:
     194                      break;
-    195          
-    196                  default:
-    197                      break;
-    198              }
-    199          
-    200              //----------------------------------------------------------------------------
-    201          }
+    195              }
+    196          
+    197              //----------------------------------------------------------------------------
+    198          }
    \                     ??TIMER1_B1_ISR_1:
    \   000018   3F41         POP.W   R15
    \   00001A   0013         RETI
@@ -603,11 +573,11 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
    \                                 In  segment DATA16_ID, align 2, align-sorted
    \                     `?<Initializer for debounce_thresh2>`:
    \   000000   0A00         DC16 10
-    202          
-    203          //#pragma vector = TIMER3_B0_VECTOR
-    204          //__interrupt void Timer3_B0_ISR(void) {
-    205          //  return;
-    206          //}
+    199          
+    200          //#pragma vector = TIMER3_B0_VECTOR
+    201          //__interrupt void Timer3_B0_ISR(void) {
+    202          //  return;
+    203          //}
 
    Maximum stack usage in bytes:
 
@@ -634,7 +604,7 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
        2  ?<Initializer for debounce_thresh2>
       76  Init_Timer_B0
       62  Init_Timer_B1
-      64  Init_Timer_B3
+      50  Init_Timer_B3
       14  Init_Timers
      114  TIMER0_B1_ISR
        2  TIMER0_B1_ISR::??INTVEC 84
@@ -666,12 +636,8 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
        2  _A_TB3CCR0_L
        2  _A_TB3CCR1_L
        2  _A_TB3CCR2_L
-       2  _A_TB3CCR3_L
-       2  _A_TB3CCR4_L
        2  _A_TB3CCTL1_L
        2  _A_TB3CCTL2_L
-       2  _A_TB3CCTL3_L
-       2  _A_TB3CCTL4_L
        2  _A_TB3CTL_L
        2  debounce_count1
        2  debounce_count2
@@ -681,17 +647,17 @@ C:\Users\Ibrahim Moghul\OneDrive\Documents\Programming\LaserController\Code\time
        2  debouncing2
 
  
- 216 bytes in segment CODE
-  58 bytes in segment DATA16_AN
+ 202 bytes in segment CODE
+  50 bytes in segment DATA16_AN
    4 bytes in segment DATA16_I
    4 bytes in segment DATA16_ID
    8 bytes in segment DATA16_Z
    8 bytes in segment INTVEC
  158 bytes in segment ISR_CODE
  
- 374 bytes of CODE  memory
+ 360 bytes of CODE  memory
    4 bytes of CONST memory (+  8 bytes shared)
-  12 bytes of DATA  memory (+ 58 bytes shared)
+  12 bytes of DATA  memory (+ 50 bytes shared)
 
 Errors: none
 Warnings: none

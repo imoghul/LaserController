@@ -21,16 +21,10 @@ int main(void)
     Init_Timers();
     
     
-//    sendPulseTrain();
-//    while(!pulseTrainSent);
-//    pulseTrainSent = 1;
-    
     while(1){
-      if(MOTOR1_P>0 && MOTOR1_N>0)
-        MOTOR1_P=MOTOR1_N=0;
-      if(MOTOR2_P>0 && MOTOR2_N>0)
-        MOTOR2_P=MOTOR2_N=0;
       SerialProcess();
+      HandleCommands();
+      sendTrains();
     }
     return 0;
 }

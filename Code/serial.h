@@ -17,6 +17,8 @@ void clearProcessBuff_0(void);
 void clearProcessBuff_1(void);
 void serialInterrupt(volatile unsigned int* rx_wr, volatile char Rx_Ring[], volatile char Tx[], volatile unsigned int* tx_index, volatile unsigned short * txbuf, volatile unsigned short * txbuf_other, volatile unsigned short ucaiv, volatile unsigned short * ucaie, volatile unsigned short rxbuf);
 void SerialProcess(void);
+void HandleCommands(void);
+int stoi(char* str, int len);
 
 //#define CLEARPB0                        {clearProcessBuff(USB0_Char_Rx_Process, &pb0_index, &pb0_buffered);}
 //#define CLEARPB1                        {clearProcessBuff(USB1_Char_Rx_Process, &pb1_index, &pb1_buffered);}
