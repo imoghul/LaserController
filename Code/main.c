@@ -8,7 +8,7 @@
  * main.c
  */
 
-extern volatile unsigned char pulseTrainSent;
+extern Motor motor1, motor2;
 
 int main(void)
 {
@@ -24,7 +24,8 @@ int main(void)
     while(1){
       SerialProcess();
       HandleCommands();
-      sendTrains();
+      sendTrains(&motor1);
+      sendTrains(&motor2);
     }
     return 0;
 }

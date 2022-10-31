@@ -37,7 +37,7 @@
 #define SMCLK_2355 (0x10) // 4
 #define P3_5 (0x20)       // 5
 #define MOTOR1_P_COUNT (0x40)       // 6
-#define P3_7 (0x80)       // 7
+#define MOTOR2_P_COUNT (0x80)       // 7
 // Port 4 Pins
 #define P4_0 (0x01)        // 0
 #define SW1 (0x02)         // 1 SW1

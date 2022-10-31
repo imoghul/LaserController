@@ -3,37 +3,53 @@
 #include "timers.h"
 #include "ports.h"
 
-unsigned int pulseCount;
-volatile unsigned char pulseTrainsSent;
-volatile unsigned int pulsesToSend;
-volatile unsigned int trainsToSend, trainsDir;
-unsigned int trainsSent;
-volatile char trainsFinished;
+Motor motor1 = {
+  .PWM = &MOTOR1_P,
+  .pulseCount = 0,
+  .pulseTrainsSent = 0,
+  .pulsesToSend=0,
+  .trainsToSend = 0,
+  .trainsDir = 0,
+  .trainsSent = 0,
+  .trainsFinished = 0,
+  .setMotor = setMotor1
+};
+Motor motor2 = {
+  .PWM = &MOTOR2_P,
+  .pulseCount = 0,
+  .pulseTrainsSent = 0,
+  .pulsesToSend=0,
+  .trainsToSend = 0,
+  .trainsDir = 0,
+  .trainsSent = 0,
+  .trainsFinished = 0,
+  .setMotor = setMotor2
+};
 
-int sendTrains(){
-  if(pulseTrainsSent && trainsToSend){
-      trainsFinished = 0;
-      sendPulseTrains(1, trainsDir);
-      if(trainsSent++ >= trainsToSend){
-        trainsSent = 0;
-        trainsToSend = 0;
-        pulseTrainsSent = 0;
-        trainsFinished = 1;
+int sendTrains(volatile Motor* motor){
+  if(motor->pulseTrainsSent && motor->trainsToSend){
+      motor->trainsFinished = 0;
+      sendPulseTrains(motor);
+      if(motor->trainsSent++ >= motor->trainsToSend){
+        motor->trainsSent = 0;
+        motor->trainsToSend = 0;
+        motor->pulseTrainsSent = 0;
+        motor->trainsFinished = 1;
       }
       return 1;
-  }else if(!trainsToSend){
-    trainsSent = 0;
-    trainsToSend = 0;
-    pulseTrainsSent = 0;
-    trainsFinished = 1;
+  }else if(!motor->trainsToSend){
+    motor->trainsSent = 0;
+    motor->trainsToSend = 0;
+    motor->pulseTrainsSent = 0;
+    motor->trainsFinished = 1;
   }
   return 0;
 }
 
-void sendPulseTrains(int revs, int dir){
-  pulseTrainsSent = 0;
-  pulsesToSend = 200*revs;
-  setMotor1(dir);
+void sendPulseTrains(volatile Motor* m){
+  m->pulseTrainsSent = 0;
+  m->pulsesToSend = 200;
+  m->setMotor(m->trainsDir);
 }
 
 // dir:
@@ -74,13 +90,22 @@ void setMotor1(int dir){
 
 #pragma vector=PORT3_VECTOR
 __interrupt void motor1Count_interrupt(void) {
-    if(((P3IFG & MOTOR1_P_COUNT) && MOTOR1_P)) {
-            if(++pulseCount>=pulsesToSend){
-              MOTOR1_P = 0;
-              pulseTrainsSent=1;
-              pulseCount = 0;
-              pulsesToSend = 0;
+    if(((P3IFG & MOTOR1_P_COUNT) && *(motor1.PWM))) {
+            if(++motor1.pulseCount>=motor1.pulsesToSend){
+              *(motor1.PWM) = 0;
+              motor1.pulseTrainsSent=1;
+              motor1.pulseCount = 0;
+              motor1.pulsesToSend = 0;
+            }
+    }
+    if(((P3IFG & MOTOR2_P_COUNT) && *(motor2.PWM))) {
+            if(++motor2.pulseCount>=motor2.pulsesToSend){
+              *(motor2.PWM) = 0;
+              motor2.pulseTrainsSent=1;
+              motor2.pulseCount = 0;
+              motor2.pulsesToSend = 0;
             }
     }
     P3IFG &= ~MOTOR1_P_COUNT;
+    P3IFG &= ~MOTOR2_P_COUNT;
 }

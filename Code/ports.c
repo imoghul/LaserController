@@ -204,9 +204,14 @@ void Init_Port3(char smclk) {
     P3IFG &= ~MOTOR1_P_COUNT;
     P3IE |= MOTOR1_P_COUNT;
     
-    P3SEL0 &= ~P3_7;
-    P3SEL1 &= ~P3_7;
-    P3DIR &= ~P3_7;
+    P3SEL0 &= ~MOTOR2_P_COUNT;
+    P3SEL1 &= ~MOTOR2_P_COUNT;
+    P3OUT |= MOTOR2_P_COUNT;
+    P3DIR &= ~MOTOR2_P_COUNT;
+    P3REN |= MOTOR2_P_COUNT;
+    P3IES |= MOTOR2_P_COUNT;
+    P3IFG &= ~MOTOR2_P_COUNT;
+    P3IE |= MOTOR2_P_COUNT;
 }
 
 //===========================================================================

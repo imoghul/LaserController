@@ -26,9 +26,7 @@ extern volatile unsigned char display_changed;
 extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
-extern volatile unsigned int trainsToSend, trainsDir;
-extern volatile unsigned char pulseTrainsSent;
-extern volatile char trainsFinished;
+extern Motor motor1, motor2;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -202,7 +200,7 @@ void loadRingtoPB_0(void) {
 }
 void loadRingtoPB_1(void) {
     loadRingtoPB(&usb1_rx_wr, &usb1_rx_rd, USB1_Char_Rx_Process, USB1_Char_Rx_Ring, &pb1_index, &pb1_buffered);
-}
+  }
 
 
 void SerialProcess(void) {
@@ -219,23 +217,27 @@ void HandleCommands(void){
     int len = strlen((char*)USB1_Char_Rx_Process) - 2;
     USB1_Char_Rx_Process[len]=0;
     USB1_Char_Rx_Process[len+1]=0;
+
+    Motor* motor;
     if(USB1_Char_Rx_Process[0] == '1'){
-      unsigned int dir = USB1_Char_Rx_Process[2]-'0';
-      // make sure trains have finished transmitting and this is not a halt command
-      if(!dir){
-        trainsToSend = 0;
-        trainsDir = 0;
-        pulseTrainsSent = 1;
-      }else if(trainsFinished){
-        trainsFinished = 0;
-        trainsToSend = stoi((char*)(USB1_Char_Rx_Process+4),len-4);
-        trainsDir = dir;
-        pulseTrainsSent = 1;
-      }
+      motor = &motor1;
     }
     else if (USB1_Char_Rx_Process[0] == '2'){
-      setMotor2(USB1_Char_Rx_Process[2]-'0');
+      motor = &motor2;
     }
+    
+    unsigned int dir = USB1_Char_Rx_Process[2]-'0';
+      // make sure trains have finished transmitting and this is not a halt command
+      if(!dir){
+        motor->trainsToSend = 0;
+        motor->trainsDir = 0;
+        motor->pulseTrainsSent = 1;
+      }else if(motor->trainsFinished){
+        motor->trainsFinished = 0;
+        motor->trainsToSend = stoi((char*)(USB1_Char_Rx_Process+4),len-4);
+        motor->trainsDir = dir;
+        motor->pulseTrainsSent = 1;
+      }
     clearProcessBuff_1();
   }
 }
