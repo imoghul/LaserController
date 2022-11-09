@@ -11,8 +11,8 @@ typedef struct {
 } Motor;
 
 
-int sendTrains(volatile Motor*);
-void sendPulseTrains(volatile Motor* m);
+int sendTrains(Motor*);
+void sendPulseTrains( Motor* m);
 void setMotor2(int);
 void setMotor1(int);
 

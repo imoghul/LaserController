@@ -26,7 +26,7 @@ Motor motor2 = {
   .setMotor = setMotor2
 };
 
-int sendTrains(volatile Motor* motor){
+int sendTrains(Motor* motor){
   if(motor->pulseTrainsSent && motor->trainsToSend){
       motor->trainsFinished = 0;
       sendPulseTrains(motor);
@@ -46,7 +46,7 @@ int sendTrains(volatile Motor* motor){
   return 0;
 }
 
-void sendPulseTrains(volatile Motor* m){
+void sendPulseTrains(Motor* m){
   m->pulseTrainsSent = 0;
   m->pulsesToSend = 200;
   m->setMotor(m->trainsDir);
