@@ -26,7 +26,7 @@ extern volatile unsigned char display_changed;
 extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
-extern Motor motor1, motor2;
+extern Motor motor1, motor2, motor3, motor4;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -224,6 +224,12 @@ void HandleCommands(void){
     }
     else if (USB1_Char_Rx_Process[0] == '2'){
       motor = &motor2;
+    }
+    else if (USB1_Char_Rx_Process[0] == '3'){
+      motor = &motor3;
+    }
+    else if (USB1_Char_Rx_Process[0] == '4'){
+      motor = &motor4;
     }
     
     unsigned int dir = USB1_Char_Rx_Process[2]-'0';

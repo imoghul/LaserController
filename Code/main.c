@@ -2,13 +2,14 @@
 #include "functions.h"
 #include "motor.h"
 #include "ports.h"
+#include "adc.h"
 #include "timers.h"
 #include "serial.h"
 /**
  * main.c
  */
 
-extern Motor motor1, motor2;
+extern Motor motor1, motor2,motor3,motor4;
 
 int main(void)
 {
@@ -19,6 +20,7 @@ int main(void)
     
     Init_Serial_UCA();
     Init_Timers();
+    Init_ADC();
     
     
     while(1){
@@ -26,6 +28,8 @@ int main(void)
       HandleCommands();
       sendTrains(&motor1);
       sendTrains(&motor2);
+      sendTrains(&motor3);
+      sendTrains(&motor4);
     }
     return 0;
 }

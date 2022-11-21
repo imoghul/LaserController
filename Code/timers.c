@@ -21,7 +21,7 @@ void Init_Timer_B0(void) {
     TB0EX0 = TBIDEX__8; // Divide clock by an additional 8
     
     TB0CCR0 = TB0CCR0_INTERVAL; // CCR0
-    TB0CCTL0 &= ~CCIE; // CCR0 enable interrupt
+    TB0CCTL0 |= CCIE; // CCR0 enable interrupt
     
     TB0CCR1 = TB0CCR1_INTERVAL; // CCR1
     TB0CCTL1 &= ~CCIE; // CCR1 enable interrupt
@@ -66,6 +66,12 @@ void Init_Timer_B3(void) {
 
     TB3CCTL2 = OUTMOD_7;
     MOTOR2_P = 0;
+    
+    TB3CCTL3 = OUTMOD_7;
+    MOTOR3_P = 0;
+
+    TB3CCTL4 = OUTMOD_7;
+    MOTOR4_P = 0;
 
 }
 
@@ -89,7 +95,8 @@ __interrupt void Timer0_B0_ISR(void) {
     //------------------------------------------------------------------------------
     // TimerB0 0 Interrupt handler
     //----------------------------------------------------------------------------
-    
+    ADCCTL0 |= ADCENC;  
+    ADCCTL0 |= ADCSC;
     TB0CCR0 += TB0CCR0_INTERVAL; // Add Offset to TBCCR0
     //----------------------------------------------------------------------------
 }

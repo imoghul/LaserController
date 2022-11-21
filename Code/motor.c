@@ -25,12 +25,35 @@ Motor motor2 = {
   .trainsFinished = 0,
   .setMotor = setMotor2
 };
+Motor motor3 = {
+  .PWM = &MOTOR3_P,
+  .pulseCount = 0,
+  .pulseTrainsSent = 0,
+  .pulsesToSend=0,
+  .trainsToSend = 0,
+  .trainsDir = 0,
+  .trainsSent = 0,
+  .trainsFinished = 0,
+  .setMotor = setMotor3
+};
+Motor motor4 = {
+  .PWM = &MOTOR4_P,
+  .pulseCount = 0,
+  .pulseTrainsSent = 0,
+  .pulsesToSend=0,
+  .trainsToSend = 0,
+  .trainsDir = 0,
+  .trainsSent = 0,
+  .trainsFinished = 0,
+  .setMotor = setMotor4
+};
+
 
 int sendTrains(Motor* motor){
   if(motor->pulseTrainsSent && motor->trainsToSend){
       motor->trainsFinished = 0;
       sendPulseTrains(motor);
-      if(motor->trainsSent++ >= motor->trainsToSend){
+      if(++motor->trainsSent >= motor->trainsToSend){
         motor->trainsSent = 0;
         motor->trainsToSend = 0;
         motor->pulseTrainsSent = 0;
@@ -71,6 +94,36 @@ void setMotor2(int dir){
   MOTOR2_P = PULSE_PERIOD>>1;
 }
 
+void setMotor3(int dir){
+  if(!dir){
+    MOTOR3_P = 0;
+    return;
+  }
+  
+  if(dir==2){
+    DIR3_P_ON;
+  }
+  else if (dir==1) {
+    DIR3_P_OFF;
+  }
+  MOTOR3_P = PULSE_PERIOD>>1;
+}
+
+void setMotor4(int dir){
+  if(!dir){
+    MOTOR4_P = 0;
+    return;
+  }
+  
+  if(dir==2){
+    DIR4_P_ON;
+  }
+  else if (dir==1) {
+    DIR4_P_OFF;
+  }
+  MOTOR4_P = PULSE_PERIOD>>1;
+}
+
 void setMotor1(int dir){
   if(!dir){
     MOTOR1_P = 0;
@@ -106,6 +159,24 @@ __interrupt void motor1Count_interrupt(void) {
               motor2.pulsesToSend = 0;
             }
     }
+    if(((P3IFG & MOTOR3_P_COUNT) && *(motor3.PWM))) {
+            if(++motor3.pulseCount>=motor3.pulsesToSend){
+              *(motor3.PWM) = 0;
+              motor3.pulseTrainsSent=1;
+              motor3.pulseCount = 0;
+              motor3.pulsesToSend = 0;
+            }
+    }
+    if(((P3IFG & MOTOR4_P_COUNT) && *(motor4.PWM))) {
+            if(++motor4.pulseCount>=motor4.pulsesToSend){
+              *(motor4.PWM) = 0;
+              motor4.pulseTrainsSent=1;
+              motor4.pulseCount = 0;
+              motor4.pulsesToSend = 0;
+            }
+    }
     P3IFG &= ~MOTOR1_P_COUNT;
     P3IFG &= ~MOTOR2_P_COUNT;
+    P3IFG &= ~MOTOR3_P_COUNT;
+    P3IFG &= ~MOTOR4_P_COUNT;
 }

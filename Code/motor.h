@@ -15,5 +15,7 @@ int sendTrains(Motor*);
 void sendPulseTrains( Motor* m);
 void setMotor2(int);
 void setMotor1(int);
+void setMotor3(int);
+void setMotor4(int);
 
 
