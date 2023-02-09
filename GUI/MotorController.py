@@ -62,8 +62,8 @@ class MotorController:
         if self.ser != None:
             string = "%d %d %d\r\n" % (
                 int(self.num),
-                int(revs),
                 int(self.dirToNum(dir)),
+                int(revs)
             )
             # print(string)
             self.ser.write(string.encode())
