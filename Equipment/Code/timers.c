@@ -13,7 +13,6 @@ unsigned int DAC_current;
 void Init_Timers(void) {
     Init_Timer_B0();
     Init_Timer_B1();
-    Init_Timer_B3();
 }
 
 void Init_Timer_B0(void) {
@@ -54,31 +53,6 @@ void Init_Timer_B1(void) {
 
     TB1CTL &= ~TBIE & ~TBIFG; // Disable Overflow Interrupt
     TB1CTL &= ~TBIFG; // Clear Overflow Interrupt flag
-}
-
-void Init_Timer_B3(void) {
-    TB3CTL = TBSSEL__SMCLK;
-    TB3CTL |= MC__UP;
-    TB3CTL |= TBCLR;
-    TB3CTL |= ID__2; // Divide clock by 4
-
-    TB3CCR0 = PULSE_PERIOD;
-
-    TB3CCTL1 = OUTMOD_7;
-    MOTOR1_P = 0;
-
-    TB3CCTL2 = OUTMOD_7;
-    MOTOR2_P = 0;
-
-    TB3CCTL3 = OUTMOD_7;
-    MOTOR3_P = 0;
-
-    TB3CCTL4 = OUTMOD_7;
-    MOTOR4_P = 0;
-
-    TB3CCTL5 = OUTMOD_7;
-    MOTOR5_P = 0;
-
 }
 
 

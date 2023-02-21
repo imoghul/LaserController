@@ -63,7 +63,7 @@ class MotorController:
             string = "%d %d %d\r\n" % (
                 int(self.num),
                 int(self.dirToNum(dir)),
-                int(revs)
+                int(revs),
             )
             # print(string)
             self.ser.write(string.encode())

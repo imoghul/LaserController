@@ -16,8 +16,8 @@
 #define A1_SEEED (0x02) // 1 
 #define P1_2 (0x04)     // 2 
 #define P1_3 (0x08)     // 3 
-#define HEATER_ADC (0x10)     // 4 
-#define HEATER_DAC (0x20)     // 5 
+#define P1_4 (0x10)     // 4 
+#define P1_5 (0x20)     // 5 
 #define UCA0RXD (0x40)  // 6 Back Channel UCA0RXD
 #define UCA0TXD (0x80)  // 7 Back Channel UCA0TXD
 // Port 2 Pins

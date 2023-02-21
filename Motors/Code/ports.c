@@ -68,9 +68,13 @@ void Init_Port1() {
     P1SEL1 &= ~P1_3;
     P1DIR &= ~P1_3;
 
-    P1SELC |= HEATER_ADC;
+    P1SEL0 &= ~P1_4;
+    P1SEL1 &= ~P1_4;
+    P1DIR &= ~P1_4;
 
-    P1SELC |= HEATER_DAC;
+    P1SEL0 &= ~P1_5;
+    P1SEL1 &= ~P1_5;
+    P1DIR &= ~P1_5;
 
     P1SEL1 &= ~UCA0RXD;
     P1SEL0 |= UCA0RXD;
@@ -233,7 +237,7 @@ void Init_Port4() {
     P4SEL0 &= ~SW1;
     P4SEL1 &= ~SW1;
     P4DIR &= ~SW1;
-    
+
 
     P4SEL0 |= UCA1TXD;
     P4SEL1 &= ~UCA1TXD;

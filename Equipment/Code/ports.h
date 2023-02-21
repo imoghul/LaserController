@@ -21,25 +21,25 @@
 #define UCA0RXD (0x40)  // 6 Back Channel UCA0RXD
 #define UCA0TXD (0x80)  // 7 Back Channel UCA0TXD
 // Port 2 Pins
-#define MOTOR1_ENABLE_P (0x01)   // 0 
-#define MOTOR1_DIR_P (0x02)   // 1 
+#define P2_0 (0x01)   // 0 
+#define P2_1    (0x02)   // 1 
 #define P2_2 (0x04)   // 2
 #define SW2 (0x08)    // 3 SW2
-#define MOTOR2_ENABLE_P (0x10)   // 4 
-#define MOTOR2_DIR_P (0x20)   // 5 
+#define P2_4    (0x10)   // 4 
+#define P2_5 (0x20)   // 5 
 #define LFXOUT (0x40) // 6 XOUTR
 #define LFXIN (0x80)  // 7 XINR
 // Port 3 Pins
 #define TEST_PROBE (0x01) // 0 TEST PROBE
-#define MOTOR5_P_COUNT (0x02)       // 1 
+#define P3_1 (0x02)       // 1 
 #define OA2N (0x04)       // 2 Photodiode Circuit
-#define MOTOR4_P_COUNT (0x08)       // 3
-#define MOTOR3_P_COUNT (0x10) // 4
+#define P3_3 (0x08)       // 3
+#define P3_4 (0x10) // 4
 #define DAC_CNTL (0x20)       // 5
-#define MOTOR1_P_COUNT (0x40)       // 6
-#define MOTOR2_P_COUNT (0x80)       // 7
+#define P3_6 (0x40)       // 6
+#define P3_7 (0x80)       // 7
 // Port 4 Pins
-#define MOTOR5_ENABLE_P (0x01)        // 0
+#define P4_0 (0x01)        // 0
 #define SW1 (0x02)         // 1 SW1
 #define UCA1RXD (0x04)     // 2 Back Channel UCA1RXD (0x08) // 3 Back Channel UCA1TXD (0x10) // 4 Chip Select
 #define UCA1TXD (0x08)     // 3 Back Channel UCA1TXD
@@ -48,17 +48,17 @@
 #define UCB1SIMO (0x40)    // 6 UCB1SIMO
 #define UCB1SOMI (0x80)    // 7 UCB1SOMI
 // Port 5 Pins
-#define MOTOR3_ENABLE_P (0x01)
-#define MOTOR3_DIR_P (0x02)
-#define MOTOR4_ENABLE_P (0x04)
-#define MOTOR4_DIR_P (0x08)
-#define MOTOR5_DIR_P (0x10)
+#define P5_0 (0x01)
+#define P5_1 (0x02)
+#define P5_2 (0x04)
+#define P5_3 (0x08)
+#define P5_4 (0x10)
 // Port 6 Pins
-#define MOTOR1_PWM_PIN (0x01)   // 0
-#define MOTOR2_PWM_PIN (0x02)   // 1
-#define MOTOR3_PWM_PIN (0x04)   // 2
-#define MOTOR4_PWM_PIN (0x08)   // 3
-#define MOTOR5_PWM_PIN (0x10)   // 4
+#define P6_0 (0x01)   // 0
+#define P6_1 (0x02)   // 1
+#define P6_2 (0x04)   // 2
+#define P6_3 (0x08)   // 3
+#define P6_4 (0x10)   // 4
 #define P6_5 (0x20)    // 5
 #define GRN_LED (0x40) // 6
 

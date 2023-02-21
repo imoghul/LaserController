@@ -249,9 +249,9 @@ void HandleCommands(void) {
         clearProcessBuff_1();
     }
 
-    //if(pb0_buffered){
-    //  clearProcessBuff_0();
-    //}
+    if(pb0_buffered) {
+        clearProcessBuff_0();
+    }
 }
 
 

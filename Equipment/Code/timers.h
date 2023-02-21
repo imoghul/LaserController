@@ -7,12 +7,6 @@
 #define TB1CCR2_INTERVAL                (25000)         // 100 ms
 
 
-#define MOTOR1_P                        (TB3CCR1)
-#define MOTOR2_P                        (TB3CCR2)
-#define MOTOR3_P                        (TB3CCR3)
-#define MOTOR4_P                        (TB3CCR4)
-#define MOTOR5_P                        (TB3CCR5)
-
 #define PULSE_PERIOD                    (4000)//(4000)
 
 void Init_Timers(void);

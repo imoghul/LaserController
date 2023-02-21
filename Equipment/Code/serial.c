@@ -10,7 +10,6 @@
 #include "serial.h"
 #include "macros.h"
 #include <string.h>
-#include "motor.h"
 #include "msp430.h"
 
 // global variables
@@ -26,7 +25,6 @@ extern volatile unsigned char display_changed;
 extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
-extern Motor motor1, motor2, motor3, motor4, motor5;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -208,44 +206,8 @@ void SerialProcess(void) {
     /*if(!pb1_buffered)*/loadRingtoPB_1();
 }
 
-// Motor 1: 1 revs
-// ex: 1 10
-// Motor 2: 2 dir
-// ex: 2 1
 void HandleCommands(void) {
     if(pb1_buffered) {
-        int len = strlen((char*)USB1_Char_Rx_Process) - 2;
-        USB1_Char_Rx_Process[len] = 0;
-        USB1_Char_Rx_Process[len + 1] = 0;
-
-        Motor* motor;
-
-        if(USB1_Char_Rx_Process[0] == '1') {
-            motor = &motor1;
-        } else if (USB1_Char_Rx_Process[0] == '2') {
-            motor = &motor2;
-        } else if (USB1_Char_Rx_Process[0] == '3') {
-            motor = &motor3;
-        } else if (USB1_Char_Rx_Process[0] == '4') {
-            motor = &motor4;
-        } else if (USB1_Char_Rx_Process[0] == '5') {
-            motor = &motor5;
-        }
-
-        unsigned int dir = USB1_Char_Rx_Process[2] - '0';
-
-        // make sure trains have finished transmitting and this is not a halt command
-        if(!dir) {
-            motor->trainsToSend = 0;
-            motor->trainsDir = 0;
-            motor->pulseTrainsSent = 1;
-        } else if(motor->trainsFinished) {
-            motor->trainsFinished = 0;
-            motor->trainsToSend = stoi((char*)(USB1_Char_Rx_Process + 4), len - 4);
-            motor->trainsDir = dir;
-            motor->pulseTrainsSent = 1;
-        }
-
         clearProcessBuff_1();
     }
 
