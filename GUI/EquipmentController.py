@@ -71,6 +71,7 @@ class EquipmentController:
 
         y = round(math.sqrt(len(self.mnemonics)))
         x = math.ceil(len(self.mnemonics)/y)
+        
         for i in range(y):
             currFrame = Frame(self.frame)
             currFrame.pack(side=LEFT)

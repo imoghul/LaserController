@@ -12,7 +12,7 @@ def setupGUI():
     root = Tk()
 
     # Adjust size
-    root.geometry("700x1000")
+    root.geometry("700x600")
     root.title("Control Panel")
 
     serialFrame = LabelFrame(root, text="Serial Port")
