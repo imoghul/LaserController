@@ -64,7 +64,7 @@ class MotorController:
                 int(self.dirToNum(dir)),
                 int(revs),
             )
-            print(string)
+            # print(string)
             self.getSer().write(string.encode())
         else:
-            raise Exception("No serial port defined")
+            print(string)# raise Exception("No serial port defined")

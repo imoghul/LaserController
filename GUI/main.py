@@ -36,7 +36,7 @@ def setupGUI():
     for i in range(motors):
         motorControllers.append(MotorController(motorFrame, i + 1, getMotorPort))
     
-    equipmentController = EquipmentController(equipmentFrame,getEquipmentPort);
+    EquipmentController(equipmentFrame,getEquipmentPort);
     
 
 

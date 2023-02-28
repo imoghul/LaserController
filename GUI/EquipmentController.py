@@ -1,11 +1,16 @@
 from tkinter import *
-
+import math
 class Mnemonic:
     def __init__(self,root,command,title,min,max,getSer,set = True, get = True):
         self.frame = LabelFrame(root,text=title)
-        self.frame.pack(side=BOTTOM)
+        # self.frame.pack(side=BOTTOM)
         self.command = command
         self.getSer = getSer
+        self.title = title
+        self.min = min
+        self.max = max
+        self.set = set
+        self.get = get
 
         if set:
             self.setFrame = Frame(self.frame)
@@ -13,37 +18,39 @@ class Mnemonic:
             self.setButton = Button(
                 self.setFrame,
                 text="Set",
-                command=lambda: self.set(self.numSelector.get()),
+                command=lambda: self.setVal(self.numSelector.get()),
             )
             self.setButton.pack(side=LEFT)
             self.numSelector.pack(side=LEFT)
-            self.setFrame.pack(side=BOTTOM)
+            self.setFrame.pack(side=TOP)
         if get:
             self.getFrame = Frame(self.frame)
             self.getButton = Button(
-                self.frame,
+                self.getFrame,
                 text="Get",
-                command=lambda: self.get(),
+                command=lambda: self.getVal(),
             )
             self.label = Label(self.getFrame, text="")
             
             self.getButton.pack(side=LEFT)
             self.label.pack(side=LEFT)
-            self.getFrame.pack(side=BOTTOM)
+            self.getFrame.pack(side=TOP)
+    def resetRoot(self,root):
+        self.__init__(root,self.command,self.title,self.min,self.max,self.getSer,self.set, self.get)
 
-    def set(self,val):
+    def setVal(self,val):
         string = "!"+self.command+" "+val
-        print(string)
         if self.getSer()!=None:
             self.getSer().write(string.encode())
-    def get(self):
+        else: print(string)
+    def getVal(self):
         string = "?"+self.command
-        print(string)
         if self.getSer()!=None:
             self.getSer().write(string.encode())
             self.label.config(
                 text = self.getSer().readline()
             )
+        else: print(string)
 
 class EquipmentController:
     def __init__(self,root, getSer):
@@ -62,4 +69,13 @@ class EquipmentController:
         self.mnemonics.append(Mnemonic(self.frame,"US","Units",0,3,getSer))
         self.mnemonics.append(Mnemonic(self.frame,"VL","Voltage",0,3,getSer,set=False))
 
-        
+        y = round(math.sqrt(len(self.mnemonics)))
+        x = math.ceil(len(self.mnemonics)/y)
+        for i in range(y):
+            currFrame = Frame(self.frame)
+            currFrame.pack(side=LEFT)
+            for j in range(x):
+                try:
+                    self.mnemonics[i*y+j].resetRoot(currFrame)
+                    self.mnemonics[i*y+j].frame.pack(side=TOP)
+                except:pass
