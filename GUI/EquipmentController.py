@@ -39,12 +39,12 @@ class Mnemonic:
         self.__init__(root,self.command,self.title,self.min,self.max,self.getSer,self.set, self.get)
 
     def setVal(self,val):
-        string = "!"+self.command+" "+val
+        string = "!"+self.command+" "+val+"\r\n"
         if self.getSer()!=None:
             self.getSer().write(string.encode())
         else: print(string)
     def getVal(self):
-        string = "?"+self.command
+        string = "?"+self.command+"\r\n"
         if self.getSer()!=None:
             self.getSer().write(string.encode())
             self.label.config(
@@ -71,7 +71,7 @@ class EquipmentController:
 
         y = round(math.sqrt(len(self.mnemonics)))
         x = math.ceil(len(self.mnemonics)/y)
-        
+
         for i in range(y):
             currFrame = Frame(self.frame)
             currFrame.pack(side=LEFT)

@@ -27,16 +27,16 @@ def setupGUI():
     motorPortSelector = SerialPortSelector(serialFrame,"Motor")
     equipmentPortSelector = SerialPortSelector(serialFrame,"Equipment")
 
-    def getMotorPort(): return motorPortSelector.port
-    def getEquipmentPort(): return equipmentPortSelector.port
+    # def getMotorPort(): return motorPortSelector.port
+    # def getEquipmentPort(): return equipmentPortSelector.port
 
     motors = 5
     motorControllers = []
 
     for i in range(motors):
-        motorControllers.append(MotorController(motorFrame, i + 1, getMotorPort))
+        motorControllers.append(MotorController(motorFrame, i + 1, motorPortSelector.getSer))
     
-    EquipmentController(equipmentFrame,getEquipmentPort);
+    EquipmentController(equipmentFrame,equipmentPortSelector.getSer);
     
 
 

@@ -58,13 +58,13 @@ class MotorController:
             return 0
 
     def command(self, revs, dir):
+        
+        string = "%d %d %d\r\n" % (
+            int(self.num),
+            int(self.dirToNum(dir)),
+            int(revs),
+        )
         if self.getSer() != None:
-            string = "%d %d %d\r\n" % (
-                int(self.num),
-                int(self.dirToNum(dir)),
-                int(revs),
-            )
-            # print(string)
             self.getSer().write(string.encode())
         else:
             print(string)# raise Exception("No serial port defined")

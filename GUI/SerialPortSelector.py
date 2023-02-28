@@ -37,3 +37,6 @@ class SerialPortSelector:
             else 'Error connecting to port: "%s"' % selected_port
         )
 
+    def getSer(self):
+        return self.port
+
