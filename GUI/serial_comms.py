@@ -30,3 +30,6 @@ def serial_ports():
         except (OSError, serial.SerialException):
             pass
     return [""] if result == [] else result
+
+if __name__ == "__main__":
+    print(serial_ports())
