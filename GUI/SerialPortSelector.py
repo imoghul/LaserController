@@ -16,7 +16,7 @@ class SerialPortSelector:
         self.drop.pack(side = TOP)
         self.portButton = Button(self.frame, text=f"Select {name} Serial Port", command = self.callback).pack(side=BOTTOM)
         self.label.pack(side=TOP)
-
+        self.inUse = False;
     def callback(self):
         selected_port = self.portClicked.get()
         if self.port != None and self.port.port == selected_port:
@@ -38,5 +38,33 @@ class SerialPortSelector:
         )
 
     def getSer(self):
+        if self.inUse:return -1
+        self.inUse = True
         return self.port
 
+    def releaseSer(self):
+        self.inUse = False
+
+    def write(self,data):
+        ser = self.getSer()
+        while(ser==-1):ser = self.getSer()
+        if ser!=None:
+            ser.write(data)
+            self.releaseSer()
+            return True
+        else: 
+            self.releaseSer()
+            return False
+        
+    def readCommand(self,data):
+        ser = self.getSer()
+        while(ser==-1):ser = self.getSer()
+        if ser!=None:
+            ser.write(data)
+            ret = ser.read_until(b'\r\n')
+            self.releaseSer()
+        else:
+            self.releaseSer()
+            return False
+        
+        return ret

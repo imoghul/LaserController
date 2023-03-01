@@ -20,11 +20,12 @@ class ToggleButton(Button):
 
 
 class MotorController:
-    def __init__(self, root, num, getSer):
+    def __init__(self, root, num, write, read):
         self.frame = Frame(root)
         self.frame.pack(side=TOP)
         self.num = num
-        self.getSer = getSer
+        self.write = write
+        self.read = read
         self.dir = default
 
         self.revsSelector = Spinbox(self.frame, from_=0, to_=1000)
@@ -64,7 +65,5 @@ class MotorController:
             int(self.dirToNum(dir)),
             int(revs),
         )
-        if self.getSer() != None:
-            self.getSer().write(string.encode())
-        else:
+        if not self.write(string.encode()):
             print(string)# raise Exception("No serial port defined")
