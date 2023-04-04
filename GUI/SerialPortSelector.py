@@ -1,9 +1,10 @@
 from tkinter import *
+import tkinter as tk
 from serial_comms import serial_ports
 import serial
 
 class SerialPortSelector:
-    def __init__(self,root,name,baud,ending = b'\r\n'):
+    def __init__(self,root,name,baud,ending = b'\r\n',logger = None):
         self.frame = Frame(root)
         self.frame.pack(side=LEFT)
         self.port = None
@@ -19,6 +20,14 @@ class SerialPortSelector:
         self.label.pack(side=TOP)
         self.inUse = False;
         self.ending = ending
+
+    def updatePorts(self): 
+        self.portOptions = serial_ports()
+        self.portClicked.set(self.portOptions[0])
+        self.drop['menu'].delete(0, 'end')
+        for choice in self.portOptions:
+            self.drop['menu'].add_command(label=choice,command = tk._setit(self.portClicked,choice))
+
     def callback(self):
         selected_port = self.portClicked.get()
         if self.port != None and self.port.port == selected_port:
