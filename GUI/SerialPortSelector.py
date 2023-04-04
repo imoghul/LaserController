@@ -3,13 +3,14 @@ from serial_comms import serial_ports
 import serial
 
 class SerialPortSelector:
-    def __init__(self,root,name):
+    def __init__(self,root,name,baud,ending = b'\r\n'):
         self.frame = Frame(root)
         self.frame.pack(side=LEFT)
         self.port = None
         self.portClicked = StringVar();
         self.label = Label(self.frame, text="")
         self.portButton = None
+        self.baud = baud
         self.portOptions = serial_ports()
         self.portClicked.set(self.portOptions[0])
         self.drop = OptionMenu(self.frame, self.portClicked, *self.portOptions)
@@ -17,12 +18,13 @@ class SerialPortSelector:
         self.portButton = Button(self.frame, text=f"Select {name} Serial Port", command = self.callback).pack(side=BOTTOM)
         self.label.pack(side=TOP)
         self.inUse = False;
+        self.ending = ending
     def callback(self):
         selected_port = self.portClicked.get()
         if self.port != None and self.port.port == selected_port:
             return
         try:
-            self.port = serial.Serial(selected_port, baudrate=115200, stopbits=1)
+            self.port = serial.Serial(selected_port, baudrate=self.baud, stopbits=1)
         except PermissionError:
             print("Port already opened")
             pass
@@ -58,13 +60,11 @@ class SerialPortSelector:
         
     def readCommand(self,data):
         ser = self.getSer()
+        ret = False
         while(ser==-1):ser = self.getSer()
         if ser!=None:
             ser.write(data)
-            ret = ser.read_until(b'\r\n')
-            self.releaseSer()
-        else:
-            self.releaseSer()
-            return False
-        
+            ret = ser.read_until(self.ending)
+            
+        self.releaseSer()    
         return ret

@@ -12,7 +12,7 @@ def setupGUI():
     root = Tk()
 
     # Adjust size
-    root.geometry("700x600")
+    root.geometry("900x700")
     root.title("Control Panel")
 
     serialFrame = LabelFrame(root, text="Serial Port")
@@ -24,8 +24,8 @@ def setupGUI():
     equipmentFrame = LabelFrame(root, text="Equipment Control")
     equipmentFrame.pack(side=TOP)
 
-    motorPortSelector = SerialPortSelector(serialFrame,"Motor")
-    equipmentPortSelector = SerialPortSelector(serialFrame,"Equipment")
+    motorPortSelector = SerialPortSelector(serialFrame,"Motor",115200)
+    equipmentPortSelector = SerialPortSelector(serialFrame,"Equipment",9200,ending=b'\r')
 
     # def getMotorPort(): return motorPortSelector.port
     # def getEquipmentPort(): return equipmentPortSelector.port
@@ -38,9 +38,6 @@ def setupGUI():
     
     EquipmentController(equipmentFrame,equipmentPortSelector.write,equipmentPortSelector.readCommand);
     
-
-
-
     return root
 
 
