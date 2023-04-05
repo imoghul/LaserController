@@ -59,7 +59,7 @@ class Mnemonic:
         string = "!"+self.command+(str(self.numSelector.get()) if self.num else "")+"="+val+"\r"
         ret = self.read(string.encode())
 
-        returnString = (ret.decode() if ret!=False else "nothing because serial port is not connected yet")
+        returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
         self.log(f"\n\tExecuted following command: {string}\n\tGot back {returnString}")
 
         if ret!=False:
@@ -70,7 +70,7 @@ class Mnemonic:
         # print(string)
         ret = self.read(string.encode())
 
-        returnString = (ret.decode() if ret!=False else "nothing because serial port is not connected yet")
+        returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
         self.log(f"\n\tExecuted following command: {string}\n\tGot back {returnString}")
 
         if ret!=False:

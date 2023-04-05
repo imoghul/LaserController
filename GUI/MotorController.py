@@ -66,4 +66,4 @@ class MotorController:
             int(revs),
         )
         if not self.write(string.encode()):
-            print(string)# raise Exception("No serial port defined")
+            pass#print(string)# raise Exception("No serial port defined")
