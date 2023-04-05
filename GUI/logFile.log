@@ -1,0 +1,18 @@
+2023-04-05 11:09:03,971 : 
+	Executed following command: ?CH0
+	Got back nothing because serial port is not connected yet
+2023-04-05 11:09:06,068 : 
+	Executed following command: ?GV0
+	Got back nothing because serial port is not connected yet
+2023-04-05 11:10:01,962 : 
+	Executed following command: ?GV0
+	Got back nothing because serial port is not connected yet
+2023-04-05 11:10:02,130 : 
+	Executed following command: ?GV0
+	Got back nothing because serial port is not connected yet
+2023-04-05 11:10:02,304 : 
+	Executed following command: ?GV0
+	Got back nothing because serial port is not connected yet
+2023-04-05 11:10:04,042 : 
+	Executed following command: ?VL0
+	Got back nothing because serial port is not connected yet

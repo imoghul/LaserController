@@ -8,7 +8,7 @@ class Mnemonic:
         self.command = command
         self.write = write
         self.read = read
-        self.title = title + (f" {num}" if num else "")
+        self.title = title #+ (f" {num}" if num else "")
         self.min = min
         self.max = max
         self.set = set
@@ -86,14 +86,15 @@ class EquipmentController:
         self.mnemonics = []
         self.mnemonics.append([self.frame,"CH","Set-point high threshold",0,100,write, read,True,True,True,logger])
         self.mnemonics.append([self.frame,"CL","Set-point low threshold",0,100,write, read,True,True,True,logger])
-        self.mnemonics.append([self.frame,"GA","Accept gauge error",0,100,write, read,True,True,True,logger])
         self.mnemonics.append([self.frame,"GW","Switch gauge on/off",0,100,write, read,True,False,True,logger])
+        self.mnemonics.append([self.frame,"GA","Accept gauge error",0,100,write, read,True,True,True,logger])
         self.mnemonics.append([self.frame,"GV","Gauge Version",0,100,write, read,False,True,True,logger])
+        self.mnemonics.append([self.frame,"VL","Voltage",0,3,write, read,False,True,True,logger])
         self.mnemonics.append([self.frame,"RC","Relay controlling gauge",1,2,write, read,True,True,True,logger])
         self.mnemonics.append([self.frame,"TH","Link high threshold",0,100,write, read,True,True,False,logger])
         self.mnemonics.append([self.frame,"TL","Link low threshold",0,100,write, read,True,True,False,logger])
         self.mnemonics.append([self.frame,"US","Units",0,3,write, read,True,True,True,logger,False])
-        self.mnemonics.append([self.frame,"VL","Voltage",0,3,write, read,False,True,True,logger])
+        
 
         
         y = round(math.sqrt(len(self.mnemonics)))
