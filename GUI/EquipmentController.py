@@ -49,8 +49,8 @@ class Mnemonic:
             )
             self.label = Label(self.getFrame, text="")
             self.getLabel.pack(side = TOP)
-            self.getButton.pack(side=TOP)#LEFT
-            self.label.pack(side=BOTTOM)#LEFT
+            self.getButton.pack(side=TOP)#LEFT xor TOP
+            self.label.pack(side=BOTTOM)#LEFT xor BOTTOM
             self.getFrame.pack(side=TOP)
 
     def log(self,val):
@@ -60,7 +60,7 @@ class Mnemonic:
         ret = self.read(string.encode())
 
         returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
-        self.log(f"\n\tExecuted following command: {string}\n\tGot back {returnString}")
+        self.log(f"\n\tExecuted following command: {string[:-1]}\n\tGot back {returnString}")
 
         if ret!=False:
             self.label.config(text=ret.decode())
@@ -71,7 +71,7 @@ class Mnemonic:
         ret = self.read(string.encode())
 
         returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
-        self.log(f"\n\tExecuted following command: {string}\n\tGot back {returnString}")
+        self.log(f"\n\tExecuted following command: {string[:-1]}\n\tGot back {returnString}")
 
         if ret!=False:
             self.label.config(text=ret.decode())
