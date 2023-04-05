@@ -21,7 +21,7 @@ class Mnemonic:
         if num:
             self.numFrame = Frame(self.frame)
             self.numLabel = Label(self.frame,text="Argument Value:")
-            self.numSelector = Spinbox(self.numFrame, from_=min, to_=max)
+            self.numSelector = Spinbox(self.numFrame, from_=0, to_=100)
             self.numLabel.pack(side = TOP)
             self.numSelector.pack(side=LEFT)
             self.numFrame.pack(side=TOP)
@@ -29,7 +29,7 @@ class Mnemonic:
         if set:
             self.setFrame = Frame(self.frame)
             self.setLabel = Label(self.frame,text="Set Value:")
-            self.setSelector = Spinbox(self.setFrame, from_=0, to_=3)
+            self.setSelector = Spinbox(self.setFrame, from_=min, to_=max)
             self.setButton = Button(
                 self.setFrame,
                 text="Set",
@@ -60,7 +60,8 @@ class Mnemonic:
         ret = self.read(string.encode())
 
         returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
-        self.log(f"\n\tExecuted following command: {string[:-1]}\n\tGot back {returnString}")
+        commandString = string.replace('\r','').replace('\n','')
+        self.log(f"\n\tExecuted following command: {commandString}\n\tGot back {returnString}")
 
         if ret!=False:
             self.label.config(text=ret.decode())
@@ -71,7 +72,8 @@ class Mnemonic:
         ret = self.read(string.encode())
 
         returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
-        self.log(f"\n\tExecuted following command: {string[:-1]}\n\tGot back {returnString}")
+        commandString = string.replace('\r','').replace('\n','')
+        self.log(f"\n\tExecuted following command: {commandString}\n\tGot back {returnString}")
 
         if ret!=False:
             self.label.config(text=ret.decode())
@@ -109,8 +111,8 @@ class EquipmentController:
             currFrame = Frame(self.frame)
             currFrame.pack(side=LEFT)
             for val in col:
-                    if val==None:continue
-                    val[0] = currFrame
-                    temp = Mnemonic(*val)
-                    temp.frame.pack(side=TOP)
-                # except:pass
+                if val==None:continue
+                val[0] = currFrame
+                temp = Mnemonic(*val)
+                temp.frame.pack(side=TOP)
+                
