@@ -52,6 +52,8 @@ class SerialPortSelector:
         if self.inUse:return -1
         self.inUse = True
         return self.port
+    
+    def close(self): self.port.close()
 
     def releaseSer(self):
         self.inUse = False
