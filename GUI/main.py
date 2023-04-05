@@ -66,4 +66,8 @@ if __name__ == "__main__":
     logger.addHandler(fh)
     
 
-    setupGUI(logger).mainloop()
+    root = setupGUI(logger)
+    root.lift()
+    root.attributes('-topmost',True)
+    root.after_idle(root.attributes,'-topmost',False)
+    root.mainloop()

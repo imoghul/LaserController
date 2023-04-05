@@ -98,7 +98,7 @@ class EquipmentController:
         self.mnemonics.append([self.frame,"US","Units",0,3,write, read,True,True,True,logger,False])
         
 
-        
+        # create objects in squar(ish) formation
         y = round(math.sqrt(len(self.mnemonics)))
         x = math.ceil(len(self.mnemonics)/y)
         filler = x*y-len(self.mnemonics)
