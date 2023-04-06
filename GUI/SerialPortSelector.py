@@ -21,7 +21,14 @@ class SerialPortSelector:
         self.inUse = False;
         self.ending = ending
 
-    def updatePorts(self): 
+    def updatePorts(self):
+        ser = None 
+        while(ser==-1):
+            print("waiting for serial port to become available")
+            ser = self.getSer()
+        if(ser!=None):ser.close()
+        self.label.config(text = "")
+        
         self.portOptions = serial_ports()
         self.portClicked.set(self.portOptions[0])
         self.drop['menu'].delete(0, 'end')
@@ -60,7 +67,9 @@ class SerialPortSelector:
 
     def write(self,data):
         ser = self.getSer()
-        while(ser==-1):ser = self.getSer()
+        while(ser==-1):
+            print("waiting for serial port to become available")
+            ser = self.getSer()
         if ser!=None:
             ser.write(data)
             self.releaseSer()
@@ -72,10 +81,12 @@ class SerialPortSelector:
     def readCommand(self,data):
         ser = self.getSer()
         ret = False
-        while(ser==-1):ser = self.getSer()
+        while(ser==-1):
+            print("waiting for serial port to become available")
+            ser = self.getSer()
         if ser!=None:
             ser.write(data)
             ret = ser.read_until(self.ending)
             
-        self.releaseSer()    
+        self.releaseSer()
         return ret
