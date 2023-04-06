@@ -91,3 +91,6 @@
 2023-04-06 10:09:28,695 : 
 	Executed following command: ?GV2
 	Got back 20
+2023-04-06 10:22:24,359 : 
+	Executed following command: ?CH0
+	Got back Err54

@@ -31,7 +31,7 @@ def setupGUI(logger):
     refreshButton = Button(
                 serialFrame,
                 text="Refresh Serial Ports",
-                command=lambda: [motorPortSelector.updatePorts(),equipmentPortSelector.updatePorts()],
+                command=lambda: [motorPortSelector.removePort(),equipmentPortSelector.removePort(),motorPortSelector.updatePorts(),equipmentPortSelector.updatePorts()],
             )
 
     refreshButton.pack(side=BOTTOM)

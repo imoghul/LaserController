@@ -22,13 +22,8 @@ class SerialPortSelector:
         self.ending = ending
 
     def updatePorts(self):
-        ser = None 
-        while(ser==-1):
-            print("waiting for serial port to become available")
-            ser = self.getSer()
-        if(ser!=None):ser.close()
         self.label.config(text = "")
-        
+
         self.portOptions = serial_ports()
         self.portClicked.set(self.portOptions[0])
         self.drop['menu'].delete(0, 'end')
@@ -90,3 +85,8 @@ class SerialPortSelector:
             
         self.releaseSer()
         return ret
+    
+    def removePort(self):
+        if(self.port!=None):
+            self.port.close()
+            self.port = None
