@@ -67,3 +67,39 @@ class MotorController:
         )
         if not self.write(string.encode()):
             pass#print(string)# raise Exception("No serial port defined")
+
+
+
+class EncoderController:
+    def __init__(self, root, read, logger = None):
+        self.frame = Frame(root)
+        self.frame.pack(side=TOP)
+        self.read = read
+        self.dir = default
+        self.logger = logger
+
+        self.startButton = Button(
+            self.frame,
+            text="Get Encoder ",
+            command=lambda: self.command(),
+        )
+        self.label = Label(self.frame,text="")
+
+
+        self.startButton.pack(side=TOP)
+        self.label.pack(side=BOTTOM)
+
+    def log(self,val):
+        if(self.logger!=None):self.logger.info(val)
+
+    def command(self):
+        string = "e\r\n"
+        ret = self.read(string.encode())
+        
+        returnString = (ret.decode().replace('\r','').replace('\n','') if ret!=False else "nothing because serial port is not connected yet")
+        commandString = string.replace('\r','').replace('\n','')
+        self.log(f"\n\tExecuted command to get encoder value\n\tGot back {returnString}")
+
+        if ret!=False:
+            self.label.config(text=ret.decode())
+        return ret

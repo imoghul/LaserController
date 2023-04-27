@@ -27,6 +27,7 @@ extern char display_line[4][11];
 unsigned volatile int serialState;
 volatile char receievedFromPC = OFF;
 extern Motor motor1, motor2, motor3, motor4, motor5;
+extern volatile unsigned long long encoderVal;
 //----------------------------------------------------------------------------
 void Init_Serial_UCA(void) {
     int i;
@@ -214,25 +215,78 @@ void SerialProcess(void) {
 // ex: 2 1
 void HandleCommands(void) {
     if(pb1_buffered) {
-        int len = strlen((char*)USB1_Char_Rx_Process) - 2;
-        USB1_Char_Rx_Process[len] = 0;
-        USB1_Char_Rx_Process[len + 1] = 0;
+//        int len = strlen((char*)USB1_Char_Rx_Process) - 2;
+//        USB1_Char_Rx_Process[len] = 0;
+//        USB1_Char_Rx_Process[len + 1] = 0;
+//
+//        Motor* motor;
+//
+//        if(USB1_Char_Rx_Process[0] == '1') {
+//            motor = &motor1;
+//        } else if (USB1_Char_Rx_Process[0] == '2') {
+//            motor = &motor2;
+//        } else if (USB1_Char_Rx_Process[0] == '3') {
+//            motor = &motor3;
+//        } else if (USB1_Char_Rx_Process[0] == '4') {
+//            motor = &motor4;
+//        } else if (USB1_Char_Rx_Process[0] == '5') {
+//            motor = &motor5;
+//        }
+//
+//        unsigned int dir = USB1_Char_Rx_Process[2] - '0';
+//
+//        // make sure trains have finished transmitting and this is not a halt command
+//        if(!dir) {
+//            motor->trainsToSend = 0;
+//            motor->trainsDir = 0;
+//            motor->pulseTrainsSent = 1;
+//        } else if(motor->trainsFinished) {
+//            motor->trainsFinished = 0;
+//            motor->trainsToSend = stoi((char*)(USB1_Char_Rx_Process + 4), len - 4);
+//            motor->trainsDir = dir;
+//            motor->pulseTrainsSent = 1;
+//        }
+        performCommand(USB1_Char_Rx_Process, USB1_Char_Tx, USCI_A1_transmit);
+        clearProcessBuff_1();
+    }
+
+    if(pb0_buffered) {
+        performCommand(USB0_Char_Rx_Process, USB0_Char_Tx, USCI_A0_transmit);
+        clearProcessBuff_0();
+    }
+}
+
+
+void performCommand(volatile char* rx_process, volatile char * tx, void (*send)(void)){
+  
+  int len = strlen((char*)rx_process) - 2;
+        rx_process[len] = 0;
+        rx_process[len + 1] = 0;
 
         Motor* motor;
+        
+        if(rx_process[0] == 'e') {
+            itoa(encoderVal,tx);
+            int len = strlen((char*)tx);
+            tx[len] = '\r';
+            tx[len+1] = '\n';
+            send();
+            return;
+        }
 
-        if(USB1_Char_Rx_Process[0] == '1') {
+        if(rx_process[0] == '1') {
             motor = &motor1;
-        } else if (USB1_Char_Rx_Process[0] == '2') {
+        } else if (rx_process[0] == '2') {
             motor = &motor2;
-        } else if (USB1_Char_Rx_Process[0] == '3') {
+        } else if (rx_process[0] == '3') {
             motor = &motor3;
-        } else if (USB1_Char_Rx_Process[0] == '4') {
+        } else if (rx_process[0] == '4') {
             motor = &motor4;
-        } else if (USB1_Char_Rx_Process[0] == '5') {
+        } else if (rx_process[0] == '5') {
             motor = &motor5;
         }
 
-        unsigned int dir = USB1_Char_Rx_Process[2] - '0';
+        unsigned int dir = rx_process[2] - '0';
 
         // make sure trains have finished transmitting and this is not a halt command
         if(!dir) {
@@ -241,19 +295,12 @@ void HandleCommands(void) {
             motor->pulseTrainsSent = 1;
         } else if(motor->trainsFinished) {
             motor->trainsFinished = 0;
-            motor->trainsToSend = stoi((char*)(USB1_Char_Rx_Process + 4), len - 4);
+            motor->trainsToSend = stoi((char*)(rx_process + 4), len - 4);
             motor->trainsDir = dir;
             motor->pulseTrainsSent = 1;
         }
-
-        clearProcessBuff_1();
-    }
-
-    if(pb0_buffered) {
-        clearProcessBuff_0();
-    }
+  
 }
-
 
 int stoi(char* str, int len) {
     int num = 0;
@@ -263,3 +310,32 @@ int stoi(char* str, int len) {
 
     return num;
 }
+
+void itoa(volatile unsigned long long n, volatile char s[])
+ {
+     unsigned long long i, sign;
+
+     if ((sign = n) < 0)  /* record sign */
+         n = -n;          /* make n positive */
+     i = 0;
+     do {       /* generate digits in reverse order */
+         s[i++] = n % 10 + '0';   /* get next digit */
+     } while ((n /= 10) > 0);     /* delete it */
+     if (sign < 0)
+         s[i++] = '-';
+     s[i] = '\0';
+     reverse(s);
+}  
+
+ /* reverse:  reverse string s in place */
+ void reverse(volatile char s[])
+ {
+     int i, j;
+     char c;
+
+     for (i = 0, j = strlen((char const*)s)-1; i<j; i++, j--) {
+         c = s[i];
+         s[i] = s[j];
+         s[j] = c;
+     }
+}  

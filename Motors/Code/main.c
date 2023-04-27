@@ -4,6 +4,7 @@
 #include "ports.h"
 #include "timers.h"
 #include "serial.h"
+#include "encoders.h"
 /**
  * main.c
  */

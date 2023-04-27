@@ -14,8 +14,8 @@
 // Port 1 Pins
 #define RED_LED (0x01)  // 0 
 #define A1_SEEED (0x02) // 1 
-#define P1_2 (0x04)     // 2 
-#define P1_3 (0x08)     // 3 
+#define ENCODER_CLK (0x04)     // 2 
+#define ENCODER_DATA (0x08)     // 3 
 #define P1_4 (0x10)     // 4 
 #define P1_5 (0x20)     // 5 
 #define UCA0RXD (0x40)  // 6 Back Channel UCA0RXD

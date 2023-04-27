@@ -60,13 +60,14 @@ void Init_Port1() {
     //P1SEL1 |= A1_SEEED;
     P1SELC |= A1_SEEED;
 
-    P1SEL0 &= ~P1_2;
-    P1SEL1 &= ~P1_2;
-    P1DIR &= ~P1_2;
+    P1SEL0 &= ~ENCODER_CLK;
+    P1SEL1 &= ~ENCODER_CLK;
+    P1DIR |= ENCODER_CLK;
+    P1OUT &= ~ENCODER_CLK;
 
-    P1SEL0 &= ~P1_3;
-    P1SEL1 &= ~P1_3;
-    P1DIR &= ~P1_3;
+    P1SEL0 &= ~ENCODER_DATA;
+    P1SEL1 &= ~ENCODER_DATA;
+    P1DIR &= ~ENCODER_DATA;
 
     P1SEL0 &= ~P1_4;
     P1SEL1 &= ~P1_4;

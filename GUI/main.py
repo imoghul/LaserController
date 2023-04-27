@@ -3,7 +3,7 @@ from tkinter.filedialog import askopenfilename
 from tkinter import *
 from serial_comms import *
 import logging
-from MotorController import MotorController
+from MotorController import MotorController, EncoderController
 from EquipmentController import *
 from SerialPortSelector import SerialPortSelector
 # logger = None
@@ -46,6 +46,8 @@ def setupGUI(logger):
 
     for i in range(motors):
         motorControllers.append(MotorController(motorFrame, i + 1, motorPortSelector.write,motorPortSelector.readCommand))
+
+    EncoderController(motorFrame,motorPortSelector.readCommand, logger = logger)
     
     EquipmentController(equipmentFrame,equipmentPortSelector.write,equipmentPortSelector.readCommand, logger = logger);
     

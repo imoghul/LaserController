@@ -1,4 +1,4 @@
-#define TB0CCR0_INTERVAL                (50000)          // 4 ms
+#define TB0CCR0_INTERVAL                (25000)          // 4 ms
 #define TB0CCR1_INTERVAL                (50000)         // 100 ms
 #define TB0CCR2_INTERVAL                (50000)         // 100 ms
 

@@ -19,7 +19,9 @@ void serialInterrupt(volatile unsigned int* rx_wr, volatile char Rx_Ring[], vola
 void SerialProcess(void);
 void HandleCommands(void);
 int stoi(char* str, int len);
-
+void performCommand(volatile char* rx_process, volatile char * tx, void (*send)(void));
+void itoa(volatile unsigned long long n, volatile char s[]);
+void reverse(volatile char s[]);
 //#define CLEARPB0                        {clearProcessBuff(USB0_Char_Rx_Process, &pb0_index, &pb0_buffered);}
 //#define CLEARPB1                        {clearProcessBuff(USB1_Char_Rx_Process, &pb1_index, &pb1_buffered);}
 //#define LOADPB0                         {loadRingtoPB(&usb0_rx_wr, &usb0_rx_rd, USB0_Char_Rx_Process, USB0_Char_Rx_Ring, &pb0_index, &pb0_buffered);}

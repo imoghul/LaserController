@@ -76,6 +76,7 @@ class SerialPortSelector:
     def readCommand(self,data):
         ser = self.getSer()
         ret = False
+        
         while(ser==-1):
             print("waiting for serial port to become available")
             ser = self.getSer()
