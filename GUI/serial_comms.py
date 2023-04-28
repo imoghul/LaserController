@@ -2,7 +2,7 @@ import sys
 import glob
 import serial
 
-
+# get the serial ports on the computer
 def serial_ports():
     """Lists serial port names
 

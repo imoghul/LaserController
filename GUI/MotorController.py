@@ -3,7 +3,7 @@ from tkinter import *
 # import serial
 default = "CW"
 
-
+# a derived toggleable button 
 class ToggleButton(Button):
     def __init__(self, parent, command, *args, **kwargs):
         Button.__init__(self, parent, *args, **kwargs)
@@ -20,6 +20,10 @@ class ToggleButton(Button):
 
 
 class MotorController:
+    # root is the parent frame
+    # num is the motor number
+    # write is the function to write to the serial port
+    # read is the function to read from the serial port
     def __init__(self, root, num, write, read):
         self.frame = Frame(root)
         self.frame.pack(side=TOP)
@@ -28,20 +32,24 @@ class MotorController:
         self.read = read
         self.dir = default
 
+        # number selector for revolutions
         self.revsSelector = Spinbox(self.frame, from_=0, to_=1000)
+        # start button
         self.startButton = Button(
             self.frame,
             text="Start Motor " + str(num),
             command=lambda: self.command(self.revsSelector.get(), self.dir),
         )
-
+        # direction button
         self.dirButton = ToggleButton(self.frame, command=self.setDir)
+        # stop button
         self.stopButton = Button(
             self.frame,
             text="Stop Motor " + str(num),
             command=lambda: self.command(0, 0),
         )
 
+        # align widgets
         self.startButton.pack(side=LEFT)
         self.revsSelector.pack(side=LEFT)
         self.dirButton.pack(side=LEFT)
@@ -50,6 +58,7 @@ class MotorController:
     def setDir(self, x):
         self.dir = x
 
+    
     def dirToNum(self, dir):
         if dir == "CW":
             return 1
@@ -58,8 +67,8 @@ class MotorController:
         else:
             return 0
 
+    # sends the command to the MSP
     def command(self, revs, dir):
-        
         string = "%d %d %d\r\n" % (
             int(self.num),
             int(self.dirToNum(dir)),
@@ -84,8 +93,7 @@ class EncoderController:
             command=lambda: self.command(),
         )
         self.label = Label(self.frame,text="")
-
-
+        
         self.startButton.pack(side=TOP)
         self.label.pack(side=BOTTOM)
 

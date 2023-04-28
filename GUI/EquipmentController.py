@@ -2,6 +2,14 @@ from tkinter import *
 import math
 import numpy as np
 class Mnemonic:
+    # command is the mneumonic for the guauge command
+    # title is the description of the mneumonic
+    # min/max ar the minimum/maximum value for the spinbox
+    # write/read are the functions to use the serial port
+    # set/get are booleans for whether this mneumonic allows setting/getting
+    # num is a boolean of whether there is an argument
+    # logger is the logger
+    # useArgForGet is a boolean of whether or not to include the argument for get commands
     def __init__(self,root,command,title,min,max,write,read,set, get, num,logger,useArgForGet=True):
         
         # self.frame.pack(side=BOTTOM)

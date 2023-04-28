@@ -30,6 +30,7 @@ class SerialPortSelector:
         for choice in self.portOptions:
             self.drop['menu'].add_command(label=choice,command = tk._setit(self.portClicked,choice))
 
+    # this is called whenever the select button is clicked
     def callback(self):
         selected_port = self.portClicked.get()
         if self.port != None and self.port.port == selected_port:
@@ -87,6 +88,7 @@ class SerialPortSelector:
         self.releaseSer()
         return ret
     
+    # remove the port for refresh
     def removePort(self):
         if(self.port!=None):
             self.port.close()
