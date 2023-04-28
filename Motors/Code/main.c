@@ -21,8 +21,9 @@ int main(void) {
     Init_Timers();
 
     while(1) {
-        SerialProcess();
-        HandleCommands();
+        SerialProcess(); // load ring to process buffer
+        HandleCommands(); // handle the serial commands
+        // run the process for all the motors
         sendTrains(&motor1);
         sendTrains(&motor2);
         sendTrains(&motor3);

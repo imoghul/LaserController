@@ -265,7 +265,7 @@ void performCommand(volatile char* rx_process, volatile char * tx, void (*send)(
 
         Motor* motor;
         
-        if(rx_process[0] == 'e') {
+        if(rx_process[0] == 'e') { // if the first character of the input is an 'e' send the encoder value
             itoa(encoderVal,tx);
             int len = strlen((char*)tx);
             tx[len] = '\r';
@@ -274,6 +274,7 @@ void performCommand(volatile char* rx_process, volatile char * tx, void (*send)(
             return;
         }
 
+        // set which motor to control based on the first character
         if(rx_process[0] == '1') {
             motor = &motor1;
         } else if (rx_process[0] == '2') {

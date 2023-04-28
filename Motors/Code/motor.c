@@ -63,7 +63,7 @@ Motor motor5 = {
 
 
 int sendTrains(Motor* motor) {
-    if(motor->pulseTrainsSent && motor->trainsToSend) {
+    if(motor->pulseTrainsSent && motor->trainsToSend) { 
         motor->trainsFinished = 0;
         sendPulseTrains(motor);
 
